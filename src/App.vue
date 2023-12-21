@@ -8,10 +8,13 @@
 				<img class="github-logo" src="./assets/Github.gif" />
 				<p class="github">Github</p>
 	    </a>
+		<a href="https://github.com/jsjohn1951" target="_blank" class="row">
+				<img class="github-logo" src="./assets/Github.gif" />
+				<p class="github">Github</p>
+	    </a>
 		</div>
-		<h2>Upgrading to Vue.js framework</h2>
+		<h2>Migrating to Vite + Vue.js framework</h2>
 	</div>
-	<!-- <HelloWorld msg="Vite + Vue" /> -->
 </template>
 
 <style scoped>
