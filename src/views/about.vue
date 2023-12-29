@@ -10,7 +10,8 @@ function redir(url: string)
 </script>
 
 <template>
-	<section id="About" class="about-wrapper flex-center flex-column" style="padding: 50px; height: fit-content; min-height: 100vh;">
+	<!-- <section class="about-wrapper"> -->
+	<section id="About" class="about-wrapper flex-center flex-column" style="padding-top: 50px; height: fit-content; min-height: 100vh;">
 		<div class="d-flex" style="height: 100%;">
 			<div class="flex-column flex-center text-white" style="height: fit-content; max-width: 900px;">
 				<div class="flex-column flex-center" style="gap: 10px;">
@@ -84,29 +85,23 @@ function redir(url: string)
 
 					</div>
 				</v-theme-provider>
-				<!-- <div class="text-h5" style="padding: 20px;">Where did I Study Software Development?</div>
-				<div class="divider" style="width: 20vw;"/>
-				<p style="text-align: justify;">
-					<br>&emsp; During my time at 42 Abu Dhabi I've completed projects related to C, C++, Debain Systems Administration, Unix Shell Scripting, Docker, Docker-compose, and Object Oriented Programming. I've also completed several team projects that includes
-					a project to build my own command-line interpreter based on bash, and graphical rendering engine in C.<br><br> &emsp; Throughout my studies I've shared my knowledge and expertise with other students by hosting several workshops, and twitch streams on various
-					programming concepts, leaving a positive impact on the student community.
-				</p> -->
-
 			</div>
 		</div>
-		<section class="header-wrapper flex-center flex-column" style="height: 90px; width: 100vw">
-		<a href="#exp">
-			<div class="scrolldown" style="width: 2em; height: 2em; background-color: transparent;
-				position: absolute; border-width: 0 0.25em 0.25em 0; border-style: solid;
+		<div style="padding-top: 40px;">
+			<a href="#exp">
+				<div class="scrolldown" style="width: 2em; height: 2em; background-color: transparent; 
+				bottom: 25px; position: relative; border-width: 0 0.25em 0.25em 0; border-style: solid;
 				border-color: antiquewhite; animation: scrolldown 1.2s ease-in-out infinite 0.15s;">
 				</div>
-				<div class="scrolldown" style="width: 2em; height: 2em; background-color: transparent; 
-				border-width: 0 0.25em 0.25em 0; border-style: solid;
+				<div class="scrolldown" style="width: 2em; height: 2em; background-color: transparent;
+				bottom: 40px; position: relative; border-width: 0 0.25em 0.25em 0; border-style: solid;
 				border-color: antiquewhite; animation: scrolldown 1.2s ease-in-out infinite;">
 				</div>
 			</a>
-			</section>
-	</section>
+		</div>
+		</section>
+
+	<!-- </section> -->
 </template>
 
 <style scoped>
