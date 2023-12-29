@@ -3,6 +3,7 @@ import hero from './views/hero.vue'
 import about from './views/about.vue'
 import exp from './views/experience.vue'
 import skills from './views/skills.vue'
+
 </script>
 
 <template>
