@@ -62,7 +62,7 @@ function expPanelClick()
 					<imageD v-if="images" :src="images"/>
 				</div>
 				<v-theme-provider theme="dark">
-					<v-expansion-panels style="width:28vw">
+					<v-expansion-panels style="width:25.5vw">
 						<v-expansion-panel v-model="panel"
       						expand>
 

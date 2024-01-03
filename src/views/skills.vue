@@ -5,11 +5,11 @@ function redir(addr: string) {
 </script>
 
 <template>
-	<section id="TSkills">
-		<v-parallax class="flex-center text-white" style="top: 0px; height: 28vh;" src="../assets/pix.jpg">
+	<section id="TSkills" style="width: 100%; height: 100vh; background-color: #1c1c1c;">
+		<v-parallax class="flex-center text-white" style="top: 0px; height: 28vh; width: 100%;" src="../assets/pix.jpg">
 			<h1 class="text-h1">Technical Skills</h1>
 		</v-parallax>
-		<section class="header-wrapper flex-center flex-column text-white" style="gap: 20px; height: fit-content; padding: 20px;">
+		<section class="flex-center flex-column text-white" style="width: 100%; gap: 20px; height: 72vh; padding: 20px;">
 			<v-container class="flex-center flex-column" style="width: 60vw;">
 				<v-row>
 	
