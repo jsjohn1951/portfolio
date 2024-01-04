@@ -65,6 +65,20 @@ ft_list.value.push({name: 'Ft_Containers',
 					repo: "https://github.com/jsjohn1951/ft_containers"
 					} as useExp)
 
+ft_list.value.push({name: 'Ft_Containers',
+
+					msg: "Ft_Containers encapsulated multiple unique concepts of computer programming. The project requires that an individual implement their own version of \
+					the vector, and map STL containers as well as the stack container adaptor in C++. This experience taught me the essential concept of SFINAE (substitution failure \
+					is not an error), how Avl Binary trees are implemented, and how iterators work for both map and vector containers. \
+					<br> \
+					For a more indepth explanation of Binary Trees and iterators for Binary Trees, click below to be redirected to my LinkedIn article.",
+					img: [],
+					link: "https://www.linkedin.com/pulse/2-use-cases-binary-trees-iterators-willem-smith-sbmbf?trackingId=vuybmET2QKSshBxRBuQhIg%3D%3D&lipi=urn%3Ali%3Apage%3Ad_flagship3_detail_base%3BtrTKJ7rKRe60ERiC3i1inQ%3D%3D",
+					ico: ["mdi-language-cpp", "mdi-linux", "mdi-git"],
+					date: "Feb, 2023 - Mar, 2023",
+					repo: "https://github.com/jsjohn1951/ft_containers"
+					} as useExp)
+
 export function useFortyTwo () : Ref<useExp[]>
 {
 	return (ft_list)
