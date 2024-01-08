@@ -21,7 +21,7 @@ window.addEventListener("scroll", onScroll);
 	<about/>
 	<exp/>
 	<skills/>
-	<div v-if="top" style="width: 100%; height: 100vh; position: fixed; top: 93vh; left: 95vw;">
+	<div v-if="top" style="width: 100%; height: 100vh; position: fixed; top: 93vh; left: 90vw;">
 		<a href="#">
 			<div class="flex-center flex-column" style="position: relative; width: 2em; height: 2em; background-color: antiquewhite;
 				border-radius: 100%;">

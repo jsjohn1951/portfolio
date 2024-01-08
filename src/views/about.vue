@@ -19,33 +19,36 @@ function redir(url: string)
 					<div class="divider" style="width: 13vw;"></div>
 					<h5 class="text-h5 font-weight-thin mb-4">Expression Through Code & Coffee</h5>
 				</div>
-				<v-row>
-	
+				<v-row style="max-width: 90vw;">
 					<v-col class="flex-center">
 						<div style="height: fit-content; width: fit-content; padding: 20px;">
-							<v-img :width="185" cover src="../assets/cv_img.jpeg"></v-img>
+							<v-img :width="195" cover src="../assets/cv_img.jpeg"/>
 						</div>
 					</v-col>
 					<v-col class="flex-center">
-						<p class="text-body-1 font-weight-regular" style="text-align: justify;">
+						<p class="text-body-1 font-weight-regular" style="text-align: justify; padding: 20px;">
 							"The moment we stop learning is the moment we stagnate, and though learning in the real world is seldom unaccompanied by hardship it's also an experience."
 							<br>
 							<br> - Willem J. Smith
 						</p>
 					</v-col>
 				</v-row>
-				<div class="text-h5" style="padding: 20px;">Who am I?</div>
-				<div class="divider" style="width: 5vw;"></div>
 
-				
-				<p style="text-align: justify;">
-					<br> &emsp; I'm a software developer with the determination to improve the world as we know it through growth and knowledge gain. My continual learning comes from an eagerness to understand the mechanisms behind computer programs, and how logic is interpreted
-					by machine and presented in a way that humans can understand.<br>
-				</p>
+				<div class="flex-center flex-column" style="max-width: 90vw;">
+					<div class="text-h5" style="padding: 20px;">Who am I?</div>
+					<div class="divider" style="width: 5vw;"/>				
+					<p style="text-align: justify;">
+						<br> &emsp; I'm a software developer with the determination to improve the world as we know it through growth and knowledge gain. My continual learning comes from an eagerness to understand the mechanisms behind computer programs, and how logic is interpreted
+						by machine and presented in a way that humans can understand.<br>
+					</p>
+				</div>
+
 				<v-theme-provider theme="dark">
-					<div class="flex-between" style="width: 100%; display: flex; flex-direction: row; justify-content: space-between; padding-top: 20px;">
-						<div class="flex-column" style="width: 60%;">
-							<v-expansion-panels class="flex-column" :readonly="true" v-model="panel">
+					<!-- <div class="flex-between" style="width: 100%; display: flex; flex-direction: row; justify-content: space-between; padding-top: 20px;"> -->
+
+						<v-row style="max-width: 90vw; padding-top: 20px;">
+						<v-col style="width: 60vw;">
+							<v-expansion-panels class="flex-column" style="min-width: 30vw;" :readonly="true" v-model="panel">
 								<v-expansion-panel expand value="study">
 									<v-expansion-panel-title :ripple="true" :hide-actions="true">
 										<p class="text-body-1">Where did I Study Software Development?</p>
@@ -60,10 +63,10 @@ function redir(url: string)
 								</v-expansion-panel>
 
 							</v-expansion-panels>
-						</div>
+						</v-col>
 	
-						<div class="flex-column" style="width: 35%;">
-							<v-expansion-panels class="flex-column" :readonly="true" v-model="panel">
+						<v-col>
+							<v-expansion-panels class="flex-column" style="min-width: 10vw;" :readonly="true" v-model="panel">
 								<v-expansion-panel expand value="contact">
 									<v-expansion-panel-title :ripple="true" :hide-actions="true">
 										<p class="text-body-1">Contact Me</p>
@@ -71,7 +74,7 @@ function redir(url: string)
 									<v-expansion-panel-text>
 										<p class="text-body-1">
 											Name: &emsp; Willem Johannes Smith<br>
-											Email: &emsp; <a href="mailto: wismith@student.42AbuDhabi.ae">wismith@student.42AbuDhabi.ae</a><br><br>
+											Email: &emsp; <a href="mailto: wismith@student.42AbuDhabi.ae" style="overflow-wrap: break-word;">wismith@student.42AbuDhabi.ae</a><br><br>
 										</p>
 										<div style="display: flex; flex-direction: row; justify-content: space-between; width: 100%;">
 											<v-btn @click="redir('https://www.linkedin.com/in/willems24/')" icon="mdi-linkedin"/>
@@ -81,9 +84,10 @@ function redir(url: string)
 								</v-expansion-panel>
 
 							</v-expansion-panels>
-						</div>
+						</v-col>
 
-					</div>
+						</v-row>
+
 				</v-theme-provider>
 			</div>
 		</div>
