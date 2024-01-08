@@ -3,10 +3,17 @@ import { ref, Ref } from 'vue'
 import entry from '../components/timelineEntry.vue'
 import { useFortyTwo } from '../composables/useFortyTwo'
 import { useRegProjects } from '../composables/useRegProjects'
+import { watch } from 'vue';
 
 const ft_list = useFortyTwo();
 const reg_list = useRegProjects();
+const widthQuery = window.matchMedia('(min-width: 900px)')
+const isLargeScreen = ref(widthQuery.matches)
 
+widthQuery.addEventListener('change', () => {
+	console.log("screen size large? ", widthQuery.matches);
+	isLargeScreen.value = widthQuery.matches;
+});
 </script>
 
 <template>
@@ -22,14 +29,15 @@ const reg_list = useRegProjects();
 					</div>
 					<div class="font-weight-thin mb-4">2021 - current</div>
 				</div>
-			<v-timeline align="start" style="width: 60vw;">
 
-				<!-- ! Main -->
+			<!-- ! Main -->
+			<v-timeline v-if="isLargeScreen" align="start" style="width: 60vw;">
 				<entry v-for="item in reg_list" :name="item.name" :date="item.date" :repo="item.repo"
 						:text="item.msg"
 						:images="item.img"
-						:link="item.link">
-					<div style="padding: 20px;">
+						:link="item.link"
+						:islarge="isLargeScreen">
+					<div style="padding-top: 20px;">
 								<div class="text-h7">
 									Technologies:
 								</div>
@@ -37,6 +45,21 @@ const reg_list = useRegProjects();
 							</div>
 				</entry>
 			</v-timeline>
+
+			<div v-else class="flex-center flex-column" style="width: 100vw;">
+				<entry v-for="item in reg_list" :name="item.name" :date="item.date" :repo="item.repo"
+						:text="item.msg"
+						:images="item.img"
+						:link="item.link"
+						:islarge="isLargeScreen">
+					<div style="padding-top: 20px;">
+						<div class="text-h7">
+							Technologies:
+						</div>
+						<v-icon v-for="ico in item.ico" :icon="ico"/>
+					</div>
+				</entry>
+			</div>
 
 			<!-- ! Common Core title -->
 			<div class="flex-center flex-column" style="width: 60vw; gap: 20px;">
@@ -65,21 +88,38 @@ const reg_list = useRegProjects();
 							<!-- <br><br> -->
 							</div>
       					</div>
-			<v-timeline align="start" style="width: 60vw;">
 
-				<!-- ! Main -->
+			<!-- ! Main -->
+			<v-timeline v-if="isLargeScreen" align="start" style="width: 60vw;">
 				<entry v-for="item in ft_list" :name="item.name" :date="item.date" :repo="item.repo"
 						:text="item.msg"
 						:images="item.img"
-						:link="item.link">
-					<div style="padding: 20px;">
+						:link="item.link"
+						:islarge="isLargeScreen">
+					<div style="padding-top: 20px;">
 								<div class="text-h7">
 									Technologies:
 								</div>
 								<v-icon v-for="ico in item.ico" :icon="ico"/>
 							</div>
 				</entry>
-				</v-timeline>
+			</v-timeline>
+
+			<div v-else class="flex-center flex-column" style="width: 100vw;">
+				<entry v-for="item in ft_list" :name="item.name" :date="item.date" :repo="item.repo"
+						:text="item.msg"
+						:images="item.img"
+						:link="item.link"
+						:islarge="isLargeScreen">
+					<div style="padding-top: 20px;">
+						<div class="text-h7">
+							Technologies:
+						</div>
+						<v-icon v-for="ico in item.ico" :icon="ico"/>
+					</div>
+				</entry>
+			</div>
+
 				<div style="padding-top: 40px; width: 5em">
 					<a href="#TSkills" class="flex-center flex-column" style="width: 5em">
 						<div class="scrolldown" style="width: 2em; height: 2em; background-color: transparent; 

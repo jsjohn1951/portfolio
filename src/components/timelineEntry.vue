@@ -7,6 +7,7 @@ const props = defineProps < {
 	name: string,
 	date: string,
 	repo: string,
+	islarge: boolean,
 	text?: string,
 	link?: string,
 	images?: string[]
@@ -51,18 +52,22 @@ function expPanelClick()
 
 <template>
 	<v-timeline-item>
-		<template v-slot:opposite>
-			{{ props.date }}
-		</template>
-      		<div>
-        		<div class="text-h6">
-					{{ props.name }}
-				</div>
-				<div style="padding: 20px;">
-					<imageD v-if="images" :src="images"/>
-				</div>
+		<!-- <div> -->
+			<template v-if="islarge" v-slot:opposite>
+				{{ props.date }}
+			</template>
+			<div v-if="!islarge">
+				{{ props.date }}
+			</div>
+
+			<div class="text-h6">
+				{{ props.name }}
+			</div>
+			<div v-if="images" style="padding: 20px;">
+				<imageD :src="images"/>
+			</div>
 				<v-theme-provider theme="dark">
-					<v-expansion-panels style="width:25.5vw">
+					<v-expansion-panels style="min-width:25.5vw; max-width: 70vw;">
 						<v-expansion-panel v-model="panel"
       						expand>
 
@@ -88,7 +93,7 @@ function expPanelClick()
 				<v-btn v-if="repo.length" @click="redir(repo)" prepend-icon="mdi-github" variant="plain">
 					Repository
 				</v-btn>
-      		</div>
+      		<!-- </div> -->
     </v-timeline-item>
 </template>
 
