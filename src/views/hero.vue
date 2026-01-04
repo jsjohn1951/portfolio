@@ -16,7 +16,7 @@ onMounted(() => {
 	
 	
 					<v-expand-x-transition>
-						<div v-show="expand" class=" flex-column flex-center" style="height: 600px; width: 40vw; gap: 10px;">
+						<div v-show="expand" class=" flex-column flex-center" style="height: 600px; width: min(40vw, 90vw); gap: 10px;">
 							<h1 class="text-h1 font-weight-thin mb-4">
 								Willem J. Smith
 							</h1>

@@ -17,7 +17,7 @@ function redir(url: string)
 				<div class="flex-column flex-center" style="gap: 10px;">
 					<h2 class="text-h2 font-weight-thin mb-4">About Me</h2>
 					<div class="divider" style="width: 13vw;"></div>
-					<h5 class="text-h5 font-weight-thin mb-4">Expression Through Code & Coffee</h5>
+					<h5 class="text-h5 font-weight-thin mb-4">Building Production Apps with AI-Assisted Development</h5>
 				</div>
 				<v-row style="max-width: 90vw;">
 					<v-col class="flex-center">
@@ -35,11 +35,12 @@ function redir(url: string)
 				</v-row>
 
 				<div class="flex-center flex-column" style="max-width: 90vw;">
-					<div class="text-h5" style="padding: 20px;">Who am I?</div>
-					<div class="divider" style="width: 5vw;"/>				
+					<div class="text-h5" style="padding: 20px;">AI-Assisted Full Stack Developer</div>
+					<div class="divider" style="width: 5vw;"/>
 					<p style="text-align: justify;">
-						<br> &emsp; I'm a software developer with the determination to improve the world as we know it through growth and knowledge gain. My continual learning comes from an eagerness to understand the mechanisms behind computer programs, and how logic is interpreted
-						by machine and presented in a way that humans can understand.<br>
+						<br> &emsp; I leverage cutting-edge AI development tools including Claude Code and Perplexity to rapidly architect, develop, and optimize production applications. With 9 months of professional experience at Ratchet Capital, I've built and deployed multiple production systems including Megastars.ai (influencer marketing platform), ioMega Energy, and Trescudo.<br>
+						<br> &emsp; My approach combines modern full-stack development (Next.js, React, Supabase, Cloudflare) with AI-assisted problem-solving to deliver scalable, SEO-optimized solutions. I specialize in turning complex requirements into production-ready applications through intelligent prompting and iterative AI collaboration.<br>
+						<br> &emsp; Currently developing Megastars.ai v2 with Next.js + Supabase architecture (Nov 2024 - Present). Previously built microservices with Golang, OAuth services with Express.js, and React Native mobile applications. Completed 42 Abu Dhabi's intensive software engineering program (2021-2023).<br>
 					</p>
 				</div>
 
@@ -51,13 +52,13 @@ function redir(url: string)
 							<v-expansion-panels class="flex-column" style="min-width: 30vw;" :readonly="true" v-model="panel">
 								<v-expansion-panel expand value="study">
 									<v-expansion-panel-title :ripple="true" :hide-actions="true">
-										<p class="text-body-1">Where did I Study Software Development?</p>
+										<p class="text-body-1">Education & Professional Background</p>
 									</v-expansion-panel-title>
 									<v-expansion-panel-text>
 										<p class="text-body-1">
-											&emsp; I was largely self-taught, but being fortunate enough to take part in the 42 curriculum at 42 Abu Dhabi, I was given the opportunity to practice 
-											what I had learned.<br><br>&emsp; 
-											42 offers multiple projects concerning computer programming concepts as a whole. Below are several of my completed projects.
+											&emsp; Currently employed at Ratchet Capital (April 2024 - Present) as a Full Stack & DevOps Developer, building production systems including Megastars.ai, ioMega Energy, and Trescudo.<br><br>&emsp;
+											Completed 42 Abu Dhabi's intensive software engineering program (2021-2023), where I developed foundational skills in systems programming, web development, and DevOps through hands-on project-based learning. Self-taught in AI-assisted development methodologies using Claude Code and Perplexity AI.<br><br>&emsp;
+											Below you'll find both my professional work at Ratchet Capital and selected academic projects from 42 Abu Dhabi.
 										</p>
 									</v-expansion-panel-text>
 								</v-expansion-panel>
