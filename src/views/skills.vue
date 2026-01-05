@@ -5,24 +5,22 @@ function redir(addr: string) {
 </script>
 
 <template>
-	<section id="TSkills" style="width: 100%; min-height: 100vh; background-color: #1c1c1c;">
-		<v-parallax class="flex-center text-white" style="top: 0px; height: 28vh; width: 100%;" src="../assets/pix.jpg">
-			<h1 class="text-h1">Technical Skills</h1>
+	<section id="TSkills" style="width: 100%; min-height: 100vh; background-color: rgb(var(--v-theme-background));">
+		<v-parallax
+			class="flex-center text-white"
+			style="top: 0px; height: 28vh; width: 100%;"
+			src="../assets/pix.jpg"
+			aria-label="Technical skills and development tools background"
+		>
+			<h1 class="skills-main-title">Technical Skills</h1>
 		</v-parallax>
 		<section class="flex-center flex-column text-white" style="width: 100%; gap: 30px; min-height: 72vh; padding: 20px;">
 			<v-container class="flex-center flex-column" style="width: min(60vw, 95vw);">
 
-				<!-- AI-Assisted Development -->
-				<div class="flex-center flex-column" style="margin-bottom: 20px;">
-					<h3 class="text-h4 font-weight-thin mb-3">🤖 AI-Assisted Development</h3>
-					<v-row>
-						<v-col class="flex-center flex-column">
-							<v-btn variant="text" prepend-icon="mdi-robot" @click="redir('https://claude.ai/code')" size="large">Claude Code</v-btn>
-							<v-btn variant="text" prepend-icon="mdi-robot-excited" @click="redir('https://www.perplexity.ai/')" size="large">Perplexity AI</v-btn>
-							<v-btn variant="text" prepend-icon="mdi-brain" size="large">AI-Powered Debugging</v-btn>
-							<v-btn variant="text" prepend-icon="mdi-lightning-bolt" size="large">Rapid Prototyping</v-btn>
-						</v-col>
-					</v-row>
+				<!-- Section Title -->
+				<div class="flex-center flex-column" style="margin-bottom: 40px;">
+					<h2 class="text-h4 font-weight-thin mb-4">Professional Skills</h2>
+					<div class="divider" style="width: 10vw;"/>
 				</div>
 
 				<!-- Frontend Development -->
@@ -30,14 +28,14 @@ function redir(addr: string) {
 					<h3 class="text-h5 font-weight-thin mb-3">⚛️ Frontend Development</h3>
 					<v-row>
 						<v-col class="flex-center flex-column">
-							<v-btn variant="text" prepend-icon="mdi-react" @click="redir('https://react.dev/')" size="large">React</v-btn>
-							<v-btn variant="text" prepend-icon="mdi-react" @click="redir('https://nextjs.org/')" size="large">Next.js</v-btn>
-							<v-btn variant="text" prepend-icon="mdi-cellphone" size="large">React Native</v-btn>
+							<v-btn variant="text" prepend-icon="mdi-react" @click="redir('https://react.dev/')" size="large" aria-label="Visit React documentation">React</v-btn>
+							<v-btn variant="text" prepend-icon="mdi-react" @click="redir('https://nextjs.org/')" size="large" aria-label="Visit Next.js documentation">Next.js</v-btn>
+							<v-btn variant="text" prepend-icon="mdi-cellphone" size="large" aria-label="React Native skill">React Native</v-btn>
 						</v-col>
 						<v-col class="flex-center flex-column">
-							<v-btn variant="text" prepend-icon="mdi-vuejs" @click="redir('https://vuejs.org/')" size="large">Vue.js</v-btn>
-							<v-btn variant="text" prepend-icon="mdi-nuxt" @click="redir('https://nuxt.com/')" size="large">Nuxt.js</v-btn>
-							<v-btn variant="text" prepend-icon="$vuetify" @click="redir('https://vuetifyjs.com/en/')" size="large">Vuetify</v-btn>
+							<v-btn variant="text" prepend-icon="mdi-vuejs" @click="redir('https://vuejs.org/')" size="large" aria-label="Visit Vue.js documentation">Vue.js</v-btn>
+							<v-btn variant="text" prepend-icon="mdi-nuxt" @click="redir('https://nuxt.com/')" size="large" aria-label="Visit Nuxt.js documentation">Nuxt.js</v-btn>
+							<v-btn variant="text" prepend-icon="$vuetify" @click="redir('https://vuetifyjs.com/en/')" size="large" aria-label="Visit Vuetify documentation">Vuetify</v-btn>
 						</v-col>
 						<v-col class="flex-center flex-column">
 							<v-btn variant="text" prepend-icon="mdi-language-typescript" @click="redir('https://www.typescriptlang.org/')" size="large">TypeScript</v-btn>
@@ -105,7 +103,7 @@ function redir(addr: string) {
 				</div>
 
 				<!-- Additional Technologies -->
-				<div class="flex-center flex-column">
+				<div class="flex-center flex-column" style="margin-bottom: 20px;">
 					<h3 class="text-h5 font-weight-thin mb-3">🛠️ Additional Technologies</h3>
 					<v-row>
 						<v-col class="flex-center flex-column">
@@ -123,7 +121,43 @@ function redir(addr: string) {
 					</v-row>
 				</div>
 
+				<!-- AI-Assisted Development -->
+				<div class="flex-center flex-column">
+					<h3 class="text-h5 font-weight-thin mb-3">🤖 AI-Assisted Development</h3>
+					<v-row>
+						<v-col class="flex-center flex-column">
+							<v-btn variant="text" prepend-icon="mdi-robot" @click="redir('https://claude.ai/code')" size="large" aria-label="Visit Claude Code website">Claude Code</v-btn>
+							<v-btn variant="text" prepend-icon="mdi-robot-excited" @click="redir('https://www.perplexity.ai/')" size="large" aria-label="Visit Perplexity AI website">Perplexity AI</v-btn>
+							<v-btn variant="text" prepend-icon="mdi-brain" size="large" aria-label="AI-powered debugging skill">AI-Powered Debugging</v-btn>
+							<v-btn variant="text" prepend-icon="mdi-lightning-bolt" size="large" aria-label="Rapid prototyping skill">Rapid Prototyping</v-btn>
+						</v-col>
+					</v-row>
+				</div>
+
 			</v-container>
 		</section>
 	</section>
 </template>
+
+<style scoped>
+.skills-main-title {
+	font-size: 6rem;
+	line-height: 1.2;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 900px) {
+	.skills-main-title {
+		font-size: 2.5rem;
+		padding: 0 20px;
+		text-align: center;
+	}
+}
+
+@media (max-width: 600px) {
+	.skills-main-title {
+		font-size: 2rem;
+		padding: 0 15px;
+	}
+}
+</style>

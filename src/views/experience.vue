@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import { ref, Ref } from 'vue'
+import { ref } from 'vue'
 import entry from '../components/timelineEntry.vue'
 import { useFortyTwo } from '../composables/useFortyTwo'
 import { useRegProjects } from '../composables/useRegProjects'
-import { watch } from 'vue';
 
 const ft_list = useFortyTwo();
 const reg_list = useRegProjects();
@@ -18,16 +17,21 @@ widthQuery.addEventListener('change', () => {
 
 <template>
 	<section id="exp" class="flex-center flex-column">
-		<v-parallax class="flex-center text-white" style="width: 100%; top: 0px; height: 28vh;" src="../assets/guywithlaptop.jpg">
-			<h1 class="text-h1">Experience & Projects</h1>
+		<v-parallax
+			class="flex-center text-white"
+			style="width: 100%; top: 0px; height: 28vh;"
+			src="../assets/guywithlaptop.jpg"
+			aria-label="Professional developer workspace background"
+		>
+			<h1 class="exp-main-title">Experience & Projects</h1>
 		</v-parallax>
-		<section class="flex-center flex-column text-white" style="background-color: #1c1c1c; height: 100vh; width: 100%; gap: 20px; height: fit-content; padding: 20px;">
+		<article class="flex-center flex-column text-white" style="background-color: rgb(var(--v-theme-background)); height: 100vh; width: 100%; gap: 20px; height: fit-content; padding: 20px;">
 				<div class="flex-center flex-column" style="gap: 20px;">
 					<div class="flex-center flex-column">
 						<h4 class="text-h4 font-weight-thin mb-4">Professional Experience</h4>
 						<div class="divider" style="width: 10vw;"/>
 					</div>
-					<div class="font-weight-thin mb-4">April 2024 - Present</div>
+					<div class="font-weight-thin mb-4">April 2023 - Present</div>
 				</div>
 
 			<!-- ! Main -->
@@ -46,7 +50,7 @@ widthQuery.addEventListener('change', () => {
 				</entry>
 			</v-timeline>
 
-			<div v-else class="flex-center flex-column" style="width: 100vw;">
+			<div v-else class="flex-center flex-column mobile-cards-container">
 				<entry v-for="item in reg_list" :name="item.name" :date="item.date" :repo="item.repo"
 						:text="item.msg"
 						:images="item.img"
@@ -105,7 +109,7 @@ widthQuery.addEventListener('change', () => {
 				</entry>
 			</v-timeline>
 
-			<div v-else class="flex-center flex-column" style="width: 100vw;">
+			<div v-else class="flex-center flex-column mobile-cards-container">
 				<entry v-for="item in ft_list" :name="item.name" :date="item.date" :repo="item.repo"
 						:text="item.msg"
 						:images="item.img"
@@ -121,8 +125,8 @@ widthQuery.addEventListener('change', () => {
 			</div>
 
 				<div style="padding-top: 40px; width: 5em">
-					<a href="#TSkills" class="flex-center flex-column" style="width: 5em">
-						<div class="scrolldown" style="width: 2em; height: 2em; background-color: transparent; 
+					<a href="#TSkills" class="flex-center flex-column" style="width: 5em" aria-label="Scroll to skills section">
+						<div class="scrolldown" style="width: 2em; height: 2em; background-color: transparent;
 						bottom: 25px; position: relative; border-width: 0 0.25em 0.25em 0; border-style: solid;
 						border-color: antiquewhite; animation: scrolldown 1.2s ease-in-out infinite 0.15s;">
 						</div>
@@ -132,10 +136,10 @@ widthQuery.addEventListener('change', () => {
 						</div>
 					</a>
 				</div>
-		</section>
+		</article>
 	</section>
 </template>
-<style>
+<style scoped>
 .v-timeline-divider__before {
     background: rgba(255, 255, 255, 0);
     position: absolute;
@@ -146,10 +150,37 @@ widthQuery.addEventListener('change', () => {
 }
 
 .exp-wrapper {
-	background-color: #1c1c1c;
+	background-color: rgb(var(--v-theme-background));
 	top: 0px;
 	left: 0px;
 	height: fit-content;
 	width: 100%;
+}
+
+.mobile-cards-container {
+	width: 100%;
+	padding: 0 16px;
+	gap: 0;
+}
+
+.exp-main-title {
+	font-size: 6rem;
+	line-height: 1.2;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 900px) {
+	.exp-main-title {
+		font-size: 2.5rem;
+		padding: 0 20px;
+		text-align: center;
+	}
+}
+
+@media (max-width: 600px) {
+	.exp-main-title {
+		font-size: 2rem;
+		padding: 0 15px;
+	}
 }
 </style>

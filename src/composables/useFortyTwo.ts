@@ -5,15 +5,14 @@ const ft_list: Ref<useExp[]> = ref([])
 
 ft_list.value.push({name: 'ft_transcendence',
 
-					msg: "Project Ft_transcendence is the first of many eventual web development projects that involves the use of \
-							a typescript frontend framework, Nest.js backend, and a PostgreSQL database. The project requires that a team of \
-							3 - 5 individuals complete it, and, in the spirit of developing a full stack application, \
-							our team, which consisted of 4 people, implemented an Agile approach to software developing. \
+					msg: "Ft_transcendence is the first of many web development projects that involves the use of \
+							a TypeScript frontend framework, Nest.js backend, and a PostgreSQL database. The project requires a team of \
+							3-5 developers to complete it, and our 4-person team implemented an Agile approach to software development. \
 							<br> \
 							Using Agile board software like YouTrack we were able to quickly implement new technologies and libraries \
 							as well as verify each other's work before merging into the 'Story Branch' (otherwise known as a feature branch). \
 							<br> \
-							As an active member of the team I focused mainly on Frontend implementation with the Nuxt.js framework, translating Figma designs into code to be \
+							Led frontend implementation with the Nuxt.js framework, translating Figma designs into code to be \
 							integrated into the web application.",
 					img: ['/Trong/Trong.png', '/Trong/dash.png', '/Trong/chat.png', '/Trong/group.png'],
 					ico: ["mdi-vuejs", "mdi-nuxt", "mdi-developer-board", "mdi-language-typescript", "mdi-language-html5", "mdi-language-css3", "mdi-docker", "mdi-git"],
@@ -38,13 +37,12 @@ ft_list.value.push({name: 'Inception',
 
 ft_list.value.push({name: 'Ft_Irc',
 
-					msg: "One of the most notable projects in the curriculum, ft_irc provided the necessary experience to confidently perform socket programming. \
-					The subject requires a team of 2 to 3 individuals to create an irc server in C++ that would handle specific commands from an irc client of our choice.\
+					msg: "Ft_irc provided essential experience in socket programming. This project required a team of 2-3 developers to create an IRC server in C++ that would handle specific commands from an IRC client of our choice.\
 					<br> \
-					However the client should be able to do more than just connect to the server. The server is required to also handle the creation and joining of chat rooms. \
-					We were also suppose to handle invite to channel, private messages, and operator priviledges for channels.\
+					The server handles more than just connections—it manages the creation and joining of chat rooms, \
+					invite to channel functionality, private messages, and operator privileges for channels.\
 					<br> \
-					As a group we continuously communicated throughout the entire process, discussed the responsibilities, and accomplishments of the team.",
+					As a team we continuously communicated throughout the entire process, discussed responsibilities, and celebrated accomplishments together.",
 					img: ['/ft_irc/ircComp.png', '/ft_irc/ircLogin.png'],
 					ico: ["mdi-language-cpp", "mdi-linux", "mdi-git"],
 					date: "Apr, 2023 - May, 2023",

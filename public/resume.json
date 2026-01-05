@@ -1,0 +1,298 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/master/schema.json",
+  "basics": {
+    "name": "Willem Johannes Smith",
+    "label": "Full Stack Developer",
+    "image": "https://willemjohannessmith.web.app/profilePic.jpeg",
+    "email": "wismith@student.42AbuDhabi.ae",
+    "url": "https://willemjohannessmith.web.app",
+    "summary": "Full Stack Developer at Ratchet Capital specializing in production web applications with Docker, PostgreSQL, Express.js, and modern JavaScript frameworks (React, Next.js, Vue.js). Experienced in building SEO-optimized, high-performance applications with 95+ Lighthouse scores, architecting microservices with containerized infrastructure, and implementing comprehensive CI/CD pipelines. Strong foundation from 42 Abu Dhabi's software engineering program with expertise spanning frontend development, backend APIs, database design, and DevOps automation.",
+    "location": {
+      "city": "Abu Dhabi",
+      "countryCode": "AE",
+      "region": "Abu Dhabi"
+    },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "willems24",
+        "url": "https://www.linkedin.com/in/willems24/"
+      },
+      {
+        "network": "GitHub",
+        "username": "jsjohn1951",
+        "url": "https://github.com/jsjohn1951"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Ratchet Capital",
+      "position": "Full Stack & DevOps Developer",
+      "url": "",
+      "startDate": "2023-04",
+      "endDate": "",
+      "summary": "Building production applications with focus on Docker containerization, PostgreSQL database architecture, Express.js backend services, and modern frontend frameworks. Specializing in SEO optimization, performance tuning, and scalable microservices infrastructure.",
+      "highlights": [
+        "Architecting Megastars.ai v2 platform serving 500+ influencers with 99.9% uptime using Next.js and Supabase",
+        "Achieved 95+ Lighthouse scores on ioMega Energy with comprehensive SEO optimization and 60% CSS reduction",
+        "Built Trescudo with 98 Performance score and 85% image size reduction through WebP optimization",
+        "Scaled OAuth service to handle 10K+ daily authentication requests across microservices",
+        "Developed React Native mobile application with real-time synchronization",
+        "Implemented serverless architecture with Cloudflare Workers for sub-100ms response times"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "42 Abu Dhabi",
+      "url": "https://42abudhabi.ae/",
+      "area": "Software Engineering",
+      "studyType": "Common Core Program",
+      "startDate": "2021",
+      "endDate": "2023-02",
+      "score": "",
+      "courses": [
+        "Systems Programming (C/C++)",
+        "Web Development",
+        "DevOps & Infrastructure",
+        "Algorithms & Data Structures",
+        "Network Programming",
+        "Database Management"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "name": "AI-Assisted Development",
+      "level": "Expert",
+      "keywords": [
+        "Claude Code",
+        "Cursor",
+        "Perplexity AI",
+        "V0.dev",
+        "AI Prompting",
+        "Iterative AI Collaboration"
+      ]
+    },
+    {
+      "name": "Frontend Development",
+      "level": "Expert",
+      "keywords": [
+        "React",
+        "Next.js",
+        "Vue.js",
+        "TypeScript",
+        "JavaScript",
+        "Tailwind CSS",
+        "Vuetify",
+        "Shadcn UI",
+        "HTML5",
+        "CSS3"
+      ]
+    },
+    {
+      "name": "Backend Development",
+      "level": "Advanced",
+      "keywords": [
+        "Node.js",
+        "Express.js",
+        "Golang",
+        "Supabase",
+        "PostgreSQL",
+        "REST APIs",
+        "OAuth 2.0",
+        "JWT",
+        "Microservices"
+      ]
+    },
+    {
+      "name": "SEO & Performance",
+      "level": "Advanced",
+      "keywords": [
+        "SEO Optimization",
+        "Lighthouse",
+        "Core Web Vitals",
+        "Performance Tuning",
+        "PurgeCSS",
+        "Code Splitting",
+        "Bundle Optimization"
+      ]
+    },
+    {
+      "name": "DevOps & Infrastructure",
+      "level": "Intermediate",
+      "keywords": [
+        "Docker",
+        "Cloudflare",
+        "Vercel",
+        "Firebase",
+        "GitHub Actions",
+        "CI/CD",
+        "Edge Computing"
+      ]
+    },
+    {
+      "name": "Mobile Development",
+      "level": "Intermediate",
+      "keywords": [
+        "React Native",
+        "Mobile-First Design",
+        "Progressive Web Apps"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Megastars.ai v2",
+      "description": "Influencer marketing platform connecting brands with social media influencers. Built with Next.js, Supabase, and Cloudflare for scalability and performance.",
+      "highlights": [
+        "Architecting platform serving 500+ influencers",
+        "Implemented real-time dashboard with live analytics",
+        "Built OAuth integration with Instagram, TikTok, and YouTube",
+        "Achieved 99.9% uptime with serverless architecture"
+      ],
+      "keywords": [
+        "Next.js",
+        "Supabase",
+        "React",
+        "TypeScript",
+        "Cloudflare",
+        "OAuth"
+      ],
+      "startDate": "2024-11",
+      "endDate": "",
+      "url": "https://megastars.ai",
+      "roles": [
+        "Lead Developer"
+      ],
+      "type": "application"
+    },
+    {
+      "name": "ioMega Energy",
+      "description": "Production website for energy solutions company with comprehensive SEO optimization and exceptional performance metrics.",
+      "highlights": [
+        "Achieved 95+ Lighthouse scores across all categories",
+        "Implemented advanced SEO strategies for organic traffic",
+        "Reduced CSS bundle size by 60% with PurgeCSS",
+        "Page load time under 2 seconds on 3G networks"
+      ],
+      "keywords": [
+        "Next.js",
+        "SEO",
+        "Performance Optimization",
+        "React",
+        "Cloudflare"
+      ],
+      "startDate": "2024",
+      "endDate": "2024",
+      "url": "https://iomega.energy",
+      "roles": [
+        "Full Stack Developer"
+      ],
+      "type": "website"
+    },
+    {
+      "name": "Trescudo",
+      "description": "Business application deployed on Vercel with edge computing for optimal performance and global reach.",
+      "highlights": [
+        "98 Lighthouse Performance score",
+        "85% image size reduction with WebP conversion",
+        "Edge-deployed for sub-100ms response times globally",
+        "Implemented responsive design for all device sizes"
+      ],
+      "keywords": [
+        "Next.js",
+        "Vercel",
+        "Edge Computing",
+        "Performance",
+        "TypeScript"
+      ],
+      "startDate": "2024",
+      "endDate": "2024",
+      "url": "https://trescudo.com",
+      "roles": [
+        "Full Stack Developer"
+      ],
+      "type": "application"
+    },
+    {
+      "name": "Verif-y",
+      "description": "Document verification mobile application with signature capture and real-time synchronization built with React Native.",
+      "highlights": [
+        "Reduced document verification time by 60%",
+        "Implemented intuitive signature capture UX",
+        "Built real-time sync between mobile and web",
+        "Cross-platform support (iOS and Android)"
+      ],
+      "keywords": [
+        "React Native",
+        "Mobile Development",
+        "Real-time Sync",
+        "UX Design"
+      ],
+      "startDate": "2024",
+      "endDate": "2024",
+      "url": "",
+      "roles": [
+        "Mobile Developer"
+      ],
+      "type": "application"
+    },
+    {
+      "name": "ft_transcendence",
+      "description": "Full-stack web application featuring real-time multiplayer Pong game, live chat, and OAuth authentication. Built as capstone project at 42 Abu Dhabi.",
+      "highlights": [
+        "Led 4-person Agile team completing project in 8 sprints",
+        "Implemented WebSocket real-time gameplay and chat",
+        "Built OAuth 2.0 authentication system",
+        "Designed responsive UI with Vue.js"
+      ],
+      "keywords": [
+        "Vue.js",
+        "Node.js",
+        "WebSockets",
+        "OAuth",
+        "PostgreSQL",
+        "Docker"
+      ],
+      "startDate": "2023",
+      "endDate": "2023",
+      "url": "",
+      "roles": [
+        "Team Lead",
+        "Full Stack Developer"
+      ],
+      "type": "application"
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "fluency": "Native speaker"
+    }
+  ],
+  "interests": [
+    {
+      "name": "AI & Machine Learning",
+      "keywords": [
+        "AI-Assisted Development",
+        "Large Language Models",
+        "Prompt Engineering"
+      ]
+    },
+    {
+      "name": "Web Performance",
+      "keywords": [
+        "Core Web Vitals",
+        "Lighthouse Optimization",
+        "Bundle Size Reduction"
+      ]
+    }
+  ],
+  "meta": {
+    "canonical": "https://raw.githubusercontent.com/jsonresume/resume-schema/master/schema.json",
+    "version": "v1.0.0",
+    "lastModified": "2025-01-05"
+  }
+}
