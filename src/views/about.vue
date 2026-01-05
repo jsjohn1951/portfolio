@@ -28,6 +28,7 @@ function redir(url: string)
 								src="/profilePic-new.jpeg"
 								alt="Willem Smith professional headshot"
 								style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+								loading="lazy"
 							/>
 						</div>
 					</v-col>

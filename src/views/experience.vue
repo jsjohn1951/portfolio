@@ -22,8 +22,9 @@ widthQuery.addEventListener('change', () => {
 			style="width: 100%; top: 0px; height: 28vh;"
 			src="/guywithlaptop.jpg"
 			aria-label="Professional developer workspace background"
+			loading="lazy"
 		>
-			<h1 class="exp-main-title">Experience & Projects</h1>
+			<h2 class="exp-main-title">Experience & Projects</h2>
 		</v-parallax>
 		<article class="flex-center flex-column text-white" style="background-color: rgb(var(--v-theme-background)); height: 100vh; width: 100%; gap: 20px; height: fit-content; padding: 20px;">
 				<div class="flex-center flex-column" style="gap: 20px;">

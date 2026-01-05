@@ -11,8 +11,9 @@ function redir(addr: string) {
 			style="top: 0px; height: 28vh; width: 100%;"
 			src="/pix.jpg"
 			aria-label="Technical skills and development tools background"
+			loading="lazy"
 		>
-			<h1 class="skills-main-title">Technical Skills</h1>
+			<h2 class="skills-main-title">Technical Skills</h2>
 		</v-parallax>
 		<section class="flex-center flex-column text-white" style="width: 100%; gap: 30px; min-height: 72vh; padding: 20px;">
 			<v-container class="flex-center flex-column" style="width: min(60vw, 95vw);">

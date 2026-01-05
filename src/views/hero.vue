@@ -15,6 +15,7 @@ onMounted(() => {
 			style="top: 0px; height: 100vh;"
 			src="/hero.jpg"
 			aria-label="Hero section with professional portfolio background"
+			eager
 		>
 			<div class="flex-center flex-column">
 				<div class="d-flex flex-column fill-height justify-center align-center text-white">
