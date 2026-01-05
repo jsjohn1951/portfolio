@@ -13,7 +13,7 @@ onMounted(() => {
 		<v-parallax
 			class="flex-center"
 			style="top: 0px; height: 100vh;"
-			src="../assets/hero.jpg"
+			src="/hero.jpg"
 			aria-label="Hero section with professional portfolio background"
 		>
 			<div class="flex-center flex-column">

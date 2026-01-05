@@ -22,17 +22,10 @@ export default defineConfig({
       },
     }),
     imagetools({
-      defaultDirectives: (url) => {
-        const extension = url.pathname.substring(url.pathname.lastIndexOf('.') + 1)
-        if (extension === 'jpg' || extension === 'jpeg' || extension === 'png') {
-          return new URLSearchParams({
-            format: 'webp;avif;' + extension, // Generate WebP, AVIF, and original format
-            w: '640;1280;1920', // Generate 3 sizes: mobile, tablet, desktop
-            quality: '80', // Optimize quality for web
-          })
-        }
-        return new URLSearchParams()
-      },
+      // Only process images that are explicitly imported with query parameters
+      // This excludes images referenced by absolute paths from public/
+      include: /[?&](?:w|h|format|quality|blur|rotate|flip|flop|sharpen|median|normalize|grayscale|tint)=/,
+      exclude: undefined,
     }),
     ViteFonts({
       google: {

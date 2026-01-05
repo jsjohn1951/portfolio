@@ -20,7 +20,7 @@ widthQuery.addEventListener('change', () => {
 		<v-parallax
 			class="flex-center text-white"
 			style="width: 100%; top: 0px; height: 28vh;"
-			src="../assets/guywithlaptop.jpg"
+			src="/guywithlaptop.jpg"
 			aria-label="Professional developer workspace background"
 		>
 			<h1 class="exp-main-title">Experience & Projects</h1>

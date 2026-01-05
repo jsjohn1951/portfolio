@@ -9,7 +9,7 @@ function redir(addr: string) {
 		<v-parallax
 			class="flex-center text-white"
 			style="top: 0px; height: 28vh; width: 100%;"
-			src="../assets/pix.jpg"
+			src="/pix.jpg"
 			aria-label="Technical skills and development tools background"
 		>
 			<h1 class="skills-main-title">Technical Skills</h1>

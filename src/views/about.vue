@@ -25,7 +25,7 @@ function redir(url: string)
 							<v-img
 								:width="250"
 								cover
-								src="../assets/profilePic-new.jpeg"
+								src="/profilePic-new.jpeg"
 								alt="Willem Smith professional headshot"
 								style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
 							/>
