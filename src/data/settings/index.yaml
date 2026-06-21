@@ -3,10 +3,10 @@ heroMiddleName: Johannes
 heroLastName: Smith
 heroId: "FULL STACK DEVELOPER // SYSTEMS ARCHITECT"
 heroIntro: >-
-  Full Stack Developer engineering production systems at Ratchet Capital — from
-  influencer-marketing platforms serving 500+ users at 99.9% uptime to
-  SEO-optimized sites scoring 95+ on Lighthouse. Operating across the stack:
-  React / Next.js frontends, Golang / Node services, and Docker-driven CI/CD.
+  Full Stack Developer shipping production systems end to end — React / Next.js
+  frontends, Golang / Node services, Supabase / PostgreSQL data layers, and
+  Docker-driven CI/CD. Increasingly driven by prompt engineering, building
+  agentic AI workflows that accelerate development and ship features faster.
 coreStack:
   - C / C++
   - GOLANG
