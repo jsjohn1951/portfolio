@@ -3,14 +3,12 @@
 interface Props {
   name?: string
   statusText?: string
-  contactEmail?: string
   github?: string
   linkedin?: string
 }
 const {
   name = 'W.J. SMITH',
   statusText = 'OPERATIONAL',
-  contactEmail = 'wismith@student.42AbuDhabi.ae',
   github = 'https://github.com/jsjohn1951',
   linkedin = 'https://linkedin.com/in/willems24',
 } = Astro.props
@@ -31,9 +29,7 @@ const {
     </div>
     <a href="#projects" class="hover:text-slate-cyan transition-colors hidden sm:block">PROJECTS</a>
     <a href="#achievements" class="hover:text-slate-cyan transition-colors hidden md:block">ACHIEVEMENTS</a>
-    {contactEmail && (
-      <a href={`mailto:${contactEmail}`} class="hover:text-slate-cyan transition-colors hidden sm:block">CONTACT</a>
-    )}
+    <a href="#contact" class="hover:text-slate-cyan transition-colors hidden sm:block">CONTACT</a>
     <a href={github} target="_blank" rel="noopener" class="hover:text-slate-cyan transition-colors">GITHUB</a>
     <a href={linkedin} target="_blank" rel="noopener" class="hover:text-slate-cyan transition-colors">LINKEDIN</a>
   </div>

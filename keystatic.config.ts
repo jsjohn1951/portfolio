@@ -45,6 +45,10 @@ export default config({
         contactEmail: fields.text({ label: 'Contact email' }),
         github: fields.url({ label: 'GitHub URL' }),
         linkedin: fields.url({ label: 'LinkedIn URL' }),
+        contactIntro: fields.text({
+          label: 'Contact — intro',
+          multiline: true,
+        }),
         skillGroups: fields.array(
           fields.object({
             title: fields.text({ label: 'Group title' }),

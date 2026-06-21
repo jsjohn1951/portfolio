@@ -30,6 +30,9 @@ productionIntro: >-
 cursusIntro: >-
   The 42 Abu Dhabi peer-to-peer curriculum — low-level systems projects built
   from scratch in C / C++, with no lectures and no teachers.
+contactIntro: >-
+  Open to roles, collaborations, and interesting problems. Send a signal — I
+  read every transmission and respond fast.
 skillGroups:
   - title: Frontend
     skills:

@@ -1,2 +1,0 @@
-[     464ms] [WARNING] CookieBot ID is not set. Please set NEXT_PUBLIC_COOKIEBOT_ID environment variable. @ https://megastars.ai/_next/static/chunks/app/layout-f47f646a2b3866bd.js:0
-[     931ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://megastars.ai/auth/register?_rsc=13zbp:0

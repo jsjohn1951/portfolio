@@ -181,6 +181,37 @@ const delays = [0, 100, 200] as const
     </section>
   )}
 
+  <!-- ── Contact ──────────────────────────────────────────────────────── -->
+  <section id="contact" class="py-32 px-8 md:px-16 border-t border-outline-variant/10">
+    <div class="max-w-3xl mx-auto w-full reveal-on-scroll text-center">
+      <div class="font-label-code text-slate-cyan text-sm uppercase tracking-widest mb-4 flex items-center justify-center gap-3">
+        <span class="w-1.5 h-1.5 rounded-full bg-slate-cyan animate-pulse"></span>// Transmission_Channel
+      </div>
+      <h2 class="font-display-lg text-4xl md:text-5xl text-white mb-6 uppercase tracking-widest">Establish Uplink</h2>
+      <p class="text-on-surface-variant text-lg leading-relaxed mb-12 max-w-xl mx-auto">
+        {settings?.contactIntro ?? 'Open to roles, collaborations, and interesting problems. Send a signal — I read every transmission and respond fast.'}
+      </p>
+      <div class="flex flex-wrap justify-center gap-4 font-label-code text-xs uppercase tracking-widest">
+        {settings?.contactEmail && (
+          <a href={`mailto:${settings.contactEmail}`} class="px-6 py-3 border border-slate-cyan/40 text-slate-cyan rounded bg-slate-cyan/5 hover:bg-slate-cyan/10 transition-colors">Email ↗</a>
+        )}
+        {settings?.github && (
+          <a href={settings.github} target="_blank" rel="noopener" class="px-6 py-3 border border-white/15 text-on-surface-variant rounded hover:border-white/40 transition-colors">GitHub ↗</a>
+        )}
+        {settings?.linkedin && (
+          <a href={settings.linkedin} target="_blank" rel="noopener" class="px-6 py-3 border border-white/15 text-on-surface-variant rounded hover:border-white/40 transition-colors">LinkedIn ↗</a>
+        )}
+        <a href="/Willem_Smith_Resume.pdf" target="_blank" rel="noopener" class="px-6 py-3 border border-secondary-container/40 text-secondary-container rounded bg-secondary-container/5 hover:bg-secondary-container/10 transition-colors">Resume ↗</a>
+      </div>
+      {settings?.contactEmail && (
+        <p class="mt-10 font-label-code text-xs uppercase tracking-widest text-on-surface-variant/50">
+          Direct line:
+          <span class="text-slate-cyan lowercase tracking-normal select-all ml-1">{settings.contactEmail}</span>
+        </p>
+      )}
+    </div>
+  </section>
+
   <!-- Scroll choreography for the featured stages -->
   <script src="../scripts/projectMotion.ts"></script>
 </BaseLayout>
