@@ -1,0 +1,40 @@
+---
+// Sticky HUD navigation bar (ported from code.html lines 126-140).
+interface Props {
+  name?: string
+  statusText?: string
+  contactEmail?: string
+  github?: string
+  linkedin?: string
+}
+const {
+  name = 'W.J. SMITH',
+  statusText = 'OPERATIONAL',
+  contactEmail = 'wismith@student.42AbuDhabi.ae',
+  github = 'https://github.com/jsjohn1951',
+  linkedin = 'https://linkedin.com/in/willems24',
+} = Astro.props
+---
+
+<nav
+  id="navbar"
+  class="fixed top-0 md:top-[26px] w-full z-[60] px-8 py-5 backdrop-blur-md bg-[#05070f]/70 border-b border-white/5 flex justify-between items-center font-label-code text-xs uppercase tracking-widest transition-all duration-300"
+>
+  <div class="flex items-center gap-4">
+    <a href="#top" class="text-slate-cyan font-bold">{name}</a>
+    <span class="hidden md:inline-block text-on-surface-variant opacity-50">// SYSTEMS ARCHITECT</span>
+  </div>
+  <div class="flex items-center gap-6 lg:gap-8 text-on-surface-variant">
+    <div class="hidden lg:flex items-center gap-2">
+      <span class="w-1.5 h-1.5 rounded-full bg-slate-cyan animate-pulse"></span>
+      <span>STATUS: {statusText}</span>
+    </div>
+    <a href="#projects" class="hover:text-slate-cyan transition-colors hidden sm:block">PROJECTS</a>
+    <a href="#achievements" class="hover:text-slate-cyan transition-colors hidden md:block">ACHIEVEMENTS</a>
+    {contactEmail && (
+      <a href={`mailto:${contactEmail}`} class="hover:text-slate-cyan transition-colors hidden sm:block">CONTACT</a>
+    )}
+    <a href={github} target="_blank" rel="noopener" class="hover:text-slate-cyan transition-colors">GITHUB</a>
+    <a href={linkedin} target="_blank" rel="noopener" class="hover:text-slate-cyan transition-colors">LINKEDIN</a>
+  </div>
+</nav>

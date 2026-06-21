@@ -1,0 +1,216 @@
+@import "tailwindcss";
+
+/* ──────────────────────────────────────────────────────────────────────────
+   STARK SYSTEMS HUD — design tokens
+   Ported from docs/stitch_stark_systems_hud_portfolio/code.html (tailwind.config)
+   Tailwind v4 is CSS-first: each --color-* token generates bg-/text-/border-
+   utilities; each --font-* token generates a font-* utility.
+   ────────────────────────────────────────────────────────────────────────── */
+@theme {
+  /* Accent / signal colors */
+  --color-slate-cyan: #00f0ff;
+  --color-stark-red: #ff3e3e;
+
+  /* Core surfaces & text */
+  --color-background: #05070f;
+  --color-on-background: #e1e2ee;
+  --color-on-surface: #e1e2ee;
+  --color-on-surface-variant: #b9cacb;
+  --color-surface: #10131c;
+  --color-surface-dim: #10131c;
+  --color-surface-bright: #363943;
+  --color-surface-variant: #32343e;
+  --color-surface-container-lowest: #0b0e16;
+  --color-surface-container-low: #191b24;
+  --color-surface-container: #1d1f28;
+  --color-surface-container-high: #272a33;
+  --color-surface-container-highest: #32343e;
+  --color-inverse-surface: #e1e2ee;
+  --color-inverse-on-surface: #2e303a;
+
+  /* Outlines */
+  --color-outline: #849495;
+  --color-outline-variant: #3b494b;
+
+  /* Primary (holographic cyan ramp) */
+  --color-primary: #dbfcff;
+  --color-on-primary: #00363a;
+  --color-primary-container: #00f0ff;
+  --color-on-primary-container: #006970;
+  --color-primary-fixed: #7df4ff;
+  --color-primary-fixed-dim: #00dbe9;
+  --color-on-primary-fixed: #002022;
+  --color-on-primary-fixed-variant: #004f54;
+  --color-inverse-primary: #006970;
+  --color-surface-tint: #00dbe9;
+
+  /* Secondary (stark amber ramp) */
+  --color-secondary: #ffcf90;
+  --color-on-secondary: #452b00;
+  --color-secondary-container: #ffaa00;
+  --color-on-secondary-container: #694300;
+  --color-secondary-fixed: #ffddb4;
+  --color-secondary-fixed-dim: #ffb952;
+  --color-on-secondary-fixed: #291800;
+  --color-on-secondary-fixed-variant: #633f00;
+
+  /* Tertiary / error (stark red ramp) */
+  --color-tertiary: #fff3f2;
+  --color-on-tertiary: #680008;
+  --color-tertiary-container: #ffcec9;
+  --color-on-tertiary-container: #c00119;
+  --color-error: #ffb4ab;
+  --color-on-error: #690005;
+  --color-error-container: #93000a;
+  --color-on-error-container: #ffdad6;
+
+  /* Typography — names match the design's font-* classes */
+  --font-display-lg: "Space Grotesk", system-ui, sans-serif;
+  --font-headline-md: "Space Grotesk", system-ui, sans-serif;
+  --font-label-code: "Space Mono", ui-monospace, monospace;
+  --font-body-fixed: "JetBrains Mono", ui-monospace, monospace;
+}
+
+/* Self-hosted fonts (loaded via @fontsource imports in BaseLayout) */
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Base
+   ────────────────────────────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+  scrollbar-gutter: stable;
+}
+
+body {
+  background-color: #05070f;
+  color: var(--color-on-surface);
+  font-family: var(--font-body-fixed);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-slate-cyan);
+  color: var(--color-background);
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Scroll-reveal / kinetic motion (CSS layer; JS toggles .is-visible)
+   Ported verbatim from code.html lines 13-36.
+   ────────────────────────────────────────────────────────────────────────── */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: scale(0.85);
+  transition:
+    opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.kinetic-bg {
+  transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: scale(1.1);
+}
+
+.is-visible .kinetic-bg {
+  transform: scale(1);
+}
+
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+
+/* ──────────────────────────────────────────────────────────────────────────
+   HUD background textures
+   ────────────────────────────────────────────────────────────────────────── */
+.tech-grid {
+  background-image:
+    linear-gradient(to right, rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+  background-size: 100px 100px;
+}
+
+.scanline {
+  background: linear-gradient(to bottom, transparent 50%, rgba(0, 240, 255, 0.05) 51%);
+  background-size: 100% 4px;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   HUD shapes (DESIGN.md "Shapes") — corner brackets + clipped corners
+   ────────────────────────────────────────────────────────────────────────── */
+.clip-corner {
+  /* dog-ear fold: clip the top-right corner */
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
+}
+
+.corner-bracket {
+  position: relative;
+}
+.corner-bracket::before,
+.corner-bracket::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-color: rgba(0, 240, 255, 0.5);
+  pointer-events: none;
+}
+.corner-bracket::before {
+  top: 12px;
+  left: 12px;
+  border-top: 2px solid;
+  border-left: 2px solid;
+}
+.corner-bracket::after {
+  bottom: 12px;
+  right: 12px;
+  border-bottom: 2px solid;
+  border-right: 2px solid;
+}
+
+/* Respect reduced-motion: kill kinetic scaling + smooth scroll. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal-on-scroll,
+  .kinetic-bg {
+    transition: none;
+    transform: none;
+    opacity: 1;
+  }
+}
+
+/* Rich-text rendered from Keystatic `document` fields */
+.prose-hud :global(p) {
+  color: var(--color-on-surface-variant);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+.prose-hud :global(a) {
+  color: var(--color-slate-cyan);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.prose-hud :global(h2),
+.prose-hud :global(h3) {
+  font-family: var(--font-headline-md);
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 1.5rem 0 0.75rem;
+}
+.prose-hud :global(ul) {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--color-on-surface-variant);
+}

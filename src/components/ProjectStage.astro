@@ -1,0 +1,113 @@
+---
+import { Image } from 'astro:assets'
+import type { CollectionEntry } from 'astro:content'
+import StatusChip from './StatusChip.astro'
+import TerminalLog from './TerminalLog.astro'
+
+interface Props {
+  project: CollectionEntry<'projects'>
+  index: number
+}
+const { project, index } = Astro.props
+const d = project.data
+const reversed = index % 2 === 1
+
+const accentMap = {
+  cyan: { text: 'text-slate-cyan', border: 'border-slate-cyan/30', chip: 'border-slate-cyan/30 text-slate-cyan bg-slate-cyan/5', glow: 'rgba(0,240,255,0.05)', blob: 'bg-slate-cyan/10', hover: 'hover:border-slate-cyan/50' },
+  amber: { text: 'text-secondary-container', border: 'border-secondary-container/30', chip: 'border-secondary-container/30 text-secondary-container bg-secondary-container/5', glow: 'rgba(255,170,0,0.05)', blob: 'bg-secondary-container/10', hover: 'hover:border-secondary-container/50' },
+  red: { text: 'text-stark-red', border: 'border-stark-red/30', chip: 'border-stark-red/30 text-stark-red bg-stark-red/5', glow: 'rgba(255,62,62,0.05)', blob: 'bg-stark-red/10', hover: 'hover:border-stark-red/50' },
+} as const
+const a = accentMap[d.accent]
+
+const deployId = `X-${String(index + 1).padStart(2, '0')}`
+const cover = d.images?.[0]
+---
+
+<article
+  class="project-stage reveal-on-scroll min-h-screen w-full flex items-center justify-center relative snap-start overflow-hidden py-24 px-6 md:px-12"
+  data-accent={d.accent}
+>
+  <!-- Kinetic ambient glow -->
+  <div class={`absolute top-1/2 ${reversed ? 'left-0' : 'right-0'} w-[40rem] h-[40rem] ${a.blob} rounded-full blur-[120px] -translate-y-1/2 pointer-events-none kinetic-bg`}></div>
+
+  <div class="max-w-7xl w-full relative z-10">
+    <div class={`grid grid-cols-1 lg:grid-cols-12 gap-8 items-center ${reversed ? 'lg:[direction:rtl]' : ''}`}>
+      <!-- Telemetry / copy plate -->
+      <div
+        class={`lg:col-span-7 [direction:ltr] p-8 md:p-12 bg-[#0b0e16]/90 border ${a.border} ${a.hover} rounded-xl backdrop-blur-2xl relative overflow-hidden transition-colors duration-700 stage-plate`}
+        style={`box-shadow: 0 0 50px ${a.glow}`}
+      >
+        <div class="flex items-center justify-between gap-4 mb-8">
+          <div class={`flex items-center gap-3 font-label-code ${a.text} text-xs tracking-widest uppercase`}>
+            Deploy_ID: {deployId}
+          </div>
+          <StatusChip status={d.status} />
+        </div>
+
+        <h2 class="font-display-lg text-4xl md:text-6xl text-white mb-2 uppercase tracking-wider leading-[1.05]">
+          {d.name}
+        </h2>
+        <div class="font-label-code text-on-surface-variant/60 text-xs tracking-widest uppercase mb-6">
+          {d.date}{d.role ? ` // ${d.role}` : ''}
+        </div>
+
+        <div class="prose-hud text-on-surface-variant text-base md:text-lg leading-relaxed mb-8 max-w-2xl">
+          <slot />
+        </div>
+
+        {d.techStack.length > 0 && (
+          <div class="flex flex-wrap gap-3 mb-8">
+            {d.techStack.map((t) => (
+              <span class={`px-3 py-1.5 border ${a.chip} text-xs font-label-code uppercase rounded`}>{t}</span>
+            ))}
+          </div>
+        )}
+
+        {d.metrics.length > 0 && (
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-6 font-label-code text-xs border-t border-white/5 pt-8 mb-8">
+            {d.metrics.map((m) => (
+              <div>
+                <div class={`${a.text} text-lg leading-tight`}>{m}</div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        <div class="flex flex-wrap gap-4 font-label-code text-xs uppercase tracking-widest">
+          {d.liveUrl && (
+            <a href={d.liveUrl} target="_blank" rel="noopener" class={`px-5 py-2.5 border ${a.border} ${a.text} rounded hover:bg-white/5 transition-colors`}>
+              Launch ↗
+            </a>
+          )}
+          {d.repo && (
+            <a href={d.repo} target="_blank" rel="noopener" class="px-5 py-2.5 border border-white/15 text-on-surface-variant rounded hover:border-white/40 transition-colors">
+              Source ↗
+            </a>
+          )}
+          {d.link && !d.liveUrl && (
+            <a href={d.link} target="_blank" rel="noopener" class={`px-5 py-2.5 border ${a.border} ${a.text} rounded hover:bg-white/5 transition-colors`}>
+              Read ↗
+            </a>
+          )}
+        </div>
+      </div>
+
+      <!-- Visual: screenshot showcase, or terminal log fallback -->
+      <div class="lg:col-span-5 [direction:ltr] h-full">
+        {cover ? (
+          <div class={`relative rounded-xl border ${a.border} overflow-hidden bg-[#0b0e16]/80 backdrop-blur-md stage-visual`}>
+            <div class="absolute top-3 left-3 w-4 h-4 border-t-2 border-l-2 border-white/30 z-10"></div>
+            <div class="absolute bottom-3 right-3 w-4 h-4 border-b-2 border-r-2 border-white/30 z-10"></div>
+            <Image src={cover} alt={`${d.name} screenshot`} widths={[480, 800]} sizes="(max-width: 1024px) 90vw, 40vw" class="w-full h-auto object-cover" loading="lazy" />
+            <div class="absolute bottom-0 inset-x-0 p-4 flex justify-between font-label-code text-[10px] tracking-widest uppercase text-white/70 bg-gradient-to-t from-[#05070f] to-transparent">
+              <span>VISUAL_FEED</span>
+              <span>{d.images.length} FRAME{d.images.length > 1 ? 'S' : ''}</span>
+            </div>
+          </div>
+        ) : (
+          <TerminalLog accent={d.accent} />
+        )}
+      </div>
+    </div>
+  </div>
+</article>

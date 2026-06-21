@@ -1,0 +1,75 @@
+heroFirstName: Willem
+heroMiddleName: Johannes
+heroLastName: Smith
+heroId: "FULL STACK DEVELOPER // SYSTEMS ARCHITECT"
+heroIntro: >-
+  Full Stack Developer engineering production systems at Ratchet Capital — from
+  influencer-marketing platforms serving 500+ users at 99.9% uptime to
+  SEO-optimized sites scoring 95+ on Lighthouse. Operating across the stack:
+  React / Next.js frontends, Golang / Node services, and Docker-driven CI/CD.
+coreStack:
+  - C / C++
+  - GOLANG
+  - TYPESCRIPT
+  - REACT
+  - NEXT.JS
+  - DOCKER
+statusText: OPERATIONAL
+aboutBody: >-
+  Software engineer trained at 42 Abu Dhabi, where the peer-to-peer curriculum
+  forged a low-level foundation in C/C++, systems programming, and concurrency.
+  Now building and shipping production web platforms at Ratchet Capital across
+  the full stack — architecting microservices, integrating OAuth and real-time
+  data, and obsessing over performance, SEO, and zero-downtime deployments.
+contactEmail: wismith@student.42AbuDhabi.ae
+github: https://github.com/jsjohn1951
+linkedin: https://linkedin.com/in/willems24
+skillGroups:
+  - title: Frontend
+    skills:
+      - React
+      - Next.js
+      - Vue.js
+      - Nuxt.js
+      - TypeScript
+      - HTML5
+      - CSS3
+      - SASS
+  - title: Backend
+    skills:
+      - Node.js / Express
+      - Golang / Gin
+      - Supabase
+      - PostgreSQL
+      - REST APIs
+      - OAuth 2.0
+  - title: SEO & Performance
+    skills:
+      - JSON-LD Structured Data
+      - Lighthouse
+      - WebP
+      - Lazy Loading
+      - GSAP
+      - Chart.js
+  - title: DevOps & Cloud
+    skills:
+      - Docker
+      - GitHub Actions
+      - Nginx
+      - Cloudflare
+      - Firebase
+      - Rolling Deployments
+  - title: Systems
+    skills:
+      - Python
+      - C / C++
+      - Linux
+      - Shell
+      - Git
+      - Makefiles
+  - title: AI-Assisted
+    skills:
+      - Claude Code
+      - Perplexity AI
+      - AI Debugging
+      - Rapid Prototyping

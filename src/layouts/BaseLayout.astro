@@ -1,0 +1,113 @@
+---
+// Self-hosted fonts (replaces the prototype's Google Fonts CDN links — better LCP)
+import '@fontsource/space-grotesk/300.css'
+import '@fontsource/space-grotesk/400.css'
+import '@fontsource/space-grotesk/600.css'
+import '@fontsource/space-grotesk/700.css'
+import '@fontsource/space-mono/400.css'
+import '@fontsource/space-mono/700.css'
+import '@fontsource/jetbrains-mono/400.css'
+import '@fontsource/jetbrains-mono/700.css'
+import '../styles/global.css'
+import HudTopBar from '../components/HudTopBar.astro'
+import HudNavBar from '../components/HudNavBar.astro'
+import Footer from '../components/Footer.astro'
+import { getSiteSettings } from '../lib/content'
+
+export interface Props {
+  title?: string
+  description?: string
+}
+
+const {
+  title = 'Willem Smith - Full Stack Developer | React, Vue.js, Next.js, SEO',
+  description = 'Full Stack Developer specializing in React, Vue.js, Next.js, FastAPI, Golang. Building production apps with Docker, PostgreSQL & modern frameworks.',
+} = Astro.props
+
+const settings = await getSiteSettings()
+const navName = settings
+  ? `${settings.heroFirstName?.[0] ?? 'W'}.${settings.heroMiddleName?.[0] ?? 'J'}. ${settings.heroLastName ?? 'SMITH'}`.toUpperCase()
+  : 'W.J. SMITH'
+
+const canonical = new URL(Astro.url.pathname, Astro.site).href
+const ogImage = new URL('/og-image.png', Astro.site).href
+---
+
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=yes"
+    />
+
+    <!-- Resource hints -->
+    <link rel="preload" href="/hero.jpg" as="image" type="image/jpeg" />
+
+    <!-- Primary meta -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="author" content="Willem Johannes Smith" />
+    <meta name="theme-color" content="#05070f" />
+
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" type="application/json" href="/resume.json" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Willem Smith Portfolio" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonical} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Crawl directives -->
+    <meta
+      name="keywords"
+      content="Willem Smith, Full Stack Developer, Systems Architect, React Developer, Next.js Developer, Vue.js Developer, FastAPI, Golang, Gin, TypeScript, Web Development, SEO, 42 Abu Dhabi, Ratchet Capital, Docker, PostgreSQL"
+    />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <slot name="head" />
+  </head>
+  <body id="top" class="font-body-fixed bg-background text-on-surface min-h-screen relative overflow-x-hidden">
+    <!-- Subtle technical grid background -->
+    <div class="fixed inset-0 tech-grid pointer-events-none z-0"></div>
+    <!-- Scanline overlay -->
+    <div class="fixed inset-0 scanline z-50 pointer-events-none opacity-20"></div>
+
+    <HudTopBar />
+    <HudNavBar
+      name={navName}
+      statusText={settings?.statusText ?? 'OPERATIONAL'}
+      contactEmail={settings?.contactEmail ?? undefined}
+      github={settings?.github ?? undefined}
+      linkedin={settings?.linkedin ?? undefined}
+    />
+
+    <main class="relative z-10">
+      <slot />
+    </main>
+
+    <Footer name={navName} />
+
+    <!-- Scroll-reveal + telemetry (no-op under prefers-reduced-motion) -->
+    <script src="../scripts/revealScroll.ts"></script>
+    <script src="../scripts/telemetry.ts"></script>
+  </body>
+</html>

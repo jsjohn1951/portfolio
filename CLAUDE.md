@@ -4,132 +4,85 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Tech Stack
 
-- **Frontend Framework**: Vue 3 (Composition API with `<script setup>`)
-- **UI Library**: Vuetify 3 (Material Design component framework)
+- **Framework**: Astro 5 (static output, `output: 'static'`, no adapter)
+- **Styling**: Tailwind CSS v4 (CSS-first; tokens in a `@theme {}` block — no `tailwind.config.js`)
+- **CMS**: Keystatic in **local storage mode** (admin at `/keystatic`, dev-only)
+- **Rich text**: Markdoc (`@astrojs/markdoc`) for Keystatic `document` fields
+- **Motion**: GSAP + ScrollTrigger (vanilla, no framework island)
+- **React**: present only for the Keystatic admin UI (dev); the production site ships no React
 - **Language**: TypeScript
-- **Build Tool**: Vite
-- **Deployment**: Firebase Hosting with GitHub Actions CI/CD
+- **Deployment**: Firebase Hosting (static `dist/`) via GitHub Actions CI/CD
+
+## Design
+
+The visual system is the "Stark Systems HUD" theme — see
+[docs/stitch_stark_systems_hud_portfolio/code.html](docs/stitch_stark_systems_hud_portfolio/code.html)
+and [DESIGN.md](docs/stitch_stark_systems_hud_portfolio/DESIGN.md). Deep-space background
+(`#05070f`), holographic cyan (`slate-cyan #00f0ff`), stark amber/red accents, Space Grotesk /
+JetBrains Mono / Space Mono fonts, tech-grid + scanline overlays, glassmorphic corner-bracket
+cards, and a live HUD telemetry strip.
 
 ## Development Commands
 
 ```bash
-# Install dependencies
-npm install
-
-# Run development server (http://localhost:3000)
-npm run dev
-
-# Build for production (outputs to dist/)
-npm run build
-
-# Preview production build
-npm run preview
-
-# Lint and fix code
-npm run lint
+npm install          # Install dependencies
+npm run dev          # Dev server at http://localhost:3000 (includes /keystatic admin)
+npm run build        # Static build to dist/ (Keystatic admin excluded)
+npm run preview      # Preview the production build
 ```
 
-## Code Architecture
+## Content & CMS
 
-### Application Structure
+All site content is managed through Keystatic in **local mode**:
 
-This is a single-page portfolio website with a section-based layout. The app uses Vue 3's Composition API throughout with `<script setup>` syntax.
+1. Run `npm run dev` and open `http://localhost:3000/keystatic`.
+2. Edit visually — changes write files directly into the repo:
+   - **Site Settings** (singleton): [src/data/settings/index.yaml](src/data/settings/index.yaml) —
+     hero copy, core stack, about body, contact links, skill groups.
+   - **Projects** (collection): `src/content/projects/*.mdoc` — frontmatter + Markdoc body
+     (the `description`). Images upload to `src/assets/images/projects/` (Astro-optimized).
+   - **Achievements** (collection): `src/content/achievements/*.mdoc`. Preview images go to
+     `src/assets/images/achievements/`; certificate PDFs go to `public/achievements/`.
+3. Commit & push. GitHub Actions rebuilds and deploys to Firebase. No code edits required.
 
-**Main entry**: [src/main.ts](src/main.ts) bootstraps the app and registers Vuetify plugin.
+The Keystatic schema is [keystatic.config.ts](keystatic.config.ts); the matching Astro
+read-side schemas are [src/content/config.ts](src/content/config.ts). The `siteSettings`
+singleton is read via Keystatic's `createReader` in [src/lib/content.ts](src/lib/content.ts);
+collections are read with Astro's `getCollection` / `render`.
 
-**Root component**: [src/App.vue](src/App.vue) renders view components in sequence:
-- `hero.vue` - Landing section
-- `about.vue` - About section
-- `experience.vue` - Projects and experience timeline
-- `skills.vue` - Skills section
-- Scroll-to-top button (conditionally shown)
+## Architecture
 
-### Composables Pattern
+- [src/layouts/BaseLayout.astro](src/layouts/BaseLayout.astro) — `<head>` SEO/meta, fonts,
+  tech-grid + scanline overlays, and the HUD chrome (top bar, nav, footer).
+- [src/pages/index.astro](src/pages/index.astro) — composes hero → featured project stages →
+  Production Track → 42 Cursus → Achievements → Capability Matrix → About.
+- **Components** (`src/components/*.astro`): `ProjectStage` (featured "App-Store" product card),
+  `ProjectCard` (compact grid card), `TerminalLog`, `AchievementCard`, `StatusChip`,
+  `CornerBracketCard`, `HudNavBar`, `HudTopBar`, `Footer`, `JsonLd`.
+- **Client scripts** (`src/scripts/*.ts`, bundled by Astro): `revealScroll.ts`
+  (IntersectionObserver `.is-visible` toggle), `telemetry.ts` (live HUD clock/latency),
+  `projectMotion.ts` (GSAP ScrollTrigger choreography for featured stages).
+- Motion respects `prefers-reduced-motion`.
 
-Project data is managed using the composables pattern. Composables are functions that return reactive refs and encapsulate reusable logic.
+### Project accent / status
 
-**Data composables**:
-- [src/composables/useFortyTwo.ts](src/composables/useFortyTwo.ts) - Returns projects from 42 School curriculum
-- [src/composables/useRegProjects.ts](src/composables/useRegProjects.ts) - Returns personal/professional projects
-
-Both return `Ref<useExp[]>` where `useExp` is defined in [src/interfaces/useExp.ts](src/interfaces/useExp.ts):
-
-```typescript
-interface useExp {
-  name: string
-  msg: string        // Project description (can include <br> tags)
-  img: string[]      // Array of image paths
-  ico: string[]      // Array of MDI icon names
-  date: string       // Date range string
-  repo: string       // GitHub repo URL
-  link?: string      // Optional external link (e.g., LinkedIn article)
-}
-```
-
-### Reusable Components
-
-**[src/components/timelineEntry.vue](src/components/timelineEntry.vue)**:
-- Displays individual project entries in timeline format
-- Uses Vuetify's `v-timeline-item` and expansion panels
-- Handles responsive layout differences (timeline vs. card layout)
-- Splits text on `<br>` tags and truncates first paragraph with "..." for preview
-
-**[src/components/imageDialog.vue](src/components/imageDialog.vue)**:
-- Displays project images in a dialog/carousel
-
-### View Components
-
-View components in `src/views/` consume composables and render sections:
-
-- Use `useFortyTwo()` and `useRegProjects()` to get project data
-- Implement responsive layouts with media queries
-- Use Vuetify components (`v-timeline`, `v-parallax`, etc.)
-- Handle screen size breakpoints (900px for desktop vs mobile layout)
-
-### Path Aliases
-
-Use `@/` prefix for imports from `src/`:
-```typescript
-import { registerPlugins } from '@/plugins'
-```
-
-### Styling
-
-- Global styles in [src/App.vue](src/App.vue) (`.header-wrapper`, `.flex-center`, scroll customization)
-- Component-scoped styles use `<style>` blocks
-- Vuetify theme config in [src/styles/settings.scss](src/styles/settings.scss)
-- Uses custom scrollbar hiding and smooth scroll behavior
+Each project has `accent` (cyan/amber/red → HUD color), `status` (online/standby/critical →
+`StatusChip`), `featured` (renders as a full-screen `ProjectStage` vs a compact `ProjectCard`),
+and `category` (professional / 42-school / personal → which section it appears in).
 
 ## Deployment
 
-**Firebase Hosting** is configured with [firebase.json](firebase.json) to serve the `dist/` directory.
+Firebase Hosting serves `dist/` ([firebase.json](firebase.json) — `cleanUrls`, no SPA rewrite).
+CI/CD in `.github/workflows/`:
+- `firebase-hosting-merge.yml` — deploys to production (channel `live`) on push to `main`.
+- `firebase-hosting-pull-request.yml` — preview deploys for PRs.
 
-**CI/CD Pipelines** in `.github/workflows/`:
-- `firebase-hosting-merge.yml` - Deploys to production on merge to main
-- `firebase-hosting-pull-request.yml` - Creates preview deploys for PRs
+Both pin Node 20 via `actions/setup-node` and run `npm ci && npm run build`. The
+`@astrojs/sitemap` integration emits `dist/sitemap-index.xml` during the build.
 
-Build process runs TypeScript type checking before build:
-```bash
-vue-tsc --noEmit && vite build
-```
+## Adding a New Section
 
-## Adding New Projects
-
-To add a new project to the portfolio:
-
-1. Add project data to the appropriate composable:
-   - [src/composables/useFortyTwo.ts](src/composables/useFortyTwo.ts) for 42 School projects
-   - [src/composables/useRegProjects.ts](src/composables/useRegProjects.ts) for personal projects
-
-2. Push new object conforming to `useExp` interface to the `value` array
-
-3. Add project images to `public/` directory (referenced in `img` array)
-
-4. Use MDI icon names for `ico` array (e.g., `"mdi-vuejs"`, `"mdi-docker"`)
-
-## Notes
-
-- No router is configured - this is a single-page app with anchor links
-- Dev server runs on port 3000 (or port 80 with `--host` flag in package.json scripts)
-- ESLint rule `vue/multi-word-component-names` is disabled
-- Vuetify auto-import is enabled in [vite.config.ts](vite.config.ts)
+Sections are composed in [src/pages/index.astro](src/pages/index.astro). To make a section's
+content CMS-editable, add fields to the `siteSettings` singleton (or a new collection) in
+[keystatic.config.ts](keystatic.config.ts), mirror any collection schema in
+[src/content/config.ts](src/content/config.ts), then render it in `index.astro`.

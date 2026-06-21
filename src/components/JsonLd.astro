@@ -1,0 +1,55 @@
+---
+// Structured data (schema.org) rendered server-side into static HTML.
+// The project list is generated FROM the content collection, so adding a project
+// in Keystatic automatically keeps JSON-LD in sync.
+import { getCollection } from 'astro:content'
+import { getSiteSettings } from '../lib/content'
+
+const settings = await getSiteSettings()
+const projects = await getCollection('projects')
+const site = Astro.site?.href ?? 'https://willemjohannessmith.web.app/'
+
+const fullName = [settings?.heroFirstName, settings?.heroMiddleName, settings?.heroLastName]
+  .filter(Boolean)
+  .join(' ') || 'Willem Johannes Smith'
+
+const sameAs = [settings?.github, settings?.linkedin].filter(Boolean)
+
+const graph = [
+  {
+    '@type': 'Person',
+    '@id': `${site}#person`,
+    name: fullName,
+    url: site,
+    jobTitle: 'Full Stack Developer',
+    sameAs,
+    email: settings?.contactEmail ? `mailto:${settings.contactEmail}` : undefined,
+  },
+  {
+    '@type': 'WebSite',
+    '@id': `${site}#website`,
+    url: site,
+    name: `${fullName} — Portfolio`,
+    publisher: { '@id': `${site}#person` },
+  },
+  {
+    '@type': 'ItemList',
+    '@id': `${site}#projects`,
+    itemListElement: projects.map((p, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      item: {
+        '@type': 'CreativeWork',
+        name: p.data.name,
+        url: p.data.liveUrl || p.data.repo || p.data.link || undefined,
+        keywords: p.data.techStack.join(', '),
+        author: { '@id': `${site}#person` },
+      },
+    })),
+  },
+]
+
+const jsonLd = { '@context': 'https://schema.org', '@graph': graph }
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} is:inline />

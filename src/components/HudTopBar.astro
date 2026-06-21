@@ -1,0 +1,20 @@
+---
+// Persistent HUD telemetry strip (DESIGN.md "The System Header").
+// Values are populated client-side by src/scripts/telemetry.ts (mock feed).
+---
+
+<div
+  class="fixed top-0 w-full z-[61] px-8 py-1.5 bg-[#05070f]/80 backdrop-blur-md border-b border-white/5 font-label-code text-[10px] uppercase tracking-widest text-on-surface-variant/70 hidden md:flex justify-between items-center"
+>
+  <div class="flex items-center gap-6">
+    <span class="text-slate-cyan">SYSTEMS CORE</span>
+    <span>SYS_TIME: <span data-hud-time class="text-on-surface">--:--:-- UTC</span></span>
+  </div>
+  <div class="flex items-center gap-6">
+    <span>LATENCY: <span data-hud-latency class="text-slate-cyan">--ms</span></span>
+    <span>CORE_TEMP: <span data-hud-temp class="text-secondary-container">--°C</span></span>
+    <span class="flex items-center gap-2">
+      <span class="w-1.5 h-1.5 rounded-full bg-slate-cyan animate-pulse"></span>UPLINK_SECURE
+    </span>
+  </div>
+</div>

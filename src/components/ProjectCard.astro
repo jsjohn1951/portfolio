@@ -1,0 +1,40 @@
+---
+import type { CollectionEntry } from 'astro:content'
+
+interface Props {
+  project: CollectionEntry<'projects'>
+  delay?: 0 | 100 | 200
+}
+const { project, delay = 0 } = Astro.props
+const d = project.data
+
+const accentMap = {
+  cyan: { text: 'text-slate-cyan', hover: 'hover:border-slate-cyan', blob: 'bg-slate-cyan/5' },
+  amber: { text: 'text-secondary-container', hover: 'hover:border-secondary-container', blob: 'bg-secondary-container/5' },
+  red: { text: 'text-stark-red', hover: 'hover:border-stark-red', blob: 'bg-stark-red/5' },
+} as const
+const a = accentMap[d.accent]
+const href = d.liveUrl || d.repo || d.link
+---
+
+<div class={`reveal-on-scroll ${delay ? `delay-${delay}` : ''} p-8 bg-surface-container-lowest/60 border border-outline-variant/50 rounded-2xl ${a.hover} transition-all duration-500 group flex flex-col h-full relative overflow-hidden`}>
+  <div class={`absolute top-0 right-0 w-32 h-32 ${a.blob} rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity`}></div>
+
+  <div class={`font-label-code ${a.text} text-xs mb-4 uppercase tracking-widest`}>{d.date}</div>
+  <h3 class="font-headline-md text-2xl text-white mb-4 uppercase leading-tight">{d.name}</h3>
+
+  <div class="flex flex-wrap gap-2 mt-auto pt-6 border-t border-outline-variant/30">
+    {d.techStack.slice(0, 5).map((t, i) => (
+      <>
+        {i > 0 && <span class="text-on-surface-variant px-1">•</span>}
+        <span class={`${a.text} text-xs font-label-code uppercase`}>{t}</span>
+      </>
+    ))}
+  </div>
+
+  {href && (
+    <a href={href} target="_blank" rel="noopener" class={`mt-6 font-label-code text-xs uppercase tracking-widest ${a.text} hover:underline`}>
+      {d.liveUrl ? 'Launch' : d.repo ? 'Source' : 'Read'} ↗
+    </a>
+  )}
+</div>

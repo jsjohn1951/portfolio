@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>W.J. SMITH // SYSTEMS ARCHITECT</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&amp;family=Space+Mono:wght@400;700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        html { scroll-behavior: smooth; }
+        
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: scale(0.85);
+            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .kinetic-bg {
+            transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: scale(1.1);
+        }
+
+        .is-visible .kinetic-bg {
+            transform: scale(1);
+        }
+
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+
+        .tech-grid {
+            background-image: 
+                linear-gradient(to right, rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+            background-size: 100px 100px;
+        }
+
+        .scanline {
+            background: linear-gradient(to bottom, transparent 50%, rgba(0, 240, 255, 0.05) 51%);
+            background-size: 100% 4px;
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 10;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-surface": "#e1e2ee",
+                      "surface-container-lowest": "#0b0e16",
+                      "secondary-container": "#ffaa00",
+                      "on-secondary-fixed": "#291800",
+                      "secondary": "#ffcf90",
+                      "outline": "#849495",
+                      "inverse-primary": "#006970",
+                      "background": "#05070f",
+                      "primary-fixed-dim": "#00dbe9",
+                      "surface-dim": "#10131c",
+                      "tertiary-container": "#ffcec9",
+                      "on-surface-variant": "#b9cacb",
+                      "on-tertiary-fixed-variant": "#930010",
+                      "surface-bright": "#363943",
+                      "on-primary-container": "#006970",
+                      "primary-fixed": "#7df4ff",
+                      "inverse-on-surface": "#2e303a",
+                      "surface-container-highest": "#32343e",
+                      "error-container": "#93000a",
+                      "on-tertiary-fixed": "#410003",
+                      "on-primary-fixed-variant": "#004f54",
+                      "surface-container": "#1d1f28",
+                      "surface-tint": "#00dbe9",
+                      "secondary-fixed": "#ffddb4",
+                      "surface-variant": "#32343e",
+                      "surface-container-high": "#272a33",
+                      "surface-container-low": "#191b24",
+                      "on-error": "#690005",
+                      "on-secondary-fixed-variant": "#633f00",
+                      "on-background": "#e1e2ee",
+                      "on-secondary": "#452b00",
+                      "outline-variant": "#3b494b",
+                      "inverse-surface": "#e1e2ee",
+                      "on-tertiary": "#680008",
+                      "tertiary": "#fff3f2",
+                      "tertiary-fixed": "#ffdad6",
+                      "primary-container": "#00f0ff",
+                      "on-primary": "#00363a",
+                      "on-tertiary-container": "#c00119",
+                      "secondary-fixed-dim": "#ffb952",
+                      "surface": "#10131c",
+                      "on-primary-fixed": "#002022",
+                      "error": "#ffb4ab",
+                      "primary": "#dbfcff",
+                      "on-error-container": "#ffdad6",
+                      "tertiary-fixed-dim": "#ffb3ad",
+                      "on-secondary-container": "#694300",
+                      "slate-cyan": "#00f0ff",
+                      "stark-red": "#ff3e3e"
+              },
+              "fontFamily": {
+                      "headline-md": ["Space Grotesk"],
+                      "display-lg": ["Space Grotesk"],
+                      "label-code": ["Space Mono"],
+                      "body-fixed": ["JetBrains Mono"]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-[#05070f] text-on-surface font-body-fixed selection:bg-slate-cyan selection:text-background min-h-screen relative overflow-x-hidden snap-y snap-proximity">
+<!-- Subtle Technical Grid Background -->
+<div class="fixed inset-0 tech-grid pointer-events-none z-0"></div>
+<div class="fixed inset-0 scanline z-50 pointer-events-none opacity-20"></div>
+<!-- Minimal Sticky Top Bar -->
+<nav class="fixed top-0 w-full z-[60] px-8 py-6 backdrop-blur-md bg-[#05070f]/70 border-b border-white/5 flex justify-between items-center font-label-code text-xs uppercase tracking-widest transition-all duration-300" id="navbar">
+<div class="flex items-center gap-4">
+<span class="text-slate-cyan font-bold">W.J. SMITH</span>
+<span class="hidden md:inline-block text-on-surface-variant opacity-50">// SYSTEMS ARCHITECT</span>
+</div>
+<div class="flex items-center gap-8 text-on-surface-variant">
+<div class="hidden md:flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-cyan animate-pulse"></span>
+<span>STATUS: OPERATIONAL</span>
+</div>
+<a class="hover:text-slate-cyan transition-colors hidden sm:block" href="mailto:wismith@student.42AbuDhabi.ae">CONTACT</a>
+<a class="hover:text-slate-cyan transition-colors" href="https://github.com/jsjohn1951" target="_blank">GITHUB</a>
+<a class="hover:text-slate-cyan transition-colors" href="https://linkedin.com/in/willems24" target="_blank">LINKEDIN</a>
+</div>
+</nav>
+<main class="relative z-10">
+<!-- Hero Stage -->
+<section class="min-h-screen flex items-center px-8 md:px-16 max-w-7xl mx-auto w-full pt-24 pb-16 snap-start">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center w-full">
+<!-- Typographic Intro -->
+<div class="lg:col-span-7 reveal-on-scroll order-2 lg:order-1">
+<h1 class="font-display-lg text-5xl md:text-7xl lg:text-8xl text-white tracking-tighter mb-6 leading-[1.1] uppercase">
+                        Willem<br/>
+                        Johannes<br/>
+<span class="text-slate-cyan">Smith</span>
+</h1>
+<div class="font-label-code text-secondary-container tracking-[0.2em] mb-10 text-sm md:text-base border-l-2 border-secondary-container pl-4">
+                        SYSTEMS ARCHITECT // ID: 9942-X
+                    </div>
+<p class="text-on-surface-variant text-base md:text-lg max-w-xl mb-12 leading-relaxed">
+                        Engineering complex subsystems for automated orchestration, decentralized identity, and high-frequency data pipelines. 
+                        Operating at the intersection of local hardware budgets and global cloud logistics.
+                    </p>
+<div class="space-y-6">
+<div class="font-label-code text-xs text-on-surface-variant uppercase tracking-widest opacity-50">Core Stack</div>
+<div class="flex flex-wrap gap-3 font-label-code text-xs text-slate-cyan">
+<span class="px-4 py-2 border border-slate-cyan/20 rounded-full bg-slate-cyan/5">C / C++</span>
+<span class="px-4 py-2 border border-slate-cyan/20 rounded-full bg-slate-cyan/5">GOLANG</span>
+<span class="px-4 py-2 border border-slate-cyan/20 rounded-full bg-slate-cyan/5">TYPESCRIPT</span>
+<span class="px-4 py-2 border border-slate-cyan/20 rounded-full bg-slate-cyan/5">SWIFT</span>
+<span class="px-4 py-2 border border-slate-cyan/20 rounded-full bg-slate-cyan/5">PYTHON</span>
+<span class="px-4 py-2 border border-slate-cyan/20 rounded-full bg-slate-cyan/5">DOCKER</span>
+</div>
+</div>
+</div>
+<!-- High-Fidelity Portrait Placeholder -->
+<div class="lg:col-span-5 reveal-on-scroll delay-200 order-1 lg:order-2 flex justify-center lg:justify-end">
+<div class="aspect-[4/5] w-full max-w-md bg-surface-container-low/40 border border-slate-cyan/30 rounded-2xl relative overflow-hidden backdrop-blur-sm group">
+<div class="absolute inset-0 bg-cover bg-center mix-blend-luminosity opacity-60 transition-transform duration-1000 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida/AP1WRLuAAWEKwLQZv6f5UXCzcWXLS3KbMorAJmFkBBnUWG5OQLRV1YBSUI--G4jVERBUPDsGWXj8XH8BOe1Dsa3vrIOqMAviMRNu4qYReSlLUEH6SLq1CUDkwalBXWwor-Fb37f4hq-w7PFSga2vJbk-bEuVNazC_g8yonYHl-q1aJIGpksLEQl4IDevXSNow7GS5Z9p5qKkWmhY7eugdSa0g-t4iJbzVKtQry_f9Vn81maRrIwaZec82UXdYrNS')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-[#05070f] via-[#05070f]/40 to-transparent"></div>
+<!-- Tech Accents -->
+<div class="absolute top-4 left-4 w-4 h-4 border-t-2 border-l-2 border-slate-cyan/50"></div>
+<div class="absolute bottom-4 right-4 w-4 h-4 border-b-2 border-r-2 border-slate-cyan/50"></div>
+<div class="absolute bottom-6 left-6 right-6 flex justify-between items-end font-label-code text-[10px] text-slate-cyan/70 tracking-widest uppercase">
+<span>BIO-SIG: VERIFIED</span>
+<span>UPLINK_SECURE</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Project Stage 1: JARVIS -->
+<section class="min-h-screen w-full flex items-center justify-center relative snap-start overflow-hidden py-24">
+<div class="absolute inset-0 z-0 bg-[#05070f] reveal-on-scroll">
+<div class="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-10 kinetic-bg" style="background-image: url('https://lh3.googleusercontent.com/aida/AP1WRLuAAWEKwLQZv6f5UXCzcWXLS3KbMorAJmFkBBnUWG5OQLRV1YBSUI--G4jVERBUPDsGWXj8XH8BOe1Dsa3vrIOqMAviMRNu4qYReSlLUEH6SLq1CUDkwalBXWwor-Fb37f4hq-w7PFSga2vJbk-bEuVNazC_g8yonYHl-q1aJIGpksLEQl4IDevXSNow7GS5Z9p5qKkWmhY7eugdSa0g-t4iJbzVKtQry_f9Vn81maRrIwaZec82UXdYrNS')"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-[#05070f] via-transparent to-[#05070f]"></div>
+</div>
+<div class="max-w-7xl w-full px-8 md:px-16 reveal-on-scroll relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+<div class="lg:col-span-8 p-8 md:p-12 bg-[#0b0e16]/90 border border-slate-cyan/20 rounded-xl backdrop-blur-2xl relative overflow-hidden shadow-[0_0_50px_rgba(0,240,255,0.05)] group hover:border-slate-cyan/50 transition-colors duration-700">
+<div class="absolute top-0 right-0 w-96 h-96 bg-stark-red/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+<div class="flex items-center gap-4 mb-8 font-label-code text-stark-red text-xs tracking-widest uppercase">
+<span class="w-1.5 h-1.5 bg-stark-red rounded-full animate-pulse shadow-[0_0_10px_rgba(255,62,62,0.8)]"></span> 
+            Deploy_ID: X-01 // ACTIVE
+        </div>
+<h2 class="font-display-lg text-5xl md:text-6xl text-white mb-6 uppercase tracking-wider">Core System: JARVIS</h2>
+<p class="text-on-surface-variant text-lg leading-relaxed mb-8 max-w-2xl">
+            Native macOS Agentic Orchestration Layer. A dual-tier local/cloud LLM control interface operating on an 18GB hardware budget. Automated terminal interfacing and voice-to-text semantic translation.
+        </p>
+<div class="flex flex-wrap gap-3 mb-10">
+<span class="px-3 py-1.5 border border-slate-cyan/30 text-slate-cyan text-xs font-label-code uppercase rounded bg-slate-cyan/5">SwiftUI</span>
+<span class="px-3 py-1.5 border border-slate-cyan/30 text-slate-cyan text-xs font-label-code uppercase rounded bg-slate-cyan/5">Node.js</span>
+<span class="px-3 py-1.5 border border-slate-cyan/30 text-slate-cyan text-xs font-label-code uppercase rounded bg-slate-cyan/5">Llama.cpp</span>
+<span class="px-3 py-1.5 border border-slate-cyan/30 text-slate-cyan text-xs font-label-code uppercase rounded bg-slate-cyan/5">Whisper</span>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6 font-label-code text-xs border-t border-white/5 pt-8">
+<div>
+<div class="text-on-surface-variant/50 uppercase mb-2">Memory Allocation</div>
+<div class="text-white text-lg">18.4 GB</div>
+</div>
+<div>
+<div class="text-on-surface-variant/50 uppercase mb-2">Inference Rate</div>
+<div class="text-slate-cyan text-lg">42 T/s</div>
+</div>
+<div>
+<div class="text-on-surface-variant/50 uppercase mb-2">Status</div>
+<div class="text-stark-red text-lg animate-pulse">LIVE_FEED</div>
+</div>
+<div>
+<div class="text-on-surface-variant/50 uppercase mb-2">Subsystems</div>
+<div class="text-white text-lg">NOMINAL</div>
+</div>
+</div>
+</div>
+<!-- Terminal Log Simulation -->
+<div class="lg:col-span-4 h-full flex flex-col gap-4 font-label-code text-xs text-slate-cyan/70">
+<div class="flex items-center gap-3 bg-[#0b0e16]/80 border border-slate-cyan/20 p-4 rounded-xl backdrop-blur-md">
+<div class="w-12 h-12 rounded bg-slate-cyan/10 border border-slate-cyan/30 overflow-hidden shrink-0">
+<img alt="Bio Sig" class="w-full h-full object-cover mix-blend-luminosity opacity-80" src="https://lh3.googleusercontent.com/aida/AP1WRLuAAWEKwLQZv6f5UXCzcWXLS3KbMorAJmFkBBnUWG5OQLRV1YBSUI--G4jVERBUPDsGWXj8XH8BOe1Dsa3vrIOqMAviMRNu4qYReSlLUEH6SLq1CUDkwalBXWwor-Fb37f4hq-w7PFSga2vJbk-bEuVNazC_g8yonYHl-q1aJIGpksLEQl4IDevXSNow7GS5Z9p5qKkWmhY7eugdSa0g-t4iJbzVKtQry_f9Vn81maRrIwaZec82UXdYrNS"/>
+</div>
+<div>
+<div class="text-white mb-1 tracking-widest">W.J. SMITH // ADMIN</div>
+<div class="opacity-50">AUTH_TOKEN: VALIDATED</div>
+</div>
+</div>
+<div class="flex-grow bg-[#0b0e16]/80 border border-slate-cyan/20 p-6 rounded-xl backdrop-blur-md overflow-hidden relative">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-slate-cyan to-transparent opacity-20"></div>
+<div class="space-y-3 opacity-80 font-mono">
+<p>&gt; INIT SYSTEM_JARVIS.sh</p>
+<p>&gt; LOADING WEIGHTS... [OK]</p>
+<p>&gt; ALLOCATING VRAM: 14GB</p>
+<p class="text-white">&gt; ESTABLISHING AUDIO TAP...</p>
+<p>&gt; LISTENING ON PORT 8080</p>
+<p class="animate-pulse text-slate-cyan">&gt; AWAITING COMMAND_</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Project Stage 2: CORMONITY -->
+<section class="min-h-screen w-full flex items-center justify-center relative snap-start overflow-hidden py-24">
+<div class="absolute inset-0 z-0 bg-[#05070f] reveal-on-scroll">
+<div class="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-10 kinetic-bg" style="background-image: url('https://lh3.googleusercontent.com/aida/AP1WRLuAAWEKwLQZv6f5UXCzcWXLS3KbMorAJmFkBBnUWG5OQLRV1YBSUI--G4jVERBUPDsGWXj8XH8BOe1Dsa3vrIOqMAviMRNu4qYReSlLUEH6SLq1CUDkwalBXWwor-Fb37f4hq-w7PFSga2vJbk-bEuVNazC_g8yonYHl-q1aJIGpksLEQl4IDevXSNow7GS5Z9p5qKkWmhY7eugdSa0g-t4iJbzVKtQry_f9Vn81maRrIwaZec82UXdYrNS'); transform: scaleX(-1);"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-[#05070f] via-transparent to-[#05070f]"></div>
+</div>
+<div class="max-w-7xl w-full px-8 md:px-16 reveal-on-scroll relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+<!-- Terminal Log Simulation -->
+<div class="lg:col-span-4 h-full flex flex-col gap-4 font-label-code text-xs text-secondary-container/70 order-2 lg:order-1">
+<div class="flex items-center gap-3 bg-[#0b0e16]/80 border border-secondary-container/20 p-4 rounded-xl backdrop-blur-md">
+<div class="w-12 h-12 rounded bg-secondary-container/10 border border-secondary-container/30 overflow-hidden shrink-0">
+<img alt="Bio Sig" class="w-full h-full object-cover mix-blend-luminosity opacity-80" src="https://lh3.googleusercontent.com/aida/AP1WRLuAAWEKwLQZv6f5UXCzcWXLS3KbMorAJmFkBBnUWG5OQLRV1YBSUI--G4jVERBUPDsGWXj8XH8BOe1Dsa3vrIOqMAviMRNu4qYReSlLUEH6SLq1CUDkwalBXWwor-Fb37f4hq-w7PFSga2vJbk-bEuVNazC_g8yonYHl-q1aJIGpksLEQl4IDevXSNow7GS5Z9p5qKkWmhY7eugdSa0g-t4iJbzVKtQry_f9Vn81maRrIwaZec82UXdYrNS"/>
+</div>
+<div>
+<div class="text-white mb-1 tracking-widest">W.J. SMITH // ARCHITECT</div>
+<div class="opacity-50">NODE_ACCESS: GRANTED</div>
+</div>
+</div>
+<div class="flex-grow bg-[#0b0e16]/80 border border-secondary-container/20 p-6 rounded-xl backdrop-blur-md overflow-hidden relative">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-secondary-container to-transparent opacity-20"></div>
+<div class="space-y-3 opacity-80 font-mono">
+<p>&gt; PING GLOBAL_NODES</p>
+<p>&gt; RESOLVING 144.2.X.X [OK]</p>
+<p>&gt; SYNCING STATE DB...</p>
+<p class="text-white">&gt; EDGE COMPUTE: ACTIVE</p>
+<p>&gt; LATENCY: 12ms</p>
+<p class="animate-pulse text-secondary-container">&gt; TRAFFIC_ROUTING_OPTIMIZED_</p>
+</div>
+</div>
+</div>
+<div class="lg:col-span-8 p-8 md:p-12 bg-[#0b0e16]/90 border border-secondary-container/20 rounded-xl backdrop-blur-2xl relative overflow-hidden shadow-[0_0_50px_rgba(255,170,0,0.05)] group hover:border-secondary-container/50 transition-colors duration-700 order-1 lg:order-2">
+<div class="absolute bottom-0 right-0 w-96 h-96 bg-secondary-container/10 rounded-full blur-[100px] translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+<div class="flex items-center gap-4 mb-8 font-label-code text-secondary-container text-xs tracking-widest uppercase">
+<span class="w-1.5 h-1.5 bg-secondary-container rounded-full animate-pulse shadow-[0_0_10px_rgba(255,170,0,0.8)]"></span> 
+            Deploy_ID: X-02 // ACTIVE
+        </div>
+<h2 class="font-display-lg text-5xl md:text-6xl text-white mb-6 uppercase tracking-wider">Cloud Core: Cormonity</h2>
+<p class="text-on-surface-variant text-lg leading-relaxed mb-8 max-w-2xl">
+            Distributed Digital Ecosystem Node. Active production platform engineered for massive concurrent requests and ultra-low latency data state distribution across global edge networks.
+        </p>
+<div class="flex flex-wrap gap-3 mb-10">
+<span class="px-3 py-1.5 border border-secondary-container/30 text-secondary-container text-xs font-label-code uppercase rounded bg-secondary-container/5">Next.js</span>
+<span class="px-3 py-1.5 border border-secondary-container/30 text-secondary-container text-xs font-label-code uppercase rounded bg-secondary-container/5">TypeScript</span>
+<span class="px-3 py-1.5 border border-secondary-container/30 text-secondary-container text-xs font-label-code uppercase rounded bg-secondary-container/5">Cloudflare Workers</span>
+<span class="px-3 py-1.5 border border-secondary-container/30 text-secondary-container text-xs font-label-code uppercase rounded bg-secondary-container/5">Redis</span>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6 font-label-code text-xs border-t border-white/5 pt-8">
+<div>
+<div class="text-on-surface-variant/50 uppercase mb-2">Global Uptime</div>
+<div class="text-white text-lg">99.99%</div>
+</div>
+<div>
+<div class="text-on-surface-variant/50 uppercase mb-2">Req / Second</div>
+<div class="text-secondary-container text-lg">12,400</div>
+</div>
+<div>
+<div class="text-on-surface-variant/50 uppercase mb-2">Edge Routing</div>
+<div class="text-white text-lg">OPTIMIZED</div>
+</div>
+<div>
+<div class="text-on-surface-variant/50 uppercase mb-2">Deployment</div>
+<div class="text-secondary-container text-lg">STABLE</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Project Stage 3: PRODUCTION REVIEWS -->
+<section class="min-h-screen flex items-center py-32 px-8 md:px-16 relative snap-start">
+<div class="max-w-6xl mx-auto w-full">
+<div class="mb-16 reveal-on-scroll">
+<h2 class="font-display-lg text-4xl text-white mb-4 uppercase tracking-widest">Production Track</h2>
+<div class="font-label-code text-secondary-container text-sm uppercase tracking-widest">// Subsystem_Manifest</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Ratchet Capital -->
+<div class="reveal-on-scroll p-8 bg-surface-container-lowest/60 border border-outline-variant/50 rounded-2xl hover:border-secondary-container transition-all duration-500 group flex flex-col h-full relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-secondary-container/5 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="font-label-code text-secondary-container text-xs mb-6 uppercase tracking-widest">Corp_Node: Ratchet_Capital</div>
+<h3 class="font-headline-md text-2xl text-white mb-4 uppercase">Megastars.ai // ioMega Energy</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-8 flex-grow">
+                            Engineering complex subsystems for automated financial orchestration and energy logistics monitoring. High-frequency data processing pipelines.
+                        </p>
+<div class="flex flex-wrap gap-2 mt-auto pt-6 border-t border-outline-variant/30">
+<span class="text-secondary-container text-xs font-label-code uppercase">React</span>
+<span class="text-on-surface-variant px-2">•</span>
+<span class="text-secondary-container text-xs font-label-code uppercase">Python</span>
+<span class="text-on-surface-variant px-2">•</span>
+<span class="text-secondary-container text-xs font-label-code uppercase">PostgreSQL</span>
+</div>
+</div>
+<!-- Verif-y -->
+<div class="reveal-on-scroll delay-100 p-8 bg-surface-container-lowest/60 border border-outline-variant/50 rounded-2xl hover:border-slate-cyan transition-all duration-500 group flex flex-col h-full relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-slate-cyan/5 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="font-label-code text-slate-cyan text-xs mb-6 uppercase tracking-widest">Corp_Node: Verif-y</div>
+<h3 class="font-headline-md text-2xl text-white mb-4 uppercase">Identity &amp; Credentialing</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-8 flex-grow">
+                            Implementation of secure, sovereign identity protocols and credential verification frameworks for enterprise ecosystems.
+                        </p>
+<div class="flex flex-wrap gap-2 mt-auto pt-6 border-t border-outline-variant/30">
+<span class="text-slate-cyan text-xs font-label-code uppercase">Node.js</span>
+<span class="text-on-surface-variant px-2">•</span>
+<span class="text-slate-cyan text-xs font-label-code uppercase">Blockchain</span>
+<span class="text-on-surface-variant px-2">•</span>
+<span class="text-slate-cyan text-xs font-label-code uppercase">ZK_Proofs</span>
+</div>
+</div>
+<!-- Ammbr -->
+<div class="reveal-on-scroll delay-200 p-8 bg-surface-container-lowest/60 border border-outline-variant/50 rounded-2xl hover:border-secondary-container transition-all duration-500 group flex flex-col h-full relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-secondary-container/5 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="font-label-code text-secondary-container text-xs mb-6 uppercase tracking-widest">Corp_Node: Ammbr_Limited</div>
+<h3 class="font-headline-md text-2xl text-white mb-4 uppercase">Decentralized Mesh Nets</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-8 flex-grow">
+                            Architecting decentralized wireless infrastructure and peer-to-peer communication protocols for global mesh deployments.
+                        </p>
+<div class="flex flex-wrap gap-2 mt-auto pt-6 border-t border-outline-variant/30">
+<span class="text-secondary-container text-xs font-label-code uppercase">Go</span>
+<span class="text-on-surface-variant px-2">•</span>
+<span class="text-secondary-container text-xs font-label-code uppercase">C++</span>
+<span class="text-on-surface-variant px-2">•</span>
+<span class="text-secondary-container text-xs font-label-code uppercase">P2P</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Academic Stage: 42 Cursus -->
+<section class="py-32 px-8 md:px-16 border-t border-outline-variant/10 snap-start min-h-screen flex items-center">
+<div class="max-w-6xl mx-auto w-full text-center reveal-on-scroll"><div class="mb-16">
+<h2 class="font-display-lg text-4xl text-white mb-4 uppercase tracking-widest">42 ABU DHABI // SOFTWARE ENGINEERING CURSUS</h2>
+<div class="font-label-code text-slate-cyan text-sm uppercase tracking-widest">// Academic_Subsystems</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
+<!-- libft -->
+<div class="p-6 bg-surface-container-lowest/40 border border-outline-variant/30 rounded-xl hover:border-slate-cyan transition-all">
+<div class="font-label-code text-slate-cyan text-[10px] mb-4 uppercase tracking-widest">Module: Core_Lib</div>
+<h3 class="font-headline-md text-lg text-white mb-2 uppercase">libft</h3>
+<p class="text-on-surface-variant text-xs leading-relaxed">Re-coding standard C library functions to understand memory management and data structures.</p>
+</div>
+<!-- minitalk -->
+<div class="p-6 bg-surface-container-lowest/40 border border-outline-variant/30 rounded-xl hover:border-slate-cyan transition-all">
+<div class="font-label-code text-slate-cyan text-[10px] mb-4 uppercase tracking-widest">Module: IPC_Signals</div>
+<h3 class="font-headline-md text-lg text-white mb-2 uppercase">minitalk</h3>
+<p class="text-on-surface-variant text-xs leading-relaxed">Unix signals (SIGUSR1/SIGUSR2) for bitwise data transmission and inter-process communication.</p>
+</div>
+<!-- minishell -->
+<div class="p-6 bg-surface-container-lowest/40 border border-outline-variant/30 rounded-xl hover:border-slate-cyan transition-all">
+<div class="font-label-code text-slate-cyan text-[10px] mb-4 uppercase tracking-widest">Module: Shell_Arch</div>
+<h3 class="font-headline-md text-lg text-white mb-2 uppercase">minishell</h3>
+<p class="text-on-surface-variant text-xs leading-relaxed">Building a command-line interpreter, parsing, and execution of binaries with environment handling.</p>
+</div>
+<!-- philosophers -->
+<div class="p-6 bg-surface-container-lowest/40 border border-outline-variant/30 rounded-xl hover:border-slate-cyan transition-all">
+<div class="font-label-code text-slate-cyan text-[10px] mb-4 uppercase tracking-widest">Module: Concurrency</div>
+<h3 class="font-headline-md text-lg text-white mb-2 uppercase">philosophers</h3>
+<p class="text-on-surface-variant text-xs leading-relaxed">Solving the Dining Philosophers problem using threads, mutexes, and semaphores.</p>
+</div>
+<!-- push_swap -->
+<div class="p-6 bg-surface-container-lowest/40 border border-outline-variant/30 rounded-xl hover:border-slate-cyan transition-all">
+<div class="font-label-code text-slate-cyan text-[10px] mb-4 uppercase tracking-widest">Module: Algorithms</div>
+<h3 class="font-headline-md text-lg text-white mb-2 uppercase">push_swap</h3>
+<p class="text-on-surface-variant text-xs leading-relaxed">Optimizing sorting algorithms using a limited set of stack operations.</p>
+</div>
+<!-- ft_irc -->
+<div class="p-6 bg-surface-container-lowest/40 border border-outline-variant/30 rounded-xl hover:border-slate-cyan transition-all">
+<div class="font-label-code text-slate-cyan text-[10px] mb-4 uppercase tracking-widest">Module: Networking</div>
+<h3 class="font-headline-md text-lg text-white mb-2 uppercase">ft_irc</h3>
+<p class="text-on-surface-variant text-xs leading-relaxed">Developing a fully functional IRC server in C++ 98 using socket programming.</p>
+</div>
+<!-- inception -->
+<div class="p-6 bg-surface-container-lowest/40 border border-outline-variant/30 rounded-xl hover:border-slate-cyan transition-all">
+<div class="font-label-code text-slate-cyan text-[10px] mb-4 uppercase tracking-widest">Module: DevOps</div>
+<h3 class="font-headline-md text-lg text-white mb-2 uppercase">inception</h3>
+<p class="text-on-surface-variant text-xs leading-relaxed">System administration and virtualization using Docker and multiple services.</p>
+</div>
+<!-- ft_transcendence -->
+<div class="p-6 bg-surface-container-lowest/40 border border-outline-variant/30 rounded-xl hover:border-slate-cyan transition-all">
+<div class="font-label-code text-slate-cyan text-[10px] mb-4 uppercase tracking-widest">Module: Web_Final</div>
+<h3 class="font-headline-md text-lg text-white mb-2 uppercase">ft_transcendence</h3>
+<p class="text-on-surface-variant text-xs leading-relaxed">Full-stack web application featuring real-time multiplayer games and social features.</p>
+</div>
+<!-- ft_containers -->
+<div class="p-6 bg-surface-container-lowest/40 border border-outline-variant/30 rounded-xl hover:border-slate-cyan transition-all">
+<div class="font-label-code text-slate-cyan text-[10px] mb-4 uppercase tracking-widest">Module: C++_STL</div>
+<h3 class="font-headline-md text-lg text-white mb-2 uppercase">ft_containers</h3>
+<p class="text-on-surface-variant text-xs leading-relaxed">Re-implementing C++ Standard Template Library containers (vector, map, stack).</p>
+</div>
+</div></div>
+</section>
+</main>
+<!-- Minimal Footer -->
+<footer class="w-full py-8 text-center border-t border-outline-variant/10 font-label-code text-xs text-on-surface-variant tracking-widest uppercase bg-[#05070f] snap-end">
+        © 2024 SYSTEMS_CORE // W.J. SMITH // GLOBAL_REACH
+    </footer>
+<script>
+        // Intersection Observer for scroll morphing (kinetic effect)
+        document.addEventListener("DOMContentLoaded", () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '-10% 0px -10% 0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    } else {
+                        entry.target.classList.remove('is-visible');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal-on-scroll').forEach((el) => {
+                observer.observe(el);
+            });
+            
+            // Trigger immediately for elements already in viewport on load
+            setTimeout(() => {
+                document.querySelectorAll('.reveal-on-scroll').forEach((el) => {
+                    const rect = el.getBoundingClientRect();
+                    if(rect.top < window.innerHeight && rect.bottom > 0) {
+                        el.classList.add('is-visible');
+                    }
+                });
+            }, 100);
+        });
+    </script>
+</body></html>

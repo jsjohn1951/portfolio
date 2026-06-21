@@ -1,0 +1,24 @@
+---
+// Tactical status chip (DESIGN.md "Status Chips").
+// online → cyan, standby → amber, critical → red.
+interface Props {
+  status: 'online' | 'standby' | 'critical'
+  class?: string
+}
+const { status, class: className = '' } = Astro.props
+
+const map = {
+  online: { label: 'ONLINE', color: 'text-slate-cyan', dot: 'bg-slate-cyan', glow: 'rgba(0,240,255,0.8)', border: 'border-slate-cyan/30' },
+  standby: { label: 'STANDBY', color: 'text-secondary-container', dot: 'bg-secondary-container', glow: 'rgba(255,170,0,0.8)', border: 'border-secondary-container/30' },
+  critical: { label: 'CRITICAL', color: 'text-stark-red', dot: 'bg-stark-red', glow: 'rgba(255,62,62,0.8)', border: 'border-stark-red/30' },
+} as const
+
+const s = map[status]
+---
+
+<span
+  class={`inline-flex items-center gap-2 px-3 py-1 border ${s.border} ${s.color} font-label-code text-[10px] tracking-widest uppercase rounded ${className}`}
+>
+  <span class={`w-1.5 h-1.5 rounded-full ${s.dot} animate-pulse`} style={`box-shadow: 0 0 10px ${s.glow}`}></span>
+  {s.label}
+</span>

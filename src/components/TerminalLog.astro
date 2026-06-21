@@ -1,0 +1,46 @@
+---
+// Simulated terminal-log widget (ported from code.html 230-252).
+interface Props {
+  accent?: 'cyan' | 'amber' | 'red'
+  lines?: string[]
+  handle?: string
+}
+const {
+  accent = 'cyan',
+  handle = 'W.J. SMITH // ADMIN',
+  lines = [
+    '> INIT SUBSYSTEM.sh',
+    '> LOADING MODULES... [OK]',
+    '> ESTABLISHING UPLINK...',
+    '> AWAITING COMMAND_',
+  ],
+} = Astro.props
+
+const accentMap = {
+  cyan: { text: 'text-slate-cyan/70', border: 'border-slate-cyan/20', bar: 'via-slate-cyan', pulse: 'text-slate-cyan', chipBg: 'bg-slate-cyan/10', chipBorder: 'border-slate-cyan/30' },
+  amber: { text: 'text-secondary-container/70', border: 'border-secondary-container/20', bar: 'via-secondary-container', pulse: 'text-secondary-container', chipBg: 'bg-secondary-container/10', chipBorder: 'border-secondary-container/30' },
+  red: { text: 'text-stark-red/70', border: 'border-stark-red/20', bar: 'via-stark-red', pulse: 'text-stark-red', chipBg: 'bg-stark-red/10', chipBorder: 'border-stark-red/30' },
+} as const
+const a = accentMap[accent]
+const last = lines.length - 1
+---
+
+<div class={`h-full flex flex-col gap-4 font-label-code text-xs ${a.text}`}>
+  <div class={`flex items-center gap-3 bg-[#0b0e16]/80 border ${a.border} p-4 rounded-xl backdrop-blur-md`}>
+    <div class={`w-12 h-12 rounded ${a.chipBg} border ${a.chipBorder} flex items-center justify-center shrink-0 text-lg`}>
+      ⌬
+    </div>
+    <div>
+      <div class="text-white mb-1 tracking-widest">{handle}</div>
+      <div class="opacity-50">AUTH_TOKEN: VALIDATED</div>
+    </div>
+  </div>
+  <div class={`flex-grow bg-[#0b0e16]/80 border ${a.border} p-6 rounded-xl backdrop-blur-md overflow-hidden relative`}>
+    <div class={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent ${a.bar} to-transparent opacity-20`}></div>
+    <div class="space-y-3 opacity-80 font-mono">
+      {lines.map((line, i) => (
+        <p class={i === last ? `animate-pulse ${a.pulse}` : i === last - 1 ? 'text-white' : ''}>{line}</p>
+      ))}
+    </div>
+  </div>
+</div>

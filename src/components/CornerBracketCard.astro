@@ -1,0 +1,32 @@
+---
+// Reusable glassmorphic plate with HUD corner brackets + an X-Y coordinate label
+// (DESIGN.md "Telemetry Cards"). Accent tints the brackets/glow.
+interface Props {
+  accent?: 'cyan' | 'amber' | 'red'
+  coord?: string
+  class?: string
+}
+const { accent = 'cyan', coord, class: className = '' } = Astro.props
+
+const accentMap = {
+  cyan: { border: 'border-slate-cyan/20 hover:border-slate-cyan/50', glow: 'rgba(0,240,255,0.05)', bracket: 'border-slate-cyan/50', label: 'text-slate-cyan/70' },
+  amber: { border: 'border-secondary-container/20 hover:border-secondary-container/50', glow: 'rgba(255,170,0,0.05)', bracket: 'border-secondary-container/50', label: 'text-secondary-container/70' },
+  red: { border: 'border-stark-red/20 hover:border-stark-red/50', glow: 'rgba(255,62,62,0.05)', bracket: 'border-stark-red/50', label: 'text-stark-red/70' },
+} as const
+const a = accentMap[accent]
+---
+
+<div
+  class={`relative rounded-xl border ${a.border} bg-surface-container-lowest/90 backdrop-blur-2xl transition-colors duration-700 ${className}`}
+  style={`box-shadow: 0 0 50px ${a.glow}`}
+>
+  <!-- Corner brackets -->
+  <div class={`absolute top-3 left-3 w-4 h-4 border-t-2 border-l-2 ${a.bracket} pointer-events-none`}></div>
+  <div class={`absolute bottom-3 right-3 w-4 h-4 border-b-2 border-r-2 ${a.bracket} pointer-events-none`}></div>
+  {coord && (
+    <span class={`absolute top-3 right-4 font-label-code text-[10px] tracking-widest uppercase ${a.label} pointer-events-none`}>
+      {coord}
+    </span>
+  )}
+  <slot />
+</div>

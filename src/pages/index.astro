@@ -1,0 +1,180 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import { getCollection, render } from 'astro:content'
+import { getSiteSettings } from '../lib/content'
+import ProjectStage from '../components/ProjectStage.astro'
+import ProjectCard from '../components/ProjectCard.astro'
+import AchievementCard from '../components/AchievementCard.astro'
+import JsonLd from '../components/JsonLd.astro'
+
+const settings = await getSiteSettings()
+
+const allProjects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order)
+const featured = allProjects.filter((p) => p.data.featured)
+const productionTrack = allProjects.filter((p) => !p.data.featured && p.data.category !== '42-school')
+const academic = allProjects.filter((p) => !p.data.featured && p.data.category === '42-school')
+
+// Pre-render the Markdoc body of each featured project so it can be slotted into ProjectStage.
+const featuredRendered = await Promise.all(
+  featured.map(async (p) => ({ p, Content: (await render(p)).Content })),
+)
+
+const achievements = (await getCollection('achievements')).sort((a, b) => a.data.order - b.data.order)
+
+const heroPortrait = '/profilePic-new.jpeg'
+const delays = [0, 100, 200] as const
+---
+
+<BaseLayout>
+  <JsonLd slot="head" />
+
+  <!-- ── Hero ─────────────────────────────────────────────────────────── -->
+  <section class="min-h-screen flex items-center px-8 md:px-16 max-w-7xl mx-auto w-full pt-32 pb-16">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center w-full">
+      <div class="lg:col-span-7 reveal-on-scroll order-2 lg:order-1">
+        <h1 class="font-display-lg text-5xl md:text-7xl lg:text-8xl text-white tracking-tighter mb-6 leading-[1.1] uppercase">
+          {settings?.heroFirstName ?? 'Willem'}<br />
+          {settings?.heroMiddleName ?? 'Johannes'}<br />
+          <span class="text-slate-cyan">{settings?.heroLastName ?? 'Smith'}</span>
+        </h1>
+        <div class="font-label-code text-secondary-container tracking-[0.2em] mb-10 text-sm md:text-base border-l-2 border-secondary-container pl-4">
+          {settings?.heroId ?? 'SYSTEMS ARCHITECT // ID: 9942-X'}
+        </div>
+        {settings?.heroIntro && (
+          <p class="text-on-surface-variant text-base md:text-lg max-w-xl mb-12 leading-relaxed">
+            {settings.heroIntro}
+          </p>
+        )}
+        {settings?.coreStack && settings.coreStack.length > 0 && (
+          <div class="space-y-6">
+            <div class="font-label-code text-xs text-on-surface-variant uppercase tracking-widest opacity-50">Core Stack</div>
+            <div class="flex flex-wrap gap-3 font-label-code text-xs text-slate-cyan">
+              {settings.coreStack.map((t) => (
+                <span class="px-4 py-2 border border-slate-cyan/20 rounded-full bg-slate-cyan/5">{t}</span>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+
+      <div class="lg:col-span-5 reveal-on-scroll delay-200 order-1 lg:order-2 flex justify-center lg:justify-end">
+        <div class="aspect-[4/5] w-full max-w-md bg-surface-container-low/40 border border-slate-cyan/30 rounded-2xl relative overflow-hidden backdrop-blur-sm group">
+          <div
+            class="absolute inset-0 bg-cover bg-center mix-blend-luminosity opacity-60 transition-transform duration-1000 group-hover:scale-105"
+            style={`background-image: url('${heroPortrait}')`}
+          ></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#05070f] via-[#05070f]/40 to-transparent"></div>
+          <div class="absolute top-4 left-4 w-4 h-4 border-t-2 border-l-2 border-slate-cyan/50"></div>
+          <div class="absolute bottom-4 right-4 w-4 h-4 border-b-2 border-r-2 border-slate-cyan/50"></div>
+          <div class="absolute bottom-6 left-6 right-6 flex justify-between items-end font-label-code text-[10px] text-slate-cyan/70 tracking-widest uppercase">
+            <span>BIO-SIG: VERIFIED</span>
+            <span>UPLINK_SECURE</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Featured projects (App-Store stages) ─────────────────────────── -->
+  <div id="projects">
+    {featuredRendered.map(({ p, Content }, i) => (
+      <ProjectStage project={p} index={i}>
+        <Content />
+      </ProjectStage>
+    ))}
+  </div>
+
+  <!-- ── Production Track ──────────────────────────────────────────────── -->
+  {productionTrack.length > 0 && (
+    <section class="py-32 px-8 md:px-16 relative">
+      <div class="max-w-6xl mx-auto w-full">
+        <div class="mb-16 reveal-on-scroll">
+          <h2 class="font-display-lg text-4xl text-white mb-4 uppercase tracking-widest">Production Track</h2>
+          <div class="font-label-code text-secondary-container text-sm uppercase tracking-widest">// Subsystem_Manifest</div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {productionTrack.map((p, i) => <ProjectCard project={p} delay={delays[i % 3]} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- ── 42 Cursus ────────────────────────────────────────────────────── -->
+  {academic.length > 0 && (
+    <section class="py-32 px-8 md:px-16 border-t border-outline-variant/10">
+      <div class="max-w-6xl mx-auto w-full">
+        <div class="mb-16 reveal-on-scroll">
+          <h2 class="font-display-lg text-4xl text-white mb-4 uppercase tracking-widest">42 Abu Dhabi // Software Engineering Cursus</h2>
+          <div class="font-label-code text-slate-cyan text-sm uppercase tracking-widest">// Academic_Subsystems</div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {academic.map((p, i) => <ProjectCard project={p} delay={delays[i % 3]} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- ── Achievements ─────────────────────────────────────────────────── -->
+  {achievements.length > 0 && (
+    <section id="achievements" class="py-32 px-8 md:px-16 border-t border-outline-variant/10">
+      <div class="max-w-6xl mx-auto w-full">
+        <div class="mb-16 reveal-on-scroll">
+          <h2 class="font-display-lg text-4xl text-white mb-4 uppercase tracking-widest">Achievements</h2>
+          <div class="font-label-code text-secondary-container text-sm uppercase tracking-widest">// Certified_Credentials</div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {achievements.map((a, i) => <AchievementCard achievement={a} delay={delays[i % 3]} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- ── Skills ───────────────────────────────────────────────────────── -->
+  {settings?.skillGroups && settings.skillGroups.length > 0 && (
+    <section id="skills" class="py-32 px-8 md:px-16 border-t border-outline-variant/10">
+      <div class="max-w-6xl mx-auto w-full">
+        <div class="mb-16 reveal-on-scroll">
+          <h2 class="font-display-lg text-4xl text-white mb-4 uppercase tracking-widest">Capability Matrix</h2>
+          <div class="font-label-code text-slate-cyan text-sm uppercase tracking-widest">// Skill_Registry</div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {settings.skillGroups.map((g, i) => (
+            <div class={`reveal-on-scroll ${i % 3 ? `delay-${delays[i % 3]}` : ''} p-8 bg-surface-container-lowest/40 border border-outline-variant/30 rounded-xl hover:border-slate-cyan transition-all`}>
+              <div class="font-label-code text-slate-cyan text-xs mb-6 uppercase tracking-widest">{g.title}</div>
+              <div class="flex flex-wrap gap-2">
+                {g.skills.map((s) => (
+                  <span class="px-3 py-1.5 text-on-surface-variant text-xs font-label-code uppercase border border-outline-variant/30 rounded">{s}</span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- ── About ────────────────────────────────────────────────────────── -->
+  {settings?.aboutBody && (
+    <section id="about" class="py-32 px-8 md:px-16 border-t border-outline-variant/10">
+      <div class="max-w-4xl mx-auto w-full reveal-on-scroll">
+        <h2 class="font-display-lg text-4xl text-white mb-4 uppercase tracking-widest">About</h2>
+        <div class="font-label-code text-slate-cyan text-sm uppercase tracking-widest mb-10">// Operator_Profile</div>
+        <p class="text-on-surface-variant text-lg leading-relaxed mb-10">{settings.aboutBody}</p>
+        <div class="flex flex-wrap gap-4 font-label-code text-xs uppercase tracking-widest">
+          {settings.contactEmail && (
+            <a href={`mailto:${settings.contactEmail}`} class="px-5 py-2.5 border border-slate-cyan/30 text-slate-cyan rounded hover:bg-slate-cyan/5 transition-colors">Contact ↗</a>
+          )}
+          {settings.github && (
+            <a href={settings.github} target="_blank" rel="noopener" class="px-5 py-2.5 border border-white/15 text-on-surface-variant rounded hover:border-white/40 transition-colors">GitHub ↗</a>
+          )}
+          {settings.linkedin && (
+            <a href={settings.linkedin} target="_blank" rel="noopener" class="px-5 py-2.5 border border-white/15 text-on-surface-variant rounded hover:border-white/40 transition-colors">LinkedIn ↗</a>
+          )}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Scroll choreography for the featured stages -->
+  <script src="../scripts/projectMotion.ts"></script>
+</BaseLayout>

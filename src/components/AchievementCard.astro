@@ -1,0 +1,49 @@
+---
+import { Image } from 'astro:assets'
+import { render, type CollectionEntry } from 'astro:content'
+
+interface Props {
+  achievement: CollectionEntry<'achievements'>
+  delay?: 0 | 100 | 200
+}
+const { achievement, delay = 0 } = Astro.props
+const d = achievement.data
+const { Content } = await render(achievement)
+---
+
+<div class={`reveal-on-scroll ${delay ? `delay-${delay}` : ''} flex flex-col h-full bg-surface-container-lowest/60 border border-outline-variant/50 rounded-2xl overflow-hidden hover:border-slate-cyan transition-all duration-500 group corner-bracket`}>
+  {d.image && (
+    <div class="relative aspect-video overflow-hidden border-b border-outline-variant/30">
+      <Image src={d.image} alt={`${d.title} certificate`} widths={[400, 700]} sizes="(max-width: 768px) 90vw, 30vw" class="w-full h-full object-cover mix-blend-luminosity opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" loading="lazy" />
+      <div class="absolute inset-0 bg-gradient-to-t from-[#05070f] via-transparent to-transparent"></div>
+    </div>
+  )}
+
+  <div class="p-8 flex flex-col flex-grow">
+    <div class="font-label-code text-slate-cyan text-xs mb-3 uppercase tracking-widest">
+      {d.issuer}{d.date ? ` // ${d.date}` : ''}
+    </div>
+    <h3 class="font-headline-md text-xl text-white mb-3 uppercase leading-tight">{d.title}</h3>
+
+    <div class="prose-hud text-on-surface-variant text-sm leading-relaxed mb-6 flex-grow">
+      <Content />
+    </div>
+
+    {d.skills.length > 0 && (
+      <div class="flex flex-wrap gap-2 mb-6">
+        {d.skills.map((s) => (
+          <span class="px-2.5 py-1 border border-slate-cyan/20 text-slate-cyan/90 text-[10px] font-label-code uppercase rounded bg-slate-cyan/5">{s}</span>
+        ))}
+      </div>
+    )}
+
+    <div class="flex flex-wrap gap-4 mt-auto pt-6 border-t border-outline-variant/30 font-label-code text-xs uppercase tracking-widest">
+      {d.certificate && (
+        <a href={d.certificate} target="_blank" rel="noopener" class="text-slate-cyan hover:underline">View Certificate ↗</a>
+      )}
+      {d.credentialUrl && (
+        <a href={d.credentialUrl} target="_blank" rel="noopener" class="text-on-surface-variant hover:text-slate-cyan transition-colors">Verify ↗</a>
+      )}
+    </div>
+  </div>
+</div>
