@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Willem Johannes Smith — Full Stack Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="resume.css" />
+</head>
+<body>
+  <main class="sheet">
+    <!-- ░░ HEADER ░░ -->
+    <header class="head">
+      <div class="head__id">
+        <h1 class="name">Willem <span>Johannes</span> Smith</h1>
+        <p class="role">Full Stack Developer</p>
+      </div>
+      <ul class="contact" aria-label="Contact details">
+        <li><span class="contact__k">@</span> <a href="mailto:wismith@cormonity.com">wismith@cormonity.com</a></li>
+        <li><span class="contact__k">☎</span> <a href="tel:+971585148467">+971 58 514 8467</a></li>
+        <li><span class="contact__k">↗</span> <a href="https://linkedin.com/in/willems24">linkedin.com/in/willems24</a></li>
+        <li><span class="contact__k">↗</span> <a href="https://github.com/jsjohn1951">github.com/jsjohn1951</a></li>
+        <li><span class="contact__k">↗</span> <a href="https://willemjohannessmith.web.app">willemjohannessmith.web.app</a></li>
+        <li><span class="contact__k">⌖</span> Abu Dhabi, UAE</li>
+      </ul>
+    </header>
+
+    <p class="summary">
+      Full Stack Developer who owns production systems end to end — React / Next.js and Vue
+      frontends, Go / Node services, Supabase / PostgreSQL data layers, and Dockerized CI/CD on
+      self-hosted infrastructure. Lead-level experience shipping reliable releases — rolling
+      deploys, automated rollback, and code-review gates — and mentoring peers, with a low-level
+      C / C++ foundation from 42 Abu Dhabi and a growing focus on agentic AI workflows.
+    </p>
+
+    <div class="grid">
+      <!-- ░░ MAIN COLUMN ░░ -->
+      <div class="main">
+        <section class="block">
+          <h2 class="block__title">Experience</h2>
+
+          <article class="job">
+            <div class="job__head">
+              <h3 class="job__org">Suportech Embedded</h3>
+              <span class="job__dates">Apr 2026 — Present</span>
+            </div>
+            <p class="job__role">Embedded Software Developer · Part-time</p>
+            <ul class="bullets">
+              <li>Developing desktop software in <strong>Python</strong> (PyQt5 front end, Flask
+                backend) with automated <strong>CI/CD</strong> release delivery.</li>
+              <li>Implemented data security with <strong>envelope encryption (DEK / KEK)</strong>
+                to protect sensitive data at rest.</li>
+              <li>Built an application updater with a <strong>CI/CD pipeline</strong> that publishes
+                versioned executables to a registry for automated rollout.</li>
+              <li>Authoring <strong>unit tests</strong> on GitHub Actions (windows-latest) runners,
+                with changes gated by code review before merging to dev.</li>
+            </ul>
+          </article>
+
+          <article class="job">
+            <div class="job__head">
+              <h3 class="job__org">Ratchet Capital</h3>
+              <span class="job__dates">Apr 2024 — Apr 2026</span>
+            </div>
+            <p class="job__role">Full Stack Developer · Abu Dhabi, UAE · Full-time</p>
+            <ul class="bullets">
+              <li>Shipped through a code-review-gated Git workflow — feature branches reviewed
+                before merging to <strong>dev</strong>, with weekly <strong>dev → main</strong>
+                production releases.</li>
+            </ul>
+
+            <div class="proj">
+              <p class="proj__head">
+                <span class="proj__name">Megastars.ai v2</span>
+                <span class="proj__stack">Next.js · Supabase · TypeScript · Cloudflare</span>
+              </p>
+              <ul class="bullets">
+                <li>Delivered full-stack features for a production influencer-marketing platform
+                  serving <strong>500+ active influencers</strong> at <strong>99.9% uptime</strong>
+                  and 10K+ daily auth requests.</li>
+                <li>Configured multi-provider OAuth (Instagram / TikTok / YouTube), built dashboard
+                  features, and improved landing-page SEO.</li>
+              </ul>
+            </div>
+
+            <div class="proj">
+              <p class="proj__head">
+                <span class="proj__name">Influenz — Megastars.ai v1</span>
+                <span class="proj__role">Tech Lead</span>
+                <span class="proj__stack">Vue · Gin (Go) · Node · PostgreSQL · Docker</span>
+              </p>
+              <ul class="bullets">
+                <li>Led a 4-developer team architecting a <strong>4-service Dockerized
+                  microservices</strong> platform behind Nginx — Vue / Vite frontend, Gin (Go) API,
+                  a dedicated Node OAuth 2.0 / identity service, and PostgreSQL.</li>
+                <li>Standardized environments with separate <strong>dev and prod Docker Compose</strong>
+                  stacks driven from a root Makefile, sharing inherited service definitions for DRY
+                  config and clean separation of concerns.</li>
+                <li>Provisioned <strong>staging and production DigitalOcean droplets</strong> on
+                  self-hosted Linux GitHub Actions runners, with a rolling-deploy workflow and
+                  automated rollback.</li>
+              </ul>
+            </div>
+
+            <div class="proj">
+              <p class="proj__head">
+                <span class="proj__name">Verif-y</span>
+                <span class="proj__role">Frontend Developer</span>
+                <span class="proj__stack">React Native · Expo · TypeScript</span>
+              </p>
+              <ul class="bullets">
+                <li>Built a cross-platform iOS / Android document-verification app with canvas
+                  signature capture and skeleton loading — <strong>~60% faster</strong> verification
+                  flow.</li>
+              </ul>
+            </div>
+
+            <div class="proj">
+              <p class="proj__head">
+                <span class="proj__name">ioMega Energy</span>
+                <span class="proj__role">Solo</span>
+                <span class="proj__stack">Eleventy · SASS · Docker · Nginx · GSAP</span>
+              </p>
+              <ul class="bullets">
+                <li>Designed and shipped a production SEO site scoring <strong>95+ Lighthouse</strong>
+                  with a 60% CSS reduction and sub-2.1s loads; zero-downtime rolling deploys via
+                  GitHub Actions.</li>
+              </ul>
+            </div>
+
+            <div class="proj">
+              <p class="proj__head">
+                <span class="proj__name">Trescudo</span>
+                <span class="proj__role">Solo</span>
+                <span class="proj__stack">Eleventy · Nunjucks · Docker · Nginx</span>
+              </p>
+              <ul class="bullets">
+                <li>Built a cybersecurity marketing site at <strong>98 performance</strong> score —
+                  85% image-size reduction (WebP) and sub-100ms response times.</li>
+              </ul>
+            </div>
+          </article>
+        </section>
+
+        <section class="block">
+          <h2 class="block__title">Selected Projects</h2>
+          <div class="proj proj--solo">
+            <p class="proj__head">
+              <span class="proj__name">Jarvis</span>
+              <span class="proj__stack">SwiftUI · Node · llama.cpp · Whisper</span>
+            </p>
+            <p class="proj__desc">Native macOS agentic LLM orchestration layer — dual-tier
+              local + cloud inference at 42 tok/s on an 18&nbsp;GB budget, with voice-to-text and
+              terminal command execution.</p>
+          </div>
+          <div class="proj proj--solo">
+            <p class="proj__head">
+              <span class="proj__name">Cormonity</span>
+              <span class="proj__stack">Next.js · Cloudflare Workers · Redis</span>
+            </p>
+            <p class="proj__desc">Distributed edge platform engineered for high-concurrency,
+              ultra-low-latency state distribution with resilient global edge routing.</p>
+          </div>
+          <div class="proj proj--solo">
+            <p class="proj__head">
+              <span class="proj__name">Jellybean PM</span>
+              <span class="proj__stack">Astro · GitHub Issues API · TypeScript</span>
+            </p>
+            <p class="proj__desc">GitHub-Issues-powered project-management integration for Astro —
+              drag-and-drop Kanban, sprint planning, milestones, and real-time chat with no external
+              database or SaaS.</p>
+          </div>
+        </section>
+
+        <section class="block">
+          <h2 class="block__title">42 Common Core Projects</h2>
+          <ul class="mini">
+            <li><span class="mini__name">ft_transcendence</span> — full-stack multiplayer web app
+              <span class="mini__stack">Nuxt.js · Nest.js · PostgreSQL · Docker</span></li>
+            <li><span class="mini__name">minishell</span> — Unix command interpreter: parsing, pipes,
+              redirections <span class="mini__stack">C</span></li>
+            <li><span class="mini__name">ft_irc</span> — RFC-compliant IRC server, socket programming
+              <span class="mini__stack">C++</span></li>
+          </ul>
+        </section>
+
+        <section class="block">
+          <h2 class="block__title">Mentoring &amp; Community</h2>
+          <ul class="vol">
+            <li>
+              <p class="vol__head"><span class="vol__role">Student Tutor</span>
+                <span class="vol__dates">Aug 2022 — Present</span></p>
+              <p class="vol__desc">Mentor peers on build systems (Makefiles) and memory-management
+                practices at 42 Abu Dhabi.</p>
+            </li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- ░░ SIDEBAR ░░ -->
+      <aside class="side">
+        <section class="block">
+          <h2 class="block__title">Skills</h2>
+          <dl class="skills">
+            <dt>Languages</dt>
+            <dd>TypeScript · Go · C / C++ · Python · SQL</dd>
+            <dt>Frontend</dt>
+            <dd>React · Next.js · Vue / Nuxt · Tailwind · GSAP</dd>
+            <dt>Backend</dt>
+            <dd>Node / Express · Gin · Flask · Supabase · PostgreSQL · REST · OAuth 2.0</dd>
+            <dt>DevOps</dt>
+            <dd>Docker · GitHub Actions (self-hosted runners) · DigitalOcean · Nginx · Cloudflare ·
+              Rolling deploys &amp; rollback</dd>
+            <dt>Embedded / Desktop</dt>
+            <dd>Python · PyQt5 · Flask · DEK / KEK encryption · Unit testing</dd>
+            <dt>AI</dt>
+            <dd>Claude Code · Agentic workflows · Local LLMs · Prompt engineering</dd>
+          </dl>
+        </section>
+
+        <section class="block">
+          <h2 class="block__title">Strengths</h2>
+          <p class="soft">Technical leadership · Mentoring · Ownership · Communication ·
+            Pragmatic problem-solving · Adaptability · Cross-team collaboration ·
+            Attention to detail · Continuous learning</p>
+        </section>
+
+        <section class="block">
+          <h2 class="block__title">Education</h2>
+          <div class="entry">
+            <p class="entry__title">42 Abu Dhabi</p>
+            <p class="entry__sub">Software Engineering — Common Core</p>
+            <p class="entry__meta">2021 — 2023</p>
+            <p class="entry__desc">Peer-to-peer, project-based curriculum: low-level C / C++, Unix
+              systems, concurrency, networking, algorithms, and DevOps.</p>
+          </div>
+        </section>
+
+        <section class="block">
+          <h2 class="block__title">Achievements</h2>
+          <ul class="achv">
+            <li>
+              <span class="achv__name">42 Common Core Certification</span>
+              <span class="achv__meta">42 Abu Dhabi · Nov 2023</span>
+            </li>
+            <li>
+              <span class="achv__name">AgentEra AI Hackathon</span>
+              <span class="achv__meta">MOEI × 42 Abu Dhabi — Certificate of Appreciation</span>
+            </li>
+          </ul>
+        </section>
+
+        <section class="block">
+          <h2 class="block__title">Languages</h2>
+          <dl class="langs">
+            <dt>English</dt><dd>Native</dd>
+            <dt>Afrikaans</dt><dd>Native</dd>
+            <dt>Spanish</dt><dd>Beginner</dd>
+          </dl>
+        </section>
+
+        <section class="block">
+          <h2 class="block__title">References</h2>
+          <p class="soft">Available on request.</p>
+        </section>
+      </aside>
+    </div>
+  </main>
+</body>
+</html>

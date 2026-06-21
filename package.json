@@ -7,7 +7,8 @@
     "dev": "astro dev --host",
     "build": "astro build",
     "preview": "astro preview --host",
-    "astro": "astro"
+    "astro": "astro",
+    "resume:pdf": "node resume/build.mjs"
   },
   "dependencies": {
     "@astrojs/markdoc": "^0.15.11",
@@ -29,6 +30,7 @@
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
+    "puppeteer": "^24.0.0",
     "sharp": "^0.34.5",
     "typescript": "^5.8.0"
   }

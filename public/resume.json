@@ -4,9 +4,10 @@
     "name": "Willem Johannes Smith",
     "label": "Full Stack Developer",
     "image": "https://willemjohannessmith.web.app/profilePic.jpeg",
-    "email": "wismith@student.42AbuDhabi.ae",
+    "email": "wismith@cormonity.com",
+    "phone": "+971 58 514 8467",
     "url": "https://willemjohannessmith.web.app",
-    "summary": "Full Stack Developer at Ratchet Capital specializing in production web applications with Docker, PostgreSQL, Express.js, and modern JavaScript frameworks (React, Next.js, Vue.js). Experienced in building SEO-optimized, high-performance applications with 95+ Lighthouse scores, architecting microservices with containerized infrastructure, and implementing comprehensive CI/CD pipelines. Strong foundation from 42 Abu Dhabi's software engineering program with expertise spanning frontend development, backend APIs, database design, and DevOps automation.",
+    "summary": "Full Stack Developer who owns production systems end to end — React / Next.js and Vue frontends, Go / Node services, Supabase / PostgreSQL data layers, and Dockerized CI/CD on self-hosted infrastructure. Lead-level experience shipping reliable releases (rolling deploys, automated rollback, code-review gates) and mentoring peers, with a low-level C / C++ foundation from 42 Abu Dhabi and a growing focus on agentic AI workflows. Production work spans an influencer-marketing platform serving 500+ users at 99.9% uptime, SEO-optimized sites scoring 95+ Lighthouse, and containerized microservices on staging/production DigitalOcean droplets.",
     "location": {
       "city": "Abu Dhabi",
       "countryCode": "AE",
@@ -27,19 +28,34 @@
   },
   "work": [
     {
-      "name": "Ratchet Capital",
-      "position": "Full Stack & DevOps Developer",
+      "name": "Suportech Embedded",
+      "position": "Embedded Software Developer (Part-time)",
       "url": "",
-      "startDate": "2023-04",
+      "startDate": "2026-04",
       "endDate": "",
-      "summary": "Building production applications with focus on Docker containerization, PostgreSQL database architecture, Express.js backend services, and modern frontend frameworks. Specializing in SEO optimization, performance tuning, and scalable microservices infrastructure.",
+      "summary": "Developing desktop software in Python with a PyQt5 front end and a Flask backend, with automated CI/CD release delivery, encryption, and a tested release pipeline.",
       "highlights": [
-        "Architecting Megastars.ai v2 platform serving 500+ influencers with 99.9% uptime using Next.js and Supabase",
-        "Achieved 95+ Lighthouse scores on ioMega Energy with comprehensive SEO optimization and 60% CSS reduction",
-        "Built Trescudo with 98 Performance score and 85% image size reduction through WebP optimization",
-        "Scaled OAuth service to handle 10K+ daily authentication requests across microservices",
-        "Developed React Native mobile application with real-time synchronization",
-        "Implemented serverless architecture with Cloudflare Workers for sub-100ms response times"
+        "Building desktop applications in Python (PyQt5 / Flask) with automated CI/CD release delivery",
+        "Implemented data security with envelope encryption (DEK / KEK) to protect sensitive data at rest",
+        "Built an application updater with a CI/CD pipeline that publishes versioned executables to a registry for automated rollout",
+        "Authoring unit tests on GitHub Actions (windows-latest) runners, with changes gated by code review before merging to dev"
+      ]
+    },
+    {
+      "name": "Ratchet Capital",
+      "position": "Full Stack Developer",
+      "location": "Abu Dhabi, UAE",
+      "url": "https://megastars.ai",
+      "startDate": "2024-04",
+      "endDate": "2026-04",
+      "summary": "Full-time, full-stack development across Ratchet Capital's product portfolio — influencer-marketing platforms, microservices infrastructure, cross-platform mobile, and SEO-optimized marketing sites — spanning Next.js / Vue.js frontends, Go / Node services, Supabase / PostgreSQL, and Docker-based CI/CD on self-hosted infrastructure.",
+      "highlights": [
+        "Shipped through a code-review-gated Git workflow — feature branches reviewed before merging to dev, with weekly dev to main production releases",
+        "Megastars.ai v2 (Next.js, Supabase): delivered full-stack features for a production influencer-marketing platform serving 500+ active influencers at 99.9% uptime and 10K+ daily auth requests; configured multi-provider OAuth (Instagram / TikTok / YouTube), built dashboard features, and improved landing-page SEO",
+        "Influenz / Megastars.ai v1 — Tech Lead: led a 4-developer team architecting a 4-service Dockerized microservices platform behind Nginx (Vue / Vite frontend, Gin (Go) API, a dedicated Node OAuth 2.0 / identity service, and PostgreSQL); standardized environments with separate dev and prod Docker Compose stacks driven from a root Makefile, sharing inherited service definitions for DRY config and separation of concerns; provisioned staging and production DigitalOcean droplets on self-hosted Linux GitHub Actions runners with rolling-deploy and automated rollback",
+        "Verif-y — Frontend Developer: built a cross-platform iOS / Android document-verification app (React Native, Expo) with canvas signature capture and skeleton loading, cutting verification time by ~60%",
+        "ioMega Energy (solo): production SEO site scoring 95+ Lighthouse with a 60% CSS reduction and sub-2.1s loads; Dockerized with Nginx and zero-downtime rolling deploys via GitHub Actions",
+        "Trescudo (solo): cybersecurity marketing site at 98 performance score — 85% image-size reduction (WebP) and sub-100ms response times"
       ]
     }
   ],
@@ -48,9 +64,9 @@
       "institution": "42 Abu Dhabi",
       "url": "https://42abudhabi.ae/",
       "area": "Software Engineering",
-      "studyType": "Common Core Program",
+      "studyType": "Common Core",
       "startDate": "2021",
-      "endDate": "2023-02",
+      "endDate": "2023",
       "score": "",
       "courses": [
         "Systems Programming (C/C++)",
@@ -121,15 +137,17 @@
     },
     {
       "name": "DevOps & Infrastructure",
-      "level": "Intermediate",
+      "level": "Advanced",
       "keywords": [
         "Docker",
-        "Cloudflare",
-        "Vercel",
-        "Firebase",
         "GitHub Actions",
-        "CI/CD",
-        "Edge Computing"
+        "Self-hosted Runners",
+        "DigitalOcean",
+        "Nginx",
+        "Cloudflare",
+        "Rolling Deploys",
+        "Automated Rollback",
+        "CI/CD"
       ]
     },
     {
@@ -140,136 +158,164 @@
         "Mobile-First Design",
         "Progressive Web Apps"
       ]
+    },
+    {
+      "name": "Embedded & Desktop",
+      "level": "Intermediate",
+      "keywords": [
+        "Python",
+        "PyQt5",
+        "Flask",
+        "DEK / KEK Encryption",
+        "Unit Testing",
+        "CI/CD Release Automation"
+      ]
+    },
+    {
+      "name": "Quality & Practices",
+      "keywords": [
+        "Code Review",
+        "Unit Testing",
+        "CI/CD Gates",
+        "Rolling Deploys",
+        "Rollback",
+        "Agile"
+      ]
+    },
+    {
+      "name": "Strengths",
+      "keywords": [
+        "Technical Leadership",
+        "Mentoring",
+        "Ownership",
+        "Communication",
+        "Pragmatic Problem-Solving",
+        "Adaptability",
+        "Cross-team Collaboration",
+        "Attention to Detail",
+        "Continuous Learning"
+      ]
     }
   ],
   "projects": [
     {
-      "name": "Megastars.ai v2",
-      "description": "Influencer marketing platform connecting brands with social media influencers. Built with Next.js, Supabase, and Cloudflare for scalability and performance.",
+      "name": "Jarvis",
+      "description": "Native macOS agentic LLM orchestration layer — a dual-tier local + cloud control interface operating on an 18 GB hardware budget, with voice-to-text semantic translation and automated terminal command execution.",
       "highlights": [
-        "Architecting platform serving 500+ influencers",
-        "Implemented real-time dashboard with live analytics",
-        "Built OAuth integration with Instagram, TikTok, and YouTube",
-        "Achieved 99.9% uptime with serverless architecture"
+        "Coordinated local inference with cloud models for low-latency, privacy-aware command execution",
+        "Achieved 42 tokens/sec local inference within an 18 GB memory budget",
+        "Built voice + terminal control via SwiftUI front end and Node orchestration"
       ],
       "keywords": [
-        "Next.js",
-        "Supabase",
-        "React",
-        "TypeScript",
-        "Cloudflare",
-        "OAuth"
+        "SwiftUI",
+        "Node.js",
+        "llama.cpp",
+        "Whisper",
+        "Local LLMs",
+        "Agentic AI"
       ],
-      "startDate": "2024-11",
-      "endDate": "",
-      "url": "https://megastars.ai",
-      "roles": [
-        "Lead Developer"
-      ],
-      "type": "application"
-    },
-    {
-      "name": "ioMega Energy",
-      "description": "Production website for energy solutions company with comprehensive SEO optimization and exceptional performance metrics.",
-      "highlights": [
-        "Achieved 95+ Lighthouse scores across all categories",
-        "Implemented advanced SEO strategies for organic traffic",
-        "Reduced CSS bundle size by 60% with PurgeCSS",
-        "Page load time under 2 seconds on 3G networks"
-      ],
-      "keywords": [
-        "Next.js",
-        "SEO",
-        "Performance Optimization",
-        "React",
-        "Cloudflare"
-      ],
-      "startDate": "2024",
-      "endDate": "2024",
-      "url": "https://iomega.energy",
-      "roles": [
-        "Full Stack Developer"
-      ],
-      "type": "website"
-    },
-    {
-      "name": "Trescudo",
-      "description": "Business application deployed on Vercel with edge computing for optimal performance and global reach.",
-      "highlights": [
-        "98 Lighthouse Performance score",
-        "85% image size reduction with WebP conversion",
-        "Edge-deployed for sub-100ms response times globally",
-        "Implemented responsive design for all device sizes"
-      ],
-      "keywords": [
-        "Next.js",
-        "Vercel",
-        "Edge Computing",
-        "Performance",
-        "TypeScript"
-      ],
-      "startDate": "2024",
-      "endDate": "2024",
-      "url": "https://trescudo.com",
-      "roles": [
-        "Full Stack Developer"
-      ],
-      "type": "application"
-    },
-    {
-      "name": "Verif-y",
-      "description": "Document verification mobile application with signature capture and real-time synchronization built with React Native.",
-      "highlights": [
-        "Reduced document verification time by 60%",
-        "Implemented intuitive signature capture UX",
-        "Built real-time sync between mobile and web",
-        "Cross-platform support (iOS and Android)"
-      ],
-      "keywords": [
-        "React Native",
-        "Mobile Development",
-        "Real-time Sync",
-        "UX Design"
-      ],
-      "startDate": "2024",
-      "endDate": "2024",
       "url": "",
       "roles": [
-        "Mobile Developer"
+        "Solo Developer"
+      ],
+      "type": "application"
+    },
+    {
+      "name": "Cormonity",
+      "description": "Distributed edge platform engineered for massive concurrent requests and ultra-low-latency state distribution across global edge networks.",
+      "highlights": [
+        "Built on Next.js with Cloudflare Workers at the edge and Redis for distributed state",
+        "Optimized traffic routing for resilient, low-latency delivery worldwide"
+      ],
+      "keywords": [
+        "Next.js",
+        "Cloudflare Workers",
+        "Redis",
+        "TypeScript",
+        "Edge Computing"
+      ],
+      "url": "",
+      "roles": [
+        "Full Stack Developer"
+      ],
+      "type": "application"
+    },
+    {
+      "name": "Jellybean PM",
+      "description": "Full-featured project-management integration for Astro sites, powered entirely by GitHub Issues. Embeds a drag-and-drop Kanban board, sprint planner, milestone tracker, calendar view, and real-time group chat directly into any Astro project — no external database or third-party SaaS required.",
+      "highlights": [
+        "Built a drag-and-drop Kanban board, sprint planner, milestone tracker, and calendar view backed entirely by GitHub Issues",
+        "Added real-time group chat with no external database or third-party SaaS dependency"
+      ],
+      "keywords": [
+        "Astro",
+        "GitHub Issues API",
+        "TypeScript"
+      ],
+      "url": "",
+      "roles": [
+        "Solo Developer"
       ],
       "type": "application"
     },
     {
       "name": "ft_transcendence",
-      "description": "Full-stack web application featuring real-time multiplayer Pong game, live chat, and OAuth authentication. Built as capstone project at 42 Abu Dhabi.",
+      "description": "Full-stack multiplayer web application built as a team project at 42 Abu Dhabi, with a TypeScript frontend, Nest.js backend, and PostgreSQL database.",
       "highlights": [
-        "Led 4-person Agile team completing project in 8 sprints",
-        "Implemented WebSocket real-time gameplay and chat",
-        "Built OAuth 2.0 authentication system",
-        "Designed responsive UI with Vue.js"
+        "Worked in a 4-person Agile team using feature-branch workflow and code review",
+        "Led frontend implementation with the Nuxt.js framework, translating Figma designs into code"
       ],
       "keywords": [
+        "Nuxt.js",
         "Vue.js",
-        "Node.js",
-        "WebSockets",
-        "OAuth",
+        "Nest.js",
         "PostgreSQL",
-        "Docker"
+        "Docker",
+        "TypeScript"
       ],
       "startDate": "2023",
       "endDate": "2023",
       "url": "",
       "roles": [
-        "Team Lead",
-        "Full Stack Developer"
+        "Frontend Lead"
       ],
       "type": "application"
+    }
+  ],
+  "volunteer": [
+    {
+      "organization": "42 Abu Dhabi",
+      "position": "Student Tutor",
+      "startDate": "2022-08",
+      "endDate": "",
+      "summary": "Mentor peers on build systems (Makefiles) and memory-management practices."
     }
   ],
   "languages": [
     {
       "language": "English",
       "fluency": "Native speaker"
+    },
+    {
+      "language": "Afrikaans",
+      "fluency": "Native speaker"
+    },
+    {
+      "language": "Spanish",
+      "fluency": "Beginner"
+    }
+  ],
+  "certificates": [
+    {
+      "name": "42 Common Core Certification",
+      "date": "2023-11",
+      "issuer": "42 Abu Dhabi",
+      "url": ""
+    },
+    {
+      "name": "AgentEra AI Hackathon — Certificate of Appreciation",
+      "issuer": "Ministry of Energy & Infrastructure × 42 Abu Dhabi",
+      "url": ""
     }
   ],
   "interests": [
@@ -292,7 +338,7 @@
   ],
   "meta": {
     "canonical": "https://raw.githubusercontent.com/jsonresume/resume-schema/master/schema.json",
-    "version": "v1.0.0",
-    "lastModified": "2025-01-05"
+    "version": "v1.1.0",
+    "lastModified": "2026-06-21"
   }
 }

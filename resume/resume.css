@@ -1,0 +1,332 @@
+/* ============================================================
+   Willem Johannes Smith — CV
+   Hybrid theme: clean / ATS-safe + cyan accent & mono headers.
+   Print-first; tuned to fit a single A4 page.
+   ============================================================ */
+
+:root {
+  --accent: #00b8c4;        /* cyan, darkened slightly for print contrast */
+  --accent-bright: #00f0ff; /* portfolio HUD cyan (screen) */
+  --ink: #0b1220;           /* near-black body text */
+  --ink-soft: #2b3445;      /* secondary text */
+  --muted: #5b6472;         /* meta / dates */
+  --rule: #e3e7ee;          /* hairline dividers */
+  --rule-soft: #eef1f6;
+  --sans: "Inter", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --mono: "JetBrains Mono", "Space Grotesk", ui-monospace, "SF Mono", Menlo, monospace;
+  --lh: 1.4;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+@page {
+  size: A4;
+  margin: 12mm 13mm;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: var(--sans);
+  color: var(--ink);
+  line-height: var(--lh);
+  font-size: 9.6px;
+  background: #fff;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* On-screen preview: emulate an A4 sheet so the layout matches the PDF. */
+.sheet {
+  width: 184mm;            /* A4 width (210) minus page margins */
+  margin: 0 auto;
+}
+@media screen {
+  body { background: #f4f6fa; padding: 18px 0; }
+  .sheet {
+    background: #fff;
+    padding: 12mm 13mm;
+    box-shadow: 0 8px 40px rgba(11, 18, 32, 0.14);
+  }
+}
+
+/* Keep logical units intact across the page break. */
+.job, .proj, .proj--solo, .entry, .vol li, .mini li, .achv li {
+  break-inside: avoid;
+}
+.block__title { break-after: avoid; }
+
+/* ── Header ──────────────────────────────────────────── */
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 18px;
+  padding-bottom: 9px;
+  border-bottom: 2px solid var(--accent);
+}
+.name {
+  font-family: var(--mono);
+  font-size: 23px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  line-height: 1.05;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.name span { font-weight: 500; color: var(--muted); }
+.role {
+  margin-top: 3px;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2.6px;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.contact {
+  list-style: none;
+  text-align: right;
+  font-size: 8.8px;
+  color: var(--ink-soft);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px 14px;
+}
+.contact li { white-space: nowrap; }
+.contact a { color: inherit; text-decoration: none; }
+.contact__k {
+  display: inline-block;
+  width: 9px;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* ── Summary ─────────────────────────────────────────── */
+.summary {
+  margin: 9px 0 11px;
+  font-size: 9.6px;
+  color: var(--ink-soft);
+}
+
+/* ── Layout grid ─────────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 0.58fr;
+  gap: 0 22px;
+}
+.side {
+  border-left: 1px solid var(--rule);
+  padding-left: 18px;
+}
+
+/* ── Section blocks ──────────────────────────────────── */
+.block { margin-bottom: 12px; }
+.block:last-child { margin-bottom: 0; }
+.block__title {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--ink);
+  padding-bottom: 3px;
+  margin-bottom: 7px;
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+}
+.block__title::before {
+  content: "";
+  position: absolute;
+  left: 0; bottom: -1px;
+  width: 34px; height: 2px;
+  background: var(--accent);
+}
+
+/* ── Experience ──────────────────────────────────────── */
+.job { margin-bottom: 11px; }
+.job:last-child { margin-bottom: 0; }
+.job__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+}
+.job__org {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: 0.2px;
+}
+.job__dates {
+  font-family: var(--mono);
+  font-size: 8.4px;
+  font-weight: 500;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.job__role {
+  font-size: 9.2px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 5px;
+}
+
+/* nested projects within a job */
+.proj { margin: 5px 0 0 0; }
+.proj__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 8px;
+  margin-bottom: 2px;
+}
+.proj__name {
+  font-weight: 700;
+  font-size: 9.8px;
+  color: var(--ink);
+}
+.proj__name::before {
+  content: "▹ ";
+  color: var(--accent);
+  font-weight: 700;
+}
+.proj__role {
+  font-size: 8.4px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  background: var(--rule-soft);
+  border-radius: 3px;
+  padding: 0 5px;
+}
+.proj__stack {
+  font-family: var(--mono);
+  font-size: 8px;
+  color: var(--muted);
+  margin-left: auto;
+}
+.proj__desc {
+  font-size: 9.2px;
+  color: var(--ink-soft);
+}
+
+/* ── Bullets ─────────────────────────────────────────── */
+.bullets { list-style: none; }
+.bullets li {
+  position: relative;
+  padding-left: 11px;
+  margin-bottom: 1.5px;
+  font-size: 9.2px;
+  color: var(--ink-soft);
+}
+.bullets li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 5px;
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+}
+.bullets strong, .summary strong, .proj__desc strong { color: var(--ink); font-weight: 700; }
+
+.proj--solo { margin-bottom: 6px; }
+.proj--solo:last-child { margin-bottom: 0; }
+
+/* ── Sidebar: skills ─────────────────────────────────── */
+.skills dt {
+  font-family: var(--mono);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-top: 5px;
+}
+.skills dt:first-child { margin-top: 0; }
+.skills dd {
+  font-size: 9px;
+  color: var(--ink-soft);
+  margin-top: 1px;
+}
+
+/* ── Sidebar: entries ────────────────────────────────── */
+.entry__title { font-weight: 700; font-size: 10px; color: var(--ink); }
+.entry__sub { font-size: 9px; color: var(--ink-soft); }
+.entry__meta {
+  font-family: var(--mono);
+  font-size: 8px;
+  color: var(--muted);
+  margin: 1px 0 3px;
+}
+.entry__desc { font-size: 8.8px; color: var(--ink-soft); }
+
+.achv { list-style: none; }
+.achv li { margin-bottom: 5px; }
+.achv li:last-child { margin-bottom: 0; }
+.achv__name {
+  display: block;
+  font-weight: 700;
+  font-size: 9.4px;
+  color: var(--ink);
+}
+.achv__name::before { content: "✦ "; color: var(--accent); }
+.achv__meta {
+  display: block;
+  font-size: 8.2px;
+  color: var(--muted);
+  padding-left: 11px;
+}
+
+.langs { display: grid; grid-template-columns: auto 1fr; gap: 1px 8px; }
+.langs dt { font-weight: 600; font-size: 9.2px; color: var(--ink); }
+.langs dd {
+  font-family: var(--mono);
+  font-size: 8.4px;
+  color: var(--muted);
+  text-align: right;
+}
+
+/* ── Soft skills ─────────────────────────────────────── */
+.soft { font-size: 9px; color: var(--ink-soft); }
+
+/* ── 42 projects (compact list) ──────────────────────── */
+.mini { list-style: none; }
+.mini li {
+  position: relative;
+  padding-left: 11px;
+  margin-bottom: 3px;
+  font-size: 9.2px;
+  color: var(--ink-soft);
+}
+.mini li::before {
+  content: "▹";
+  position: absolute;
+  left: 0; top: 0;
+  color: var(--accent);
+  font-weight: 700;
+}
+.mini__name { font-weight: 700; color: var(--ink); }
+.mini__stack {
+  font-family: var(--mono);
+  font-size: 7.8px;
+  color: var(--muted);
+}
+
+/* ── Volunteering ────────────────────────────────────── */
+.vol { list-style: none; }
+.vol li { margin-bottom: 5px; }
+.vol li:last-child { margin-bottom: 0; }
+.vol__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+.vol__role { font-weight: 700; font-size: 9.6px; color: var(--ink); }
+.vol__dates {
+  font-family: var(--mono);
+  font-size: 8px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.vol__desc { font-size: 9px; color: var(--ink-soft); }
