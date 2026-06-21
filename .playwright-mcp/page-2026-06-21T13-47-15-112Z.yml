@@ -1,0 +1,471 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]: SYSTEMS CORE
+      - generic [ref=e5]: "SYS_TIME: 13:47:15 UTC"
+    - generic [ref=e6]:
+      - generic [ref=e7]: "LATENCY: 14ms"
+      - generic [ref=e8]: "CORE_TEMP: 45.2°C"
+      - generic [ref=e9]: UPLINK_SECURE
+  - navigation [ref=e11]:
+    - generic [ref=e12]:
+      - link "W.J. SMITH" [ref=e13] [cursor=pointer]:
+        - /url: "#top"
+      - generic [ref=e14]: // SYSTEMS ARCHITECT
+    - generic [ref=e15]:
+      - generic [ref=e18]: "STATUS: OPERATIONAL"
+      - link "PROJECTS" [ref=e19] [cursor=pointer]:
+        - /url: "#projects"
+      - link "ACHIEVEMENTS" [ref=e20] [cursor=pointer]:
+        - /url: "#achievements"
+      - link "CONTACT" [ref=e21] [cursor=pointer]:
+        - /url: mailto:wismith@student.42AbuDhabi.ae
+      - link "GITHUB" [ref=e22] [cursor=pointer]:
+        - /url: https://github.com/jsjohn1951
+      - link "LINKEDIN" [ref=e23] [cursor=pointer]:
+        - /url: https://linkedin.com/in/willems24
+  - main [ref=e24]:
+    - generic [ref=e26]:
+      - generic [ref=e27]:
+        - heading "Willem Johannes Smith" [level=1] [ref=e28]:
+          - text: Willem
+          - text: Johannes
+          - text: Smith
+        - generic [ref=e29]: FULL STACK DEVELOPER // SYSTEMS ARCHITECT
+        - paragraph [ref=e30]: Full Stack Developer shipping production systems end to end — React / Next.js frontends, Golang / Node services, Supabase / PostgreSQL data layers, and Docker-driven CI/CD. Increasingly driven by prompt engineering, building agentic AI workflows that accelerate development and ship features faster.
+        - generic [ref=e31]:
+          - generic [ref=e32]: Core Stack
+          - generic [ref=e33]:
+            - generic [ref=e34]: C / C++
+            - generic [ref=e35]: GOLANG
+            - generic [ref=e36]: TYPESCRIPT
+            - generic [ref=e37]: VUE.JS
+            - generic [ref=e38]: REACT
+            - generic [ref=e39]: NEXT.JS
+            - generic [ref=e40]: DOCKER
+            - generic [ref=e41]: DOCKER COMPOSE
+            - generic [ref=e42]: CLAUDE CODE
+            - generic [ref=e43]: LOCAL AI MODELS
+            - generic [ref=e44]: SHELL SCRIPTING
+            - generic [ref=e45]: SYSTEMS ADMIN
+      - generic [ref=e52]:
+        - generic [ref=e53]: "BIO-SIG: VERIFIED"
+        - generic [ref=e54]: UPLINK_SECURE
+    - generic [ref=e55]:
+      - article [ref=e56]:
+        - generic [ref=e58]:
+          - generic [ref=e59]:
+            - generic [ref=e60]:
+              - generic [ref=e61]: "Deploy_ID: X-01"
+              - generic [ref=e62]: ONLINE
+            - heading "Jarvis" [level=2] [ref=e64]
+            - generic [ref=e65]: // Solo Developer
+            - article [ref=e67]:
+              - paragraph [ref=e68]: Native macOS Agentic Orchestration Layer. A dual-tier local/cloud LLM control interface operating on an 18GB hardware budget.
+              - paragraph [ref=e69]: Automated terminal interfacing and voice-to-text semantic translation, coordinating local inference with cloud models for low-latency, privacy-aware command execution.
+            - generic [ref=e70]:
+              - generic [ref=e71]: SwiftUI
+              - generic [ref=e72]: Node.js
+              - generic [ref=e73]: Llama.cpp
+              - generic [ref=e74]: Whisper
+            - generic [ref=e75]:
+              - generic [ref=e77]: 18.4 GB memory budget
+              - generic [ref=e79]: 42 tokens/sec inference
+              - generic [ref=e81]: Dual-tier local + cloud LLM
+              - generic [ref=e83]: Voice + terminal control
+          - generic [ref=e85]:
+            - img "Jarvis screenshot" [ref=e88]
+            - generic [ref=e89]:
+              - generic [ref=e90]: VISUAL_FEED
+              - generic [ref=e91]: 1 FRAME
+      - article [ref=e92]:
+        - generic [ref=e94]:
+          - generic [ref=e95]:
+            - generic [ref=e96]:
+              - generic [ref=e97]: "Deploy_ID: X-02"
+              - generic [ref=e98]: ONLINE
+            - heading "Cormonity" [level=2] [ref=e100]
+            - generic [ref=e101]: // Full Stack Developer
+            - article [ref=e103]:
+              - paragraph [ref=e104]: Distributed Digital Ecosystem Node. An active production platform engineered for massive concurrent requests and ultra-low latency data state distribution across global edge networks.
+              - paragraph [ref=e105]: Built on Next.js with Cloudflare Workers at the edge and Redis for distributed state, optimizing traffic routing for resilient, low-latency delivery worldwide.
+            - generic [ref=e106]:
+              - generic [ref=e107]: Next.js
+              - generic [ref=e108]: TypeScript
+              - generic [ref=e109]: Cloudflare Workers
+              - generic [ref=e110]: Redis
+            - generic [ref=e111]:
+              - generic [ref=e113]: 99.99% global uptime
+              - generic [ref=e115]: 12,400 req/sec
+              - generic [ref=e117]: Global edge routing
+              - generic [ref=e119]: Stable production
+          - generic [ref=e121]:
+            - img "Cormonity screenshot" [ref=e124]
+            - generic [ref=e125]:
+              - generic [ref=e126]: VISUAL_FEED
+              - generic [ref=e127]: 1 FRAME
+      - article [ref=e128]:
+        - generic [ref=e130]:
+          - generic [ref=e131]:
+            - generic [ref=e132]:
+              - generic [ref=e133]: "Deploy_ID: X-03"
+              - generic [ref=e134]: ONLINE
+            - heading "Megastars.ai - Next.js Platform (v2)" [level=2] [ref=e136]
+            - generic [ref=e137]: November 2024 - Present // Full Stack Developer
+            - article [ref=e139]:
+              - paragraph [ref=e140]: Full-stack contributor to Megastars.ai v2, a production influencer-marketing platform at Ratchet Capital serving 500+ active influencers.
+              - paragraph [ref=e141]: Worked across the Next.js frontend and Supabase backend — configuring multiple OAuth strategies (Instagram / TikTok / YouTube), building dashboard features, and improving landing-page SEO.
+            - generic [ref=e142]:
+              - generic [ref=e143]: Next.js
+              - generic [ref=e144]: React
+              - generic [ref=e145]: Supabase
+              - generic [ref=e146]: TypeScript
+              - generic [ref=e147]: Cloudflare
+              - generic [ref=e148]: AI-Assisted Dev
+            - generic [ref=e149]:
+              - generic [ref=e151]: Serving 500+ influencers
+              - generic [ref=e153]: 99.9% uptime
+              - generic [ref=e155]: 10K+ daily auth requests
+              - generic [ref=e157]: Real-time data sync
+            - link "Launch ↗" [ref=e159] [cursor=pointer]:
+              - /url: https://megastars.ai
+          - generic [ref=e161]:
+            - generic [ref=e162]:
+              - generic [ref=e163]: ⌬
+              - generic [ref=e164]:
+                - generic [ref=e165]: W.J. SMITH // ADMIN
+                - generic [ref=e166]: "AUTH_TOKEN: VALIDATED"
+            - generic [ref=e169]:
+              - paragraph [ref=e170]: "> INIT SUBSYSTEM.sh"
+              - paragraph [ref=e171]: "> LOADING MODULES... [OK]"
+              - paragraph [ref=e172]: "> ESTABLISHING UPLINK..."
+              - paragraph [ref=e173]: "> AWAITING COMMAND_"
+      - article [ref=e174]:
+        - generic [ref=e176]:
+          - generic [ref=e177]:
+            - generic [ref=e178]:
+              - generic [ref=e179]: "Deploy_ID: X-04"
+              - generic [ref=e180]: STANDBY
+            - heading "Influenz - Microservices Platform" [level=2] [ref=e182]
+            - generic [ref=e183]: October 2024 - November 2024 // Tech Lead
+            - article [ref=e185]:
+              - paragraph [ref=e186]: Developed the initial version of Megastars.ai at Ratchet Capital using a Docker-based microservices architecture. Implemented containerized services, CI/CD pipelines with GitHub Actions, and an OAuth 2.0 authentication service in Express.js for centralized user management. Built the Vue.js-based Influencer Dashboard for campaign and assignment management, ensuring scalable deployments and a seamless user experience.
+            - generic [ref=e187]:
+              - generic [ref=e188]: Vue.js
+              - generic [ref=e189]: Golang
+              - generic [ref=e190]: Express.js
+              - generic [ref=e191]: Docker
+              - generic [ref=e192]: GitHub Actions
+              - generic [ref=e193]: OAuth 2.0
+            - generic [ref=e194]:
+              - generic [ref=e196]: 3 microservices architecture
+              - generic [ref=e198]: OAuth 2.0 authentication
+              - generic [ref=e200]: Automated CI/CD pipeline
+          - generic [ref=e202]:
+            - generic [ref=e203]:
+              - generic [ref=e204]: ⌬
+              - generic [ref=e205]:
+                - generic [ref=e206]: W.J. SMITH // ADMIN
+                - generic [ref=e207]: "AUTH_TOKEN: VALIDATED"
+            - generic [ref=e210]:
+              - paragraph [ref=e211]: "> INIT SUBSYSTEM.sh"
+              - paragraph [ref=e212]: "> LOADING MODULES... [OK]"
+              - paragraph [ref=e213]: "> ESTABLISHING UPLINK..."
+              - paragraph [ref=e214]: "> AWAITING COMMAND_"
+      - article [ref=e215]:
+        - generic [ref=e217]:
+          - generic [ref=e218]:
+            - generic [ref=e219]:
+              - generic [ref=e220]: "Deploy_ID: X-05"
+              - generic [ref=e221]: STANDBY
+            - heading "ft_transcendence" [level=2] [ref=e223]
+            - generic [ref=e224]: Sep, 2023 - Nov, 2023
+            - article [ref=e226]:
+              - paragraph [ref=e227]: Ft_transcendence is the first of many web development projects that involves the use of a TypeScript frontend framework, Nest.js backend, and a PostgreSQL database. The project requires a team of 3-5 developers to complete it, and our 4-person team implemented an Agile approach to software development.
+              - paragraph [ref=e228]: Using Agile board software like YouTrack we were able to quickly implement new technologies and libraries as well as verify each other's work before merging into the 'Story Branch' (otherwise known as a feature branch).
+              - paragraph [ref=e229]: Led frontend implementation with the Nuxt.js framework, translating Figma designs into code to be integrated into the web application.
+            - generic [ref=e230]:
+              - generic [ref=e231]: Nuxt.js
+              - generic [ref=e232]: Vue.js
+              - generic [ref=e233]: TypeScript
+              - generic [ref=e234]: Nest.js
+              - generic [ref=e235]: PostgreSQL
+              - generic [ref=e236]: Docker
+              - generic [ref=e237]: Git
+          - generic [ref=e239]:
+            - img "ft_transcendence screenshot" [ref=e242]
+            - generic [ref=e243]:
+              - generic [ref=e244]: VISUAL_FEED
+              - generic [ref=e245]: 4 FRAMES
+    - generic [ref=e247]:
+      - generic [ref=e248]:
+        - heading "Production Track" [level=2] [ref=e249]
+        - generic [ref=e250]: // Subsystem_Manifest
+        - paragraph [ref=e251]: Production systems shipped for clients and employers — full-stack platforms, marketing sites, and services running in the wild.
+      - generic [ref=e252]:
+        - generic [ref=e253]:
+          - generic [ref=e255]: November 2024 - January 2026
+          - heading "ioMega Energy - SEO-Optimized Website" [level=3] [ref=e256]
+          - paragraph [ref=e257]: Designed and developed a production SEO-optimized corporate website for a clean energy company, achieving exceptional performance and search rankings.
+          - generic [ref=e258]:
+            - generic [ref=e259]: Eleventy
+            - generic [ref=e260]: •
+            - generic [ref=e261]: SASS
+            - generic [ref=e262]: •
+            - generic [ref=e263]: Docker
+            - generic [ref=e264]: •
+            - generic [ref=e265]: Nginx
+            - generic [ref=e266]: •
+            - generic [ref=e267]: GSAP
+        - generic [ref=e268]:
+          - generic [ref=e270]: October 2024 - November 2024
+          - heading "Trescudo - Cybersecurity Marketing Site" [level=3] [ref=e271]
+          - paragraph [ref=e272]: Built production marketing website for cybersecurity services with focus on performance optimization and fast load times.
+          - generic [ref=e273]:
+            - generic [ref=e274]: Eleventy
+            - generic [ref=e275]: •
+            - generic [ref=e276]: Nunjucks
+            - generic [ref=e277]: •
+            - generic [ref=e278]: Docker
+            - generic [ref=e279]: •
+            - generic [ref=e280]: Nginx
+            - generic [ref=e281]: •
+            - generic [ref=e282]: GitHub Actions
+        - generic [ref=e283]:
+          - generic [ref=e285]: July 2024 - October 2024
+          - heading "Verif-y - Document Verification Mobile App" [level=3] [ref=e286]
+          - paragraph [ref=e287]: Frontend developer for Verif-y, a React Native iOS/Android application at Ratchet Capital for document verification workflows.
+          - generic [ref=e288]:
+            - generic [ref=e289]: React Native
+            - generic [ref=e290]: •
+            - generic [ref=e291]: Expo
+            - generic [ref=e292]: •
+            - generic [ref=e293]: TypeScript
+            - generic [ref=e294]: •
+            - generic [ref=e295]: Canvas API
+        - generic [ref=e296]:
+          - generic [ref=e298]: Aug, 2023 - Dec, 2023
+          - heading "wiValgrind" [level=3] [ref=e299]
+          - paragraph [ref=e300]: A containerized shell development environment with standardized tools and utilities such as make, gcc, g++, node.js, and npm allowing the developer to compile,…
+          - generic [ref=e301]:
+            - generic [ref=e302]: Docker
+            - generic [ref=e303]: •
+            - generic [ref=e304]: Docker Compose
+            - generic [ref=e305]: •
+            - generic [ref=e306]: Linux
+            - generic [ref=e307]: •
+            - generic [ref=e308]: Make
+            - generic [ref=e309]: •
+            - generic [ref=e310]: GCC
+          - link "Source ↗" [ref=e311] [cursor=pointer]:
+            - /url: https://github.com/jsjohn1951/wiValgrind
+    - generic [ref=e313]:
+      - generic [ref=e314]:
+        - heading "42 Abu Dhabi // Software Engineering Cursus" [level=2] [ref=e315]
+        - generic [ref=e316]: // Academic_Subsystems
+        - paragraph [ref=e317]: The 42 Abu Dhabi peer-to-peer curriculum — low-level systems projects built from scratch in C / C++, with no lectures and no teachers.
+      - generic [ref=e318]:
+        - generic [ref=e319]:
+          - generic [ref=e321]: May, 2023 - Jun, 2023
+          - heading "Inception" [level=3] [ref=e322]
+          - paragraph [ref=e323]: Inception is an introduction to docker and docker compose. This project gave me the opportunity to implement a small dockerized infrastructure with Nginx,…
+          - generic [ref=e324]:
+            - generic [ref=e325]: Docker
+            - generic [ref=e326]: •
+            - generic [ref=e327]: Nginx
+            - generic [ref=e328]: •
+            - generic [ref=e329]: WordPress
+            - generic [ref=e330]: •
+            - generic [ref=e331]: MariaDB
+            - generic [ref=e332]: •
+            - generic [ref=e333]: Linux
+          - link "Source ↗" [ref=e334] [cursor=pointer]:
+            - /url: https://github.com/jsjohn1951/inception
+        - generic [ref=e335]:
+          - generic [ref=e337]: Apr, 2023 - May, 2023
+          - heading "Ft_Irc" [level=3] [ref=e338]
+          - paragraph [ref=e339]: Ft_irc provided essential experience in socket programming. This project required a team of 2-3 developers to create an IRC server in C++ that would handle…
+          - generic [ref=e340]:
+            - generic [ref=e341]: C++
+            - generic [ref=e342]: •
+            - generic [ref=e343]: Sockets
+            - generic [ref=e344]: •
+            - generic [ref=e345]: Linux
+            - generic [ref=e346]: •
+            - generic [ref=e347]: Git
+          - link "Source ↗" [ref=e348] [cursor=pointer]:
+            - /url: https://github.com/Genius-gambit/ft_irc
+        - generic [ref=e349]:
+          - generic [ref=e351]: Feb, 2023 - Mar, 2023
+          - heading "Ft_Containers" [level=3] [ref=e352]
+          - paragraph [ref=e353]: Ft_Containers encapsulated multiple unique concepts of computer programming. The project requires that an individual implement their own version of the vector,…
+          - generic [ref=e354]:
+            - generic [ref=e355]: C++
+            - generic [ref=e356]: •
+            - generic [ref=e357]: STL
+            - generic [ref=e358]: •
+            - generic [ref=e359]: Linux
+            - generic [ref=e360]: •
+            - generic [ref=e361]: Git
+          - link "Source ↗" [ref=e362] [cursor=pointer]:
+            - /url: https://github.com/jsjohn1951/ft_containers
+        - generic [ref=e363]:
+          - heading "libft" [level=3] [ref=e365]
+          - paragraph [ref=e366]: Re-coding standard C library functions from scratch to understand memory management and core data structures — the foundational toolkit reused across the…
+          - generic [ref=e367]:
+            - generic [ref=e368]: C
+            - generic [ref=e369]: •
+            - generic [ref=e370]: Makefiles
+            - generic [ref=e371]: •
+            - generic [ref=e372]: Memory Management
+        - generic [ref=e373]:
+          - heading "minitalk" [level=3] [ref=e375]
+          - paragraph [ref=e376]: Using Unix signals (SIGUSR1/SIGUSR2) for bitwise data transmission and inter-process communication between a client and server.
+          - generic [ref=e377]:
+            - generic [ref=e378]: C
+            - generic [ref=e379]: •
+            - generic [ref=e380]: Unix Signals
+            - generic [ref=e381]: •
+            - generic [ref=e382]: IPC
+        - generic [ref=e383]:
+          - heading "minishell" [level=3] [ref=e385]
+          - paragraph [ref=e386]: Building a command-line interpreter — parsing, tokenization, and execution of binaries with environment handling, pipes, and redirections.
+          - generic [ref=e387]:
+            - generic [ref=e388]: C
+            - generic [ref=e389]: •
+            - generic [ref=e390]: Parsing
+            - generic [ref=e391]: •
+            - generic [ref=e392]: Processes
+        - generic [ref=e393]:
+          - heading "philosophers" [level=3] [ref=e395]
+          - paragraph [ref=e396]: Solving the Dining Philosophers problem using threads, mutexes, and semaphores — a deep dive into concurrency, race conditions, and deadlock avoidance.
+          - generic [ref=e397]:
+            - generic [ref=e398]: C
+            - generic [ref=e399]: •
+            - generic [ref=e400]: Threads
+            - generic [ref=e401]: •
+            - generic [ref=e402]: Mutexes
+            - generic [ref=e403]: •
+            - generic [ref=e404]: Semaphores
+        - generic [ref=e405]:
+          - heading "push_swap" [level=3] [ref=e407]
+          - paragraph [ref=e408]: Optimizing sorting algorithms using a limited set of stack operations, minimizing the number of moves required to sort arbitrary integer sequences.
+          - generic [ref=e409]:
+            - generic [ref=e410]: C
+            - generic [ref=e411]: •
+            - generic [ref=e412]: Algorithms
+            - generic [ref=e413]: •
+            - generic [ref=e414]: Sorting
+    - generic [ref=e416]:
+      - generic [ref=e417]:
+        - heading "Achievements" [level=2] [ref=e418]
+        - generic [ref=e419]: // Certified_Credentials
+      - generic [ref=e420]:
+        - generic [ref=e422]:
+          - generic [ref=e423]: Ministry of Energy & Infrastructure × 42 Abu Dhabi
+          - heading "AgentEra AI Hackathon — Certificate of Appreciation" [level=3] [ref=e424]
+          - article [ref=e426]:
+            - paragraph [ref=e427]: Certificate of Appreciation from the UAE Ministry of Energy & Infrastructure and 42 Abu Dhabi for participating in the MOEI × 42 Abu Dhabi AgentEra AI Hackathon — recognized for innovation, collaboration, and problem-solving in Artificial Intelligence.
+          - generic [ref=e428]:
+            - generic [ref=e429]: Artificial Intelligence
+            - generic [ref=e430]: Agentic AI
+            - generic [ref=e431]: Collaboration
+            - generic [ref=e432]: Problem-Solving
+          - link "View Certificate ↗" [ref=e434] [cursor=pointer]:
+            - /url: /achievements/agentera-ai-hackathon/certificate.pdf
+        - generic [ref=e436]:
+          - generic [ref=e437]: 42 Abu Dhabi // Nov 2023
+          - heading "42 Common Core Certification" [level=3] [ref=e438]
+          - article [ref=e440]:
+            - paragraph [ref=e441]: Completed the rigorous 42 Common Core — a peer-to-peer, project-based software engineering curriculum with no lectures or teachers. Covered low-level C/C++, Unix system programming, IPC, threading and concurrency, network sockets, algorithms, graphics, and DevOps through progressively harder projects.
+          - generic [ref=e442]:
+            - generic [ref=e443]: C / C++
+            - generic [ref=e444]: Unix Systems
+            - generic [ref=e445]: Concurrency
+            - generic [ref=e446]: Networking
+            - generic [ref=e447]: Algorithms
+            - generic [ref=e448]: DevOps
+          - link "View Certificate ↗" [ref=e450] [cursor=pointer]:
+            - /url: /achievements/42-common-core/certificate.pdf
+        - generic [ref=e452]:
+          - generic [ref=e453]: Vex IQ // Feb 2024
+          - heading "Vex IQ certification" [level=3] [ref=e454]
+          - article [ref=e456]:
+            - paragraph [ref=e457]:
+              - strong [ref=e458]: VEX IQ Robotics Certification
+            - paragraph [ref=e459]: Earned a 16-credit-hour VEX IQ Robotics Certification, developing practical experience in robotics engineering, programming fundamentals, systems integration, and technical problem-solving. Applied engineering design methodologies and iterative development practices to build, test, and optimize robotic solutions, strengthening skills directly transferable to software development and complex system design.
+          - link "View Certificate ↗" [ref=e461] [cursor=pointer]:
+            - /url: /achievements/vex-iq-certification/certificate.pdf
+    - generic [ref=e463]:
+      - generic [ref=e464]:
+        - heading "Capability Matrix" [level=2] [ref=e465]
+        - generic [ref=e466]: // Skill_Registry
+      - generic [ref=e467]:
+        - generic [ref=e468]:
+          - generic [ref=e469]: Frontend
+          - generic [ref=e470]:
+            - generic [ref=e471]: React
+            - generic [ref=e472]: Next.js
+            - generic [ref=e473]: Vue.js
+            - generic [ref=e474]: Nuxt.js
+            - generic [ref=e475]: TypeScript
+            - generic [ref=e476]: HTML5
+            - generic [ref=e477]: CSS3
+            - generic [ref=e478]: SASS
+        - generic [ref=e479]:
+          - generic [ref=e480]: Backend
+          - generic [ref=e481]:
+            - generic [ref=e482]: Node.js / Express
+            - generic [ref=e483]: Golang / Gin
+            - generic [ref=e484]: Supabase
+            - generic [ref=e485]: PostgreSQL
+            - generic [ref=e486]: REST APIs
+            - generic [ref=e487]: OAuth 2.0
+        - generic [ref=e488]:
+          - generic [ref=e489]: SEO & Performance
+          - generic [ref=e490]:
+            - generic [ref=e491]: JSON-LD Structured Data
+            - generic [ref=e492]: Lighthouse
+            - generic [ref=e493]: WebP
+            - generic [ref=e494]: Lazy Loading
+            - generic [ref=e495]: GSAP
+            - generic [ref=e496]: Chart.js
+        - generic [ref=e497]:
+          - generic [ref=e498]: DevOps & Cloud
+          - generic [ref=e499]:
+            - generic [ref=e500]: Docker
+            - generic [ref=e501]: GitHub Actions
+            - generic [ref=e502]: Nginx
+            - generic [ref=e503]: Cloudflare
+            - generic [ref=e504]: Firebase
+            - generic [ref=e505]: Rolling Deployments
+        - generic [ref=e506]:
+          - generic [ref=e507]: Systems
+          - generic [ref=e508]:
+            - generic [ref=e509]: Python
+            - generic [ref=e510]: C / C++
+            - generic [ref=e511]: Linux
+            - generic [ref=e512]: Shell
+            - generic [ref=e513]: Git
+            - generic [ref=e514]: Makefiles
+        - generic [ref=e515]:
+          - generic [ref=e516]: AI-Assisted
+          - generic [ref=e517]:
+            - generic [ref=e518]: Claude Code
+            - generic [ref=e519]: Perplexity AI
+            - generic [ref=e520]: AI Debugging
+            - generic [ref=e521]: Rapid Prototyping
+  - contentinfo [ref=e522]: © 2026 SYSTEMS_CORE // W.J. SMITH // GLOBAL_REACH
+  - generic [ref=e525]:
+    - button "Menu" [ref=e526]:
+      - img [ref=e528]
+      - generic: Menu
+    - button "Inspect" [ref=e532]:
+      - img [ref=e534]
+      - generic: Inspect
+    - button "Audit" [ref=e536]:
+      - img [ref=e538]
+      - generic: Audit
+    - button "Settings" [ref=e541]:
+      - img [ref=e543]
+      - generic: Settings

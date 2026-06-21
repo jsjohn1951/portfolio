@@ -34,6 +34,14 @@ export default config({
         }),
         statusText: fields.text({ label: 'Status text', defaultValue: 'OPERATIONAL' }),
         aboutBody: fields.text({ label: 'About — body', multiline: true }),
+        productionIntro: fields.text({
+          label: 'Production Track — intro',
+          multiline: true,
+        }),
+        cursusIntro: fields.text({
+          label: '42 Cursus — intro',
+          multiline: true,
+        }),
         contactEmail: fields.text({ label: 'Contact email' }),
         github: fields.url({ label: 'GitHub URL' }),
         linkedin: fields.url({ label: 'LinkedIn URL' }),

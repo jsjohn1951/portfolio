@@ -24,6 +24,12 @@ statusText: OPERATIONAL
 contactEmail: wismith@student.42AbuDhabi.ae
 github: https://github.com/jsjohn1951
 linkedin: https://linkedin.com/in/willems24
+productionIntro: >-
+  Production systems shipped for clients and employers — full-stack platforms,
+  marketing sites, and services running in the wild.
+cursusIntro: >-
+  The 42 Abu Dhabi peer-to-peer curriculum — low-level systems projects built
+  from scratch in C / C++, with no lectures and no teachers.
 skillGroups:
   - title: Frontend
     skills:

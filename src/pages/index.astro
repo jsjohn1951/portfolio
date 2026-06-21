@@ -90,7 +90,10 @@ const delays = [0, 100, 200] as const
       <div class="max-w-6xl mx-auto w-full">
         <div class="mb-16 reveal-on-scroll">
           <h2 class="font-display-lg text-4xl text-white mb-4 uppercase tracking-widest">Production Track</h2>
-          <div class="font-label-code text-secondary-container text-sm uppercase tracking-widest">// Subsystem_Manifest</div>
+          <div class="font-label-code text-secondary-container text-sm uppercase tracking-widest mb-5">// Subsystem_Manifest</div>
+          <p class="text-on-surface-variant text-sm md:text-base leading-relaxed max-w-2xl">
+            {settings?.productionIntro ?? 'Production systems shipped for clients and employers — full-stack platforms, marketing sites, and services running in the wild.'}
+          </p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {productionTrack.map((p, i) => <ProjectCard project={p} delay={delays[i % 3]} />)}
@@ -105,7 +108,10 @@ const delays = [0, 100, 200] as const
       <div class="max-w-6xl mx-auto w-full">
         <div class="mb-16 reveal-on-scroll">
           <h2 class="font-display-lg text-4xl text-white mb-4 uppercase tracking-widest">42 Abu Dhabi // Software Engineering Cursus</h2>
-          <div class="font-label-code text-slate-cyan text-sm uppercase tracking-widest">// Academic_Subsystems</div>
+          <div class="font-label-code text-slate-cyan text-sm uppercase tracking-widest mb-5">// Academic_Subsystems</div>
+          <p class="text-on-surface-variant text-sm md:text-base leading-relaxed max-w-2xl">
+            {settings?.cursusIntro ?? 'The 42 Abu Dhabi peer-to-peer curriculum — low-level systems projects built from scratch in C / C++, with no lectures and no teachers.'}
+          </p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {academic.map((p, i) => <ProjectCard project={p} delay={delays[i % 3]} />)}
