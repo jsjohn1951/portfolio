@@ -1,7 +1,7 @@
 heroFirstName: Willem
 heroMiddleName: Johannes
 heroLastName: Smith
-heroId: "FULL STACK DEVELOPER // SYSTEMS ARCHITECT"
+heroId: FULL STACK DEVELOPER // SYSTEMS ARCHITECT
 heroIntro: >-
   Full Stack Developer shipping production systems end to end — React / Next.js
   frontends, Golang / Node services, Supabase / PostgreSQL data layers, and
@@ -11,16 +11,16 @@ coreStack:
   - C / C++
   - GOLANG
   - TYPESCRIPT
+  - VUE.JS
   - REACT
   - NEXT.JS
   - DOCKER
+  - DOCKER COMPOSE
+  - CLAUDE CODE
+  - LOCAL AI MODELS
+  - SHELL SCRIPTING
+  - SYSTEMS ADMIN
 statusText: OPERATIONAL
-aboutBody: >-
-  Software engineer trained at 42 Abu Dhabi, where the peer-to-peer curriculum
-  forged a low-level foundation in C/C++, systems programming, and concurrency.
-  Now building and shipping production web platforms at Ratchet Capital across
-  the full stack — architecting microservices, integrating OAuth and real-time
-  data, and obsessing over performance, SEO, and zero-downtime deployments.
 contactEmail: wismith@student.42AbuDhabi.ae
 github: https://github.com/jsjohn1951
 linkedin: https://linkedin.com/in/willems24
