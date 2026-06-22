@@ -2,12 +2,12 @@
   "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/master/schema.json",
   "basics": {
     "name": "Willem Johannes Smith",
-    "label": "Full Stack Developer",
+    "label": "Full Stack Engineer",
     "image": "https://willemjohannessmith.web.app/profilePic.jpeg",
     "email": "wismith@cormonity.com",
     "phone": "+971 58 514 8467",
     "url": "https://willemjohannessmith.web.app",
-    "summary": "Full Stack Developer who owns production systems end to end — React / Next.js and Vue frontends, Go / Node services, Supabase / PostgreSQL data layers, and Dockerized CI/CD on self-hosted infrastructure. Lead-level experience shipping reliable releases (rolling deploys, automated rollback, code-review gates) and mentoring peers, with a low-level C / C++ foundation from 42 Abu Dhabi and a growing focus on agentic AI workflows. Production work spans an influencer-marketing platform serving 500+ users at 99.9% uptime, SEO-optimized sites scoring 95+ Lighthouse, and containerized microservices on staging/production DigitalOcean droplets.",
+    "summary": "Full-stack engineer who ships and owns production systems end to end — React / Next.js and Go / Node on Dockerized CI/CD — with a low-level C / C++ foundation from 42 Abu Dhabi and a growing focus on agentic AI. Production work spans an influencer-marketing platform serving 500+ users at 99.9% uptime, SEO-optimized sites scoring 95+ Lighthouse, and containerized microservices on staging/production DigitalOcean droplets.",
     "location": {
       "city": "Abu Dhabi",
       "countryCode": "AE",
@@ -51,11 +51,11 @@
       "summary": "Full-time, full-stack development across Ratchet Capital's product portfolio — influencer-marketing platforms, microservices infrastructure, cross-platform mobile, and SEO-optimized marketing sites — spanning Next.js / Vue.js frontends, Go / Node services, Supabase / PostgreSQL, and Docker-based CI/CD on self-hosted infrastructure.",
       "highlights": [
         "Shipped through a code-review-gated Git workflow — feature branches reviewed before merging to dev, with weekly dev to main production releases",
-        "Megastars.ai v2 (Next.js, Supabase): delivered full-stack features for a production influencer-marketing platform serving 500+ active influencers at 99.9% uptime and 10K+ daily auth requests; configured multi-provider OAuth (Instagram / TikTok / YouTube), built dashboard features, and improved landing-page SEO",
+        "Megastars.ai v2 (Next.js, Supabase): supported 500+ active influencers at 99.9% uptime and 10K+ daily auth requests, delivering full-stack features; configured multi-provider OAuth (Instagram / TikTok / YouTube), built dashboard features, and improved landing-page SEO",
         "Influenz / Megastars.ai v1 — Tech Lead: led a 4-developer team architecting a 4-service Dockerized microservices platform behind Nginx (Vue / Vite frontend, Gin (Go) API, a dedicated Node OAuth 2.0 / identity service, and PostgreSQL); standardized environments with separate dev and prod Docker Compose stacks driven from a root Makefile, sharing inherited service definitions for DRY config and separation of concerns; provisioned staging and production DigitalOcean droplets on self-hosted Linux GitHub Actions runners with rolling-deploy and automated rollback",
-        "Verif-y — Frontend Developer: built a cross-platform iOS / Android document-verification app (React Native, Expo) with canvas signature capture and skeleton loading, cutting verification time by ~60%",
-        "ioMega Energy (solo): production SEO site scoring 95+ Lighthouse with a 60% CSS reduction and sub-2.1s loads; Dockerized with Nginx and zero-downtime rolling deploys via GitHub Actions",
-        "Trescudo (solo): cybersecurity marketing site at 98 performance score — 85% image-size reduction (WebP) and sub-100ms response times"
+        "Verif-y — Frontend Developer: cut document-verification time ~60% with a cross-platform iOS / Android app (React Native, Expo) featuring canvas signature capture and skeleton loading",
+        "ioMega Energy (solo): scored 95+ Lighthouse and cut CSS 60% on a production SEO site with sub-2.1s loads; Dockerized with Nginx and zero-downtime rolling deploys via GitHub Actions",
+        "Trescudo (solo): hit 98 performance with 85% image-size reduction (WebP) and sub-100ms responses on a cybersecurity marketing site"
       ]
     }
   ],
@@ -200,7 +200,7 @@
   "projects": [
     {
       "name": "Jarvis",
-      "description": "Native macOS agentic LLM orchestration layer — a dual-tier local + cloud control interface operating on an 18 GB hardware budget, with voice-to-text semantic translation and automated terminal command execution.",
+      "description": "A native macOS voice assistant that runs terminal commands and answers from local or cloud LLMs — 42 tokens/sec on-device within an 18 GB budget.",
       "highlights": [
         "Coordinated local inference with cloud models for low-latency, privacy-aware command execution",
         "Achieved 42 tokens/sec local inference within an 18 GB memory budget",
@@ -222,7 +222,7 @@
     },
     {
       "name": "Cormonity",
-      "description": "Distributed edge platform engineered for massive concurrent requests and ultra-low-latency state distribution across global edge networks.",
+      "description": "Edge platform on Cloudflare Workers + Redis that keeps shared state in sync globally with low latency under high concurrency.",
       "highlights": [
         "Built on Next.js with Cloudflare Workers at the edge and Redis for distributed state",
         "Optimized traffic routing for resilient, low-latency delivery worldwide"
