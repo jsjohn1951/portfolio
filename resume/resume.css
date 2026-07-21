@@ -14,14 +14,14 @@
   --rule-soft: #eef1f6;
   --sans: "Inter", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --mono: "JetBrains Mono", "Space Grotesk", ui-monospace, "SF Mono", Menlo, monospace;
-  --lh: 1.4;
+  --lh: 1.32;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 @page {
   size: A4;
-  margin: 12mm 13mm;
+  margin: 9mm 13mm;
 }
 
 html { -webkit-text-size-adjust: 100%; }
@@ -30,7 +30,7 @@ body {
   font-family: var(--sans);
   color: var(--ink);
   line-height: var(--lh);
-  font-size: 9.6px;
+  font-size: 9.3px;
   background: #fff;
   -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
@@ -112,8 +112,8 @@ body {
 
 /* ── Summary ─────────────────────────────────────────── */
 .summary {
-  margin: 9px 0 11px;
-  font-size: 9.6px;
+  margin: 7px 0 8px;
+  font-size: 9.3px;
   color: var(--ink-soft);
 }
 
@@ -129,7 +129,7 @@ body {
 }
 
 /* ── Section blocks ──────────────────────────────────── */
-.block { margin-bottom: 12px; }
+.block { margin-bottom: 9px; }
 .block:last-child { margin-bottom: 0; }
 .block__title {
   font-family: var(--mono);
@@ -139,7 +139,7 @@ body {
   text-transform: uppercase;
   color: var(--ink);
   padding-bottom: 3px;
-  margin-bottom: 7px;
+  margin-bottom: 5px;
   border-bottom: 1px solid var(--rule);
   position: relative;
 }
@@ -152,7 +152,7 @@ body {
 }
 
 /* ── Experience ──────────────────────────────────────── */
-.job { margin-bottom: 11px; }
+.job { margin-bottom: 8px; }
 .job:last-child { margin-bottom: 0; }
 .job__head {
   display: flex;
@@ -181,7 +181,7 @@ body {
 }
 
 /* nested projects within a job */
-.proj { margin: 5px 0 0 0; }
+.proj { margin: 4px 0 0 0; }
 .proj__head {
   display: flex;
   flex-wrap: wrap;
@@ -212,6 +212,13 @@ body {
   font-size: 8px;
   color: var(--muted);
   margin-left: auto;
+}
+.proj__dates {
+  font-family: var(--mono);
+  font-size: 8px;
+  font-weight: 500;
+  color: var(--muted);
+  white-space: nowrap;
 }
 .proj__desc {
   font-size: 9.2px;
@@ -302,8 +309,8 @@ body {
 .mini li {
   position: relative;
   padding-left: 11px;
-  margin-bottom: 3px;
-  font-size: 9.2px;
+  margin-bottom: 2px;
+  font-size: 9px;
   color: var(--ink-soft);
 }
 .mini li::before {
@@ -314,6 +321,12 @@ body {
   font-weight: 700;
 }
 .mini__name { font-weight: 700; color: var(--ink); }
+.mini__dates {
+  font-family: var(--mono);
+  font-size: 7.8px;
+  font-weight: 500;
+  color: var(--muted);
+}
 .mini__stack {
   font-family: var(--mono);
   font-size: 7.8px;

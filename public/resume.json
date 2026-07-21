@@ -200,20 +200,24 @@
   "projects": [
     {
       "name": "Jarvis",
-      "description": "A native macOS voice assistant that runs terminal commands and answers from local or cloud LLMs — 42 tokens/sec on-device within an 18 GB budget.",
+      "description": "A native macOS voice assistant (SwiftUI menu-bar app) with wake-word detection and on-device speech recognition, orchestrated by a Node/TypeScript daemon on the Claude Agent SDK that routes between local and cloud LLMs — 42 tokens/sec on-device within an 18 GB budget. Includes an iOS companion app with on-device fallback.",
       "highlights": [
-        "Coordinated local inference with cloud models for low-latency, privacy-aware command execution",
-        "Achieved 42 tokens/sec local inference within an 18 GB memory budget",
-        "Built voice + terminal control via SwiftUI front end and Node orchestration"
+        "Built a SwiftUI macOS menu-bar app: wake-word detection, push-to-talk, screen-context capture, and persistent cross-session memory",
+        "Built the Node/TypeScript orchestrator on the Claude Agent SDK, routing between cloud (Claude) and local llama.cpp models (9B/2B tiers) at 42 tokens/sec on-device within an 18 GB memory budget",
+        "Shipped an iOS companion app with on-device LLM fallback (Gemma 3 4B) when the Mac orchestrator is unreachable over LAN/Tailscale"
       ],
       "keywords": [
         "SwiftUI",
         "Node.js",
+        "TypeScript",
+        "Claude Agent SDK",
         "llama.cpp",
-        "Whisper",
         "Local LLMs",
+        "iOS",
         "Agentic AI"
       ],
+      "startDate": "2026-06",
+      "endDate": "",
       "url": "",
       "roles": [
         "Solo Developer"
@@ -222,18 +226,24 @@
     },
     {
       "name": "Cormonity",
-      "description": "Edge platform on Cloudflare Workers + Redis that keeps shared state in sync globally with low latency under high concurrency.",
+      "description": "An ethical, community-based social platform designed to create safe digital spaces free from exploitation and comparison-driven manipulation. Users explore verified communities through an interactive 3D WebGL network graph.",
       "highlights": [
-        "Built on Next.js with Cloudflare Workers at the edge and Redis for distributed state",
-        "Optimized traffic routing for resilient, low-latency delivery worldwide"
+        "Built a Vue 3 SPA rendering an interactive 3D community graph (Three.js + D3-Force), backed by a NestJS + PostgreSQL + Prisma REST API",
+        "Implemented real-time messaging over MQTT (Mosquitto), with Redis caching and Nginx-proxied Docker Compose deployments across dev/native/devcontainer workflows"
       ],
       "keywords": [
-        "Next.js",
-        "Cloudflare Workers",
+        "Vue.js",
+        "Three.js",
+        "NestJS",
+        "PostgreSQL",
+        "Prisma",
+        "MQTT",
         "Redis",
-        "TypeScript",
-        "Edge Computing"
+        "Docker",
+        "Nginx"
       ],
+      "startDate": "2026-06",
+      "endDate": "",
       "url": "",
       "roles": [
         "Full Stack Developer"
@@ -242,16 +252,19 @@
     },
     {
       "name": "Jellybean PM",
-      "description": "Full-featured project-management integration for Astro sites, powered entirely by GitHub Issues. Embeds a drag-and-drop Kanban board, sprint planner, milestone tracker, calendar view, and real-time group chat directly into any Astro project — no external database or third-party SaaS required.",
+      "description": "Full-featured project-management integration for Astro sites, powered entirely by GitHub Issues. Embeds a drag-and-drop Kanban board, sprint planner, milestone tracker, calendar view, docs browser, asset manager, and real-time group chat directly into any Astro project — no external database or third-party SaaS required.",
       "highlights": [
-        "Built a drag-and-drop Kanban board, sprint planner, milestone tracker, and calendar view backed entirely by GitHub Issues",
-        "Added real-time group chat with no external database or third-party SaaS dependency"
+        "Built a drag-and-drop Kanban board, sprint planner, milestone tracker, calendar view, docs browser, and asset manager backed entirely by GitHub Issues",
+        "Added real-time group chat (DMs and per-project channels with file attachments), GitHub OAuth login, and per-issue time tracking with no external database or third-party SaaS dependency"
       ],
       "keywords": [
         "Astro",
         "GitHub Issues API",
+        "GitHub OAuth",
         "TypeScript"
       ],
+      "startDate": "2026-04",
+      "endDate": "2026-04",
       "url": "",
       "roles": [
         "Solo Developer"
@@ -263,21 +276,91 @@
       "description": "Full-stack multiplayer web application built as a team project at 42 Abu Dhabi, with a TypeScript frontend, Nest.js backend, and PostgreSQL database.",
       "highlights": [
         "Worked in a 4-person Agile team using feature-branch workflow and code review",
-        "Led frontend implementation with the Nuxt.js framework, translating Figma designs into code"
+        "Led frontend development with Nuxt.js, building the Dashboard including live stats-count components, and translated Figma designs into code",
+        "Implemented the real-time chat frontend over WebSockets, including direct messages (DM) and group messaging (GM)"
       ],
       "keywords": [
         "Nuxt.js",
+        "WebSockets",
         "Vue.js",
         "Nest.js",
         "PostgreSQL",
         "Docker",
         "TypeScript"
       ],
-      "startDate": "2023",
-      "endDate": "2023",
+      "startDate": "2023-06",
+      "endDate": "2023-11",
       "url": "",
       "roles": [
         "Frontend Lead"
+      ],
+      "type": "application"
+    },
+    {
+      "name": "ft_irc",
+      "description": "RFC-compliant IRC server built in C++ as a team project at 42 Abu Dhabi, supporting real-world IRC clients.",
+      "highlights": [
+        "Managed and led a 3-engineer team through design and delivery",
+        "Designed the server architecture and implemented poll()-based I/O multiplexing for receiving and dispatching messages across concurrent clients",
+        "Verified protocol compatibility against real-world IRC clients (irssi)"
+      ],
+      "keywords": [
+        "C++",
+        "Sockets",
+        "poll()",
+        "IRC Protocol",
+        "Linux"
+      ],
+      "startDate": "2023-03",
+      "endDate": "2023-06",
+      "url": "",
+      "roles": [
+        "Team Lead"
+      ],
+      "type": "application"
+    },
+    {
+      "name": "Inception",
+      "description": "Dockerized infrastructure project at 42 Abu Dhabi: a MariaDB / WordPress / Nginx stack built with Docker Compose, deployed and evaluated inside a virtual machine.",
+      "highlights": [
+        "Designed and built a multi-container Docker Compose stack (MariaDB, WordPress, Nginx) without relying on pre-built Docker Hub images",
+        "Configured persistent volumes and inter-container networking, deployed and evaluated inside a VM per project spec"
+      ],
+      "keywords": [
+        "Docker",
+        "Docker Compose",
+        "MariaDB",
+        "WordPress",
+        "Nginx",
+        "Linux"
+      ],
+      "startDate": "2023-02",
+      "endDate": "2023-03",
+      "url": "",
+      "roles": [
+        "Solo Developer"
+      ],
+      "type": "application"
+    },
+    {
+      "name": "minishell",
+      "description": "Unix shell interpreter built in C as a team project at 42 Abu Dhabi, implementing parsing, execution, pipes, and redirections.",
+      "highlights": [
+        "Co-led a 2-person team",
+        "Focused on the parser: tokenizing and expansions",
+        "Contributed to command execution and refactored the codebase for clean, maintainable C"
+      ],
+      "keywords": [
+        "C",
+        "Parsing",
+        "Tokenizing",
+        "Execution"
+      ],
+      "startDate": "2022-08",
+      "endDate": "2022-10",
+      "url": "",
+      "roles": [
+        "Co-Lead"
       ],
       "type": "application"
     }
@@ -338,7 +421,7 @@
   ],
   "meta": {
     "canonical": "https://raw.githubusercontent.com/jsonresume/resume-schema/master/schema.json",
-    "version": "v1.1.0",
-    "lastModified": "2026-06-21"
+    "version": "v1.2.0",
+    "lastModified": "2026-07-21"
   }
 }
