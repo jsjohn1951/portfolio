@@ -10,6 +10,9 @@ import sitemap from '@astrojs/sitemap'
 // `dist/` stays fully static and drops onto Firebase Hosting unchanged.
 const isDev = process.argv.includes('dev')
 
+// Stamped into every sitemap entry so crawlers see when the site was last built.
+const buildDate = new Date().toISOString()
+
 // Static output, no adapter: see plan for rationale.
 export default defineConfig({
   site: 'https://willemjohannessmith.web.app',
@@ -29,6 +32,10 @@ export default defineConfig({
     react(),
     markdoc({ allowHTML: true }),
     ...(isDev ? [keystatic()] : []),
-    sitemap(),
+    sitemap({
+      // Endpoints (llms*.txt, resume.json) are not pages — keep them out of the sitemap.
+      filter: (page) => !/\.(txt|json)$/.test(page),
+      serialize: (item) => ({ ...item, lastmod: buildDate, changefreq: 'monthly' }),
+    }),
   ],
 })
