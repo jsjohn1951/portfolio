@@ -190,7 +190,7 @@ body {
 /* Respect reduced-motion: kill kinetic scaling + smooth scroll. */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .reveal-on-scroll,
+  .js .reveal-on-scroll,
   .kinetic-bg {
     transition: none;
     transform: none;
@@ -246,9 +246,24 @@ body {
   top: 1rem;
 }
 
-/* Inline tech list on compact cards: "A • B • C" via CSS so the markup stays a <ul>. */
+/* Inline tech list on compact cards: "A • B • C" via CSS so the markup stays a <ul>.
+   Mirrors the former separator <span class="text-on-surface-variant px-1"> (body font,
+   1rem, 0.25rem padding) followed by the flex gap-2 (0.5rem). */
 .chip-sep > li + li::before {
   content: "•";
+  display: inline-block;
+  vertical-align: top;
+  line-height: 1;
   padding: 0 0.25rem;
+  margin-right: 0.5rem;
   color: var(--color-on-surface-variant);
+  font-family: var(--font-body-fixed);
+  font-size: 1rem;
+  text-transform: none;
+}
+
+/* Fragment links from JSON-LD / llms.txt land below the fixed HUD nav. */
+article[id],
+section[id] {
+  scroll-margin-top: 6rem;
 }
