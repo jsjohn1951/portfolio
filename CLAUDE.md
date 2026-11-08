@@ -70,6 +70,20 @@ Each project has `accent` (cyan/amber/red → HUD color), `status` (online/stand
 `StatusChip`), `featured` (renders as a full-screen `ProjectStage` vs a compact `ProjectCard`),
 and `category` (professional / 42-school / personal → which section it appears in).
 
+## Shared data & build checks
+
+- [src/data/profile.ts](src/data/profile.ts) — canonical non-CMS facts (name parts, headline, location,
+  nationality, Cormonity, 42 Abu Dhabi, SEO title/description, `siteUrl`). Editorial copy, email, links and
+  skills stay in the Keystatic `siteSettings` singleton.
+- [src/lib/projects.ts](src/lib/projects.ts) — sorted/split projects plus `projectSlug`, `projectUrl`,
+  `projectSummary`, `projectExcerpt`. The page, JSON-LD and the `llms*.txt` endpoints all read through it.
+- Endpoints: `src/pages/llms.txt.ts`, `src/pages/llms-full.txt.ts`, `src/pages/resume.json.ts` (static body in
+  `src/data/resume.json`; shared facts are injected at build time). `src/pages/404.astro` is the custom 404.
+- `npm run build` runs `postbuild`: `scripts/check-jsonld.mjs` (graph integrity, `#slug` ids, no phone number)
+  and `scripts/check-consistency.mjs` (resume.json / llms.txt / JSON-LD agree). A failing check fails CI.
+- Hosting headers (cache + security) live in [firebase.json](firebase.json); the profile photo is an Astro
+  `<Picture>` from `src/assets/images/profile/`.
+
 ## Deployment
 
 Firebase Hosting serves `dist/` ([firebase.json](firebase.json) — `cleanUrls`, no SPA rewrite).
