@@ -25,7 +25,7 @@ const a = accentMap[accent]
 const last = lines.length - 1
 ---
 
-<div class={`h-full flex flex-col gap-4 font-label-code text-xs ${a.text}`}>
+<div aria-hidden="true" class={`h-full flex flex-col gap-4 font-label-code text-xs ${a.text}`}>
   <div class={`flex items-center gap-3 bg-[#0b0e16]/80 border ${a.border} p-4 rounded-xl backdrop-blur-md`}>
     <div class={`w-12 h-12 rounded ${a.chipBg} border ${a.chipBorder} flex items-center justify-center shrink-0 text-lg`}>
       ⌬

@@ -92,20 +92,23 @@ const ogImage = new URL('/og-image.png', Astro.site).href
     <slot name="head" />
   </head>
   <body id="top" class="font-body-fixed bg-background text-on-surface min-h-screen relative overflow-x-hidden">
+    <a href="#main" class="skip-link">Skip to content</a>
     <!-- Subtle technical grid background -->
     <div class="fixed inset-0 tech-grid pointer-events-none z-0"></div>
     <!-- Scanline overlay -->
     <div class="fixed inset-0 scanline z-50 pointer-events-none opacity-20"></div>
 
-    <HudTopBar />
-    <HudNavBar
-      name={navName}
-      statusText={settings?.statusText ?? 'OPERATIONAL'}
-      github={settings?.github ?? undefined}
-      linkedin={settings?.linkedin ?? undefined}
-    />
+    <header>
+      <HudTopBar />
+      <HudNavBar
+        name={navName}
+        statusText={settings?.statusText ?? 'OPERATIONAL'}
+        github={settings?.github ?? undefined}
+        linkedin={settings?.linkedin ?? undefined}
+      />
+    </header>
 
-    <main class="relative z-10">
+    <main id="main" class="relative z-10">
       <slot />
     </main>
 

@@ -40,15 +40,15 @@ const cover = d.images?.[0]
         style={`box-shadow: 0 0 50px ${a.glow}`}
       >
         <div class="flex items-center justify-between gap-4 mb-8">
-          <div class={`flex items-center gap-3 font-label-code ${a.text} text-xs tracking-widest uppercase`}>
+          <div aria-hidden="true" class={`flex items-center gap-3 font-label-code ${a.text} text-xs tracking-widest uppercase`}>
             Deploy_ID: {deployId}
           </div>
           <StatusChip status={d.status} />
         </div>
 
-        <h2 class="font-display-lg text-4xl md:text-6xl text-white mb-2 uppercase tracking-wider leading-[1.05]">
+        <h3 class="font-display-lg text-4xl md:text-6xl text-white mb-2 uppercase tracking-wider leading-[1.05]">
           {d.name}
-        </h2>
+        </h3>
         <div class="font-label-code text-on-surface-variant/60 text-xs tracking-widest uppercase mb-6">
           {d.date}{d.role ? ` // ${d.role}` : ''}
         </div>
@@ -58,21 +58,21 @@ const cover = d.images?.[0]
         </div>
 
         {d.techStack.length > 0 && (
-          <div class="flex flex-wrap gap-3 mb-8">
+          <ul class="flex flex-wrap gap-3 mb-8" aria-label="Tech stack">
             {d.techStack.map((t) => (
-              <span class={`px-3 py-1.5 border ${a.chip} text-xs font-label-code uppercase rounded`}>{t}</span>
+              <li class={`px-3 py-1.5 border ${a.chip} text-xs font-label-code uppercase rounded`}>{t}</li>
             ))}
-          </div>
+          </ul>
         )}
 
         {d.metrics.length > 0 && (
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-6 font-label-code text-xs border-t border-white/5 pt-8 mb-8">
+          <ul class="grid grid-cols-2 md:grid-cols-4 gap-6 font-label-code text-xs border-t border-white/5 pt-8 mb-8" aria-label="Highlights">
             {d.metrics.map((m) => (
-              <div>
+              <li>
                 <div class={`${a.text} text-lg leading-tight`}>{m}</div>
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
         )}
 
         <div class="flex flex-wrap gap-4 font-label-code text-xs uppercase tracking-widest">
@@ -100,8 +100,8 @@ const cover = d.images?.[0]
           <div class={`relative rounded-xl border ${a.border} overflow-hidden bg-[#0b0e16]/80 backdrop-blur-md stage-visual`}>
             <div class="absolute top-3 left-3 w-4 h-4 border-t-2 border-l-2 border-white/30 z-10"></div>
             <div class="absolute bottom-3 right-3 w-4 h-4 border-b-2 border-r-2 border-white/30 z-10"></div>
-            <Image src={cover} alt={`${d.name} screenshot`} widths={[480, 800]} sizes="(max-width: 1024px) 90vw, 40vw" class="w-full h-auto object-cover" loading="lazy" />
-            <div class="absolute bottom-0 inset-x-0 p-4 flex justify-between font-label-code text-[10px] tracking-widest uppercase text-white/70 bg-gradient-to-t from-[#05070f] to-transparent">
+            <Image src={cover} alt={d.coverAlt ?? `${d.name} application screenshot`} widths={[480, 800]} sizes="(max-width: 1024px) 90vw, 40vw" class="w-full h-auto object-cover" loading="lazy" />
+            <div aria-hidden="true" class="absolute bottom-0 inset-x-0 p-4 flex justify-between font-label-code text-[10px] tracking-widest uppercase text-white/70 bg-gradient-to-t from-[#05070f] to-transparent">
               <span>VISUAL_FEED</span>
               <span>{d.images.length} FRAME{d.images.length > 1 ? 'S' : ''}</span>
             </div>

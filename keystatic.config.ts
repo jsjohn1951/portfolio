@@ -120,6 +120,10 @@ export default config({
           label: 'Metrics / highlights',
           itemLabel: (props) => props.value ?? '',
         }),
+        coverAlt: fields.text({
+          label: 'Screenshot alt text',
+          description: 'What the first screenshot shows (used as the image alt attribute)',
+        }),
         images: fields.array(
           fields.image({
             label: 'Screenshot',

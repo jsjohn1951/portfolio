@@ -29,14 +29,11 @@ const excerpt = projectExcerpt(project)
 
   {excerpt && <p class="text-on-surface-variant text-sm leading-relaxed mb-8 flex-grow">{excerpt}</p>}
 
-  <div class="flex flex-wrap gap-2 mt-auto pt-6 border-t border-outline-variant/30">
-    {d.techStack.slice(0, 5).map((t, i) => (
-      <>
-        {i > 0 && <span class="text-on-surface-variant px-1">•</span>}
-        <span class={`${a.text} text-xs font-label-code uppercase`}>{t}</span>
-      </>
+  <ul class="chip-sep flex flex-wrap gap-2 mt-auto pt-6 border-t border-outline-variant/30" aria-label="Tech stack">
+    {d.techStack.slice(0, 5).map((t) => (
+      <li class={`${a.text} text-xs font-label-code uppercase`}>{t}</li>
     ))}
-  </div>
+  </ul>
 
   {href && (
     <a href={href} target="_blank" rel="noopener" class={`mt-6 font-label-code text-xs uppercase tracking-widest ${a.text} hover:underline`}>

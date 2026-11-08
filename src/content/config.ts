@@ -23,6 +23,7 @@ const projects = defineCollection({
       techStack: z.array(z.string()).default([]),
       metrics: z.array(z.string()).default([]),
       images: z.array(image()).default([]),
+      coverAlt: z.string().optional(),
       order: z.number().default(0),
     }),
 })

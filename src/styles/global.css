@@ -214,3 +214,32 @@ body {
   margin-bottom: 1rem;
   color: var(--color-on-surface-variant);
 }
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Accessibility helpers
+   ────────────────────────────────────────────────────────────────────────── */
+/* Keyboard-only skip link: off-screen until focused. */
+.skip-link {
+  position: fixed;
+  top: -100%;
+  left: 1rem;
+  z-index: 70;
+  padding: 0.5rem 1rem;
+  background: #05070f;
+  color: #00f0ff;
+  font-family: var(--font-label-code, monospace);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  border: 1px solid rgba(0, 240, 255, 0.4);
+}
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* Inline tech list on compact cards: "A • B • C" via CSS so the markup stays a <ul>. */
+.chip-sep > li + li::before {
+  content: "•";
+  padding: 0 0.25rem;
+  color: var(--color-on-surface-variant);
+}
