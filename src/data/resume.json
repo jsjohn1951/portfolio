@@ -397,25 +397,7 @@
       "fluency": "Beginner"
     }
   ],
-  "certificates": [
-    {
-      "name": "42 Common Core Certification",
-      "date": "2023-11",
-      "issuer": "42 Abu Dhabi",
-      "url": "https://willemjohannessmith.web.app/achievements/42-common-core/certificate.pdf"
-    },
-    {
-      "name": "AgentEra AI Hackathon — Certificate of Appreciation",
-      "issuer": "Ministry of Energy & Infrastructure × 42 Abu Dhabi",
-      "url": "https://willemjohannessmith.web.app/achievements/agentera-ai-hackathon/certificate.pdf"
-    },
-    {
-      "name": "VEX IQ Certification",
-      "date": "2024-02",
-      "issuer": "VEX IQ",
-      "url": "https://willemjohannessmith.web.app/achievements/vex-iq-certification/certificate.pdf"
-    }
-  ],
+  "certificates": [],
   "interests": [
     {
       "name": "AI & Machine Learning",

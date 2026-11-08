@@ -1,9 +1,9 @@
 import type { APIRoute } from 'astro'
 import { profile } from '../data/profile'
-import { abs, header, loadAll, text, workLine, SITE } from '../lib/llms'
+import { abs, header, loadAll, siteUrl, text, workLine } from '../lib/llms'
 import { projectUrl, splitProjects, stripMarkdoc, type Project } from '../lib/projects'
 
-const section = (title: string, items: Project[]) =>
+const section = (title: string, items: Project[], site: string) =>
   items.length === 0
     ? []
     : [
@@ -19,23 +19,24 @@ const section = (title: string, items: Project[]) =>
             '',
             ...(p.data.techStack.length ? [`Stack: ${p.data.techStack.join(', ')}`] : []),
             ...(p.data.metrics.length ? [`Highlights: ${p.data.metrics.join('; ')}`] : []),
-            `Link: ${projectUrl(p, SITE)}`,
+            `Link: ${projectUrl(p, site)}`,
             '',
           ]
         }),
       ]
 
-export const GET: APIRoute = async () => {
+export const GET: APIRoute = async ({ site }) => {
   const { settings, projects, achievements, work } = await loadAll()
+  const base = siteUrl(site)
   const { featured, productionTrack, academic } = splitProjects(projects)
 
   const out = [
     header(),
     `${profile.headline}. ${settings?.heroIntro ?? ''}`.trim(),
     '',
-    ...section('Featured Projects', featured),
-    ...section('Professional Projects', productionTrack),
-    ...section('42 Abu Dhabi Projects', academic),
+    ...section('Featured Projects', featured, base),
+    ...section('Production Projects', productionTrack, base),
+    ...section('42 Abu Dhabi Projects', academic, base),
     '## Experience',
     '',
     ...work.flatMap((w) => [workLine(w), ...w.highlights.map((h) => `  - ${h}`)]),
@@ -51,7 +52,7 @@ export const GET: APIRoute = async () => {
       `${a.data.issuer}${a.data.date ? ` · ${a.data.date}` : ''}`,
       '',
       stripMarkdoc(a.body),
-      ...(a.data.certificate ? [`Certificate: ${abs(a.data.certificate)}`] : []),
+      ...(a.data.certificate ? [`Certificate: ${abs(a.data.certificate, base)}`] : []),
       '',
     ]),
     '## Education',
@@ -63,7 +64,7 @@ export const GET: APIRoute = async () => {
     `Email: ${settings?.contactEmail ?? ''}`,
     `GitHub: ${settings?.github ?? ''}`,
     `LinkedIn: ${settings?.linkedin ?? ''}`,
-    `Website: ${SITE}`,
+    `Website: ${base}`,
     '',
   ].join('\n')
 

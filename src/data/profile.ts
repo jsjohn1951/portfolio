@@ -2,6 +2,7 @@
 // src/data/settings/index.yaml). Consumed by <head> metadata, JSON-LD, the
 // llms*.txt endpoints and resume.json so the facts cannot drift apart.
 export const profile = {
+  siteUrl: 'https://willemjohannessmith.web.app/',
   fullName: 'Willem Johannes Smith',
   displayName: 'Willem Smith',
   givenName: 'Willem Johannes',
@@ -17,6 +18,7 @@ export const profile = {
     label: 'Abu Dhabi, United Arab Emirates',
   },
   nationality: 'South Africa',
+  demonym: 'South African',
   organization: {
     name: 'Cormonity',
     url: 'https://cormonity.com',

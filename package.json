@@ -9,7 +9,7 @@
     "preview": "astro preview --host",
     "astro": "astro",
     "resume:pdf": "node resume/build.mjs",
-    "postbuild": "node scripts/check-jsonld.mjs"
+    "postbuild": "node scripts/check-jsonld.mjs && node scripts/check-consistency.mjs"
   },
   "dependencies": {
     "@astrojs/markdoc": "^0.15.11",

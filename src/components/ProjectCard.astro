@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content'
-import { projectExcerpt, projectSlug } from '../lib/projects'
+import { projectExcerpt, projectExternalUrl, projectSlug } from '../lib/projects'
 
 interface Props {
   project: CollectionEntry<'projects'>
@@ -15,7 +15,7 @@ const accentMap = {
   red: { text: 'text-stark-red', hover: 'hover:border-stark-red', blob: 'bg-stark-red/5' },
 } as const
 const a = accentMap[d.accent]
-const href = d.liveUrl || d.repo || d.link
+const href = projectExternalUrl(project)
 
 // Short blurb derived from the first paragraph of the Markdoc body — no extra CMS field.
 const excerpt = projectExcerpt(project)

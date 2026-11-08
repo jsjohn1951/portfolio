@@ -12,7 +12,7 @@ import { firstParagraph, getProjectsSorted, projectSlug, projectSummary, project
 const settings = await getSiteSettings()
 const projects = await getProjectsSorted()
 const achievements = (await getCollection('achievements')).sort((a, b) => a.data.order - b.data.order)
-const site = Astro.site?.href ?? 'https://willemjohannessmith.web.app/'
+const site = Astro.site?.href ?? profile.siteUrl
 
 const ids = {
   person: `${site}#person`,

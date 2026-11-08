@@ -5,14 +5,10 @@ import { getSiteSettings } from './content'
 import resume from '../data/resume.json'
 import { getProjectsSorted, projectUrl, projectSummary, type Project } from './projects'
 
-export const SITE = 'https://willemjohannessmith.web.app/'
+export const siteUrl = (site?: URL) => site?.href ?? profile.siteUrl
 
-export const SUMMARY =
-  `${profile.organization.role} of ${profile.organization.name} and full-stack developer based in ${profile.location.label}. ` +
-  `South African; ${profile.education.name} Common Core graduate (first cohort, 2021), now on the Mastery track. ` +
-  'Ships production web systems with React/Next.js, Vue, Go/Node, PostgreSQL and Docker CI/CD, with a growing focus on agentic AI.'
-
-export const header = () => `# ${profile.fullName}\n\n> ${SUMMARY}\n`
+/** One-paragraph who/what/where summary — the same text as the JSON-LD Person.description. */
+export const header = () => `# ${profile.fullName}\n\n> ${profile.description}\n`
 
 export async function loadAll() {
   const [settings, projects, achievements] = await Promise.all([
@@ -23,11 +19,11 @@ export async function loadAll() {
   return { settings, projects, achievements, work: resume.work }
 }
 
-export const abs = (path: string) => new URL(path, SITE).href
+export const abs = (path: string, site: string) => new URL(path, site).href
 
-export const projectLine = (p: Project) => {
+export const projectLine = (p: Project, site: string) => {
   const role = p.data.role ? ` (${p.data.role})` : ''
-  return `- [${p.data.name}](${projectUrl(p, SITE)})${role}: ${projectSummary(p)}`
+  return `- [${p.data.name}](${projectUrl(p, site)})${role}: ${projectSummary(p)}`
 }
 
 export const workLine = (w: (typeof resume.work)[number]) => {
