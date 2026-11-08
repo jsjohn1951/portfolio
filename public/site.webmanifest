@@ -1,0 +1,14 @@
+{
+  "name": "Willem Smith — Portfolio",
+  "short_name": "W.J. Smith",
+  "description": "Founder & CEO of Cormonity · Full-Stack Developer, Abu Dhabi",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#05070f",
+  "theme_color": "#05070f",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "/favicon-32.png", "sizes": "32x32", "type": "image/png" },
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

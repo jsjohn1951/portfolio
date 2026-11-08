@@ -13,15 +13,19 @@ import HudTopBar from '../components/HudTopBar.astro'
 import HudNavBar from '../components/HudNavBar.astro'
 import Footer from '../components/Footer.astro'
 import { getSiteSettings } from '../lib/content'
+import { profile } from '../data/profile'
 
 export interface Props {
   title?: string
   description?: string
+  /** Set on utility pages (e.g. 404) that must not be indexed. */
+  noindex?: boolean
 }
 
 const {
-  title = 'Willem Smith - Full Stack Developer | React, Vue.js, Next.js, SEO',
-  description = 'Full Stack Developer specializing in React, Vue.js, Next.js, FastAPI, Golang. Building production apps with Docker, PostgreSQL & modern frameworks.',
+  title = profile.seo.title,
+  description = profile.seo.description,
+  noindex = false,
 } = Astro.props
 
 const settings = await getSiteSettings()
@@ -43,13 +47,11 @@ const ogImage = new URL('/og-image.png', Astro.site).href
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=yes"
     />
-
-    <!-- Resource hints -->
-    <link rel="preload" href="/hero.jpg" as="image" type="image/jpeg" />
 
     <!-- Primary meta -->
     <title>{title}</title>
@@ -70,6 +72,7 @@ const ogImage = new URL('/og-image.png', Astro.site).href
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={profile.seo.ogImageAlt} />
     <meta property="og:site_name" content="Willem Smith Portfolio" />
     <meta property="og:locale" content="en_US" />
 
@@ -82,12 +85,8 @@ const ogImage = new URL('/og-image.png', Astro.site).href
 
     <!-- Crawl directives -->
     <meta
-      name="keywords"
-      content="Willem Smith, Full Stack Developer, Systems Architect, React Developer, Next.js Developer, Vue.js Developer, FastAPI, Golang, Gin, TypeScript, Web Development, SEO, 42 Abu Dhabi, Ratchet Capital, Docker, PostgreSQL"
-    />
-    <meta
       name="robots"
-      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+      content={noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'}
     />
     <slot name="head" />
   </head>
