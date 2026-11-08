@@ -4,14 +4,15 @@
 // in Keystatic automatically keeps JSON-LD in sync.
 import { getCollection } from 'astro:content'
 import { getSiteSettings } from '../lib/content'
+import { profile } from '../data/profile'
+import { getPortraitUrl } from '../lib/portrait'
 
 const settings = await getSiteSettings()
 const projects = await getCollection('projects')
 const site = Astro.site?.href ?? 'https://willemjohannessmith.web.app/'
 
-const fullName = [settings?.heroFirstName, settings?.heroMiddleName, settings?.heroLastName]
-  .filter(Boolean)
-  .join(' ') || 'Willem Johannes Smith'
+const fullName = profile.fullName
+const image = await getPortraitUrl(site)
 
 const sameAs = [settings?.github, settings?.linkedin].filter(Boolean)
 
@@ -21,7 +22,8 @@ const graph = [
     '@id': `${site}#person`,
     name: fullName,
     url: site,
-    jobTitle: 'Full Stack Developer',
+    image,
+    jobTitle: [...profile.jobTitles],
     sameAs,
     email: settings?.contactEmail ? `mailto:${settings.contactEmail}` : undefined,
   },

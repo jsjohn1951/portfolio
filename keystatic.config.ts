@@ -22,7 +22,7 @@ export default config({
         heroLastName: fields.text({ label: 'Hero — Last Name', defaultValue: 'Smith' }),
         heroId: fields.text({
           label: 'Hero — Role / ID line',
-          defaultValue: 'SYSTEMS ARCHITECT // ID: 9942-X',
+          defaultValue: 'FOUNDER & CEO, CORMONITY // FULL STACK DEVELOPER',
         }),
         heroIntro: fields.text({
           label: 'Hero — Intro paragraph',

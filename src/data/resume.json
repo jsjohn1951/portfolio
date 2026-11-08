@@ -2,10 +2,9 @@
   "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/master/schema.json",
   "basics": {
     "name": "Willem Johannes Smith",
-    "label": "Full Stack Engineer",
-    "image": "https://willemjohannessmith.web.app/profilePic.jpeg",
+    "label": "Founder & CEO of Cormonity · Full-Stack Developer",
+    "image": "",
     "email": "wismith@cormonity.com",
-    "phone": "+971 58 514 8467",
     "url": "https://willemjohannessmith.web.app",
     "summary": "Full-stack engineer who ships and owns production systems end to end — React / Next.js and Go / Node on Dockerized CI/CD — with a low-level C / C++ foundation from 42 Abu Dhabi and a growing focus on agentic AI. Production work spans an influencer-marketing platform serving 500+ users at 99.9% uptime, SEO-optimized sites scoring 95+ Lighthouse, and containerized microservices on staging/production DigitalOcean droplets.",
     "location": {
@@ -27,6 +26,15 @@
     ]
   },
   "work": [
+    {
+      "name": "Cormonity",
+      "position": "Founder & CEO",
+      "url": "https://cormonity.com",
+      "startDate": "2025-12",
+      "endDate": "",
+      "summary": "An ethical, community-based social platform designed to create safe digital spaces where people can connect, learn, and grow — free from exploitation, comparison culture, and data-driven manipulation.",
+      "highlights": []
+    },
     {
       "name": "Suportech Embedded",
       "position": "Embedded Software Developer (Part-time)",
@@ -75,7 +83,8 @@
         "Algorithms & Data Structures",
         "Network Programming",
         "Database Management"
-      ]
+      ],
+      "summary": "Common Core certified (first cohort, 2021); currently on the Mastery track"
     }
   ],
   "skills": [
@@ -244,9 +253,9 @@
       ],
       "startDate": "2025-12",
       "endDate": "",
-      "url": "",
+      "url": "https://cormonity.com",
       "roles": [
-        "Full Stack Developer"
+        "Founder & CEO"
       ],
       "type": "application"
     },
@@ -393,12 +402,18 @@
       "name": "42 Common Core Certification",
       "date": "2023-11",
       "issuer": "42 Abu Dhabi",
-      "url": ""
+      "url": "https://willemjohannessmith.web.app/achievements/42-common-core/certificate.pdf"
     },
     {
       "name": "AgentEra AI Hackathon — Certificate of Appreciation",
       "issuer": "Ministry of Energy & Infrastructure × 42 Abu Dhabi",
-      "url": ""
+      "url": "https://willemjohannessmith.web.app/achievements/agentera-ai-hackathon/certificate.pdf"
+    },
+    {
+      "name": "VEX IQ Certification",
+      "date": "2024-02",
+      "issuer": "VEX IQ",
+      "url": "https://willemjohannessmith.web.app/achievements/vex-iq-certification/certificate.pdf"
     }
   ],
   "interests": [

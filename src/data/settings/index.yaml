@@ -1,9 +1,10 @@
 heroFirstName: Willem
 heroMiddleName: Johannes
 heroLastName: Smith
-heroId: FULL STACK DEVELOPER // SYSTEMS ARCHITECT
+heroId: FOUNDER & CEO, CORMONITY // FULL STACK DEVELOPER
 heroIntro: >-
-  Full Stack Developer shipping production systems end to end — React / Next.js
+  Founder & CEO of Cormonity and Full Stack Developer based in Abu Dhabi, United
+  Arab Emirates — shipping production systems end to end: React / Next.js
   frontends, Golang / Node services, Supabase / PostgreSQL data layers, and
   Docker-driven CI/CD. Increasingly driven by prompt engineering, building
   agentic AI workflows that accelerate development and ship features faster.
@@ -21,9 +22,9 @@ coreStack:
   - SHELL SCRIPTING
   - SYSTEMS ADMIN
 statusText: OPERATIONAL
-contactEmail: wismith@student.42AbuDhabi.ae
+contactEmail: wismith@cormonity.com
 github: https://github.com/jsjohn1951
-linkedin: https://linkedin.com/in/willems24
+linkedin: https://www.linkedin.com/in/willems24/
 productionIntro: >-
   Production systems shipped for clients and employers — full-stack platforms,
   marketing sites, and services running in the wild.
