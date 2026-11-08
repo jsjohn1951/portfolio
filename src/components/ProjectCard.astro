@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content'
+import { projectExcerpt, projectExternalUrl, projectSlug } from '../lib/projects'
 
 interface Props {
   project: CollectionEntry<'projects'>
@@ -14,14 +15,13 @@ const accentMap = {
   red: { text: 'text-stark-red', hover: 'hover:border-stark-red', blob: 'bg-stark-red/5' },
 } as const
 const a = accentMap[d.accent]
-const href = d.liveUrl || d.repo || d.link
+const href = projectExternalUrl(project)
 
 // Short blurb derived from the first paragraph of the Markdoc body — no extra CMS field.
-const firstPara = (project.body ?? '').trim().split(/\n{2,}/)[0].replace(/\s+/g, ' ').trim()
-const excerpt = firstPara.length > 160 ? firstPara.slice(0, 160).replace(/\s+\S*$/, '') + '…' : firstPara
+const excerpt = projectExcerpt(project)
 ---
 
-<div class={`reveal-on-scroll ${delay ? `delay-${delay}` : ''} p-8 bg-surface-container-lowest/60 border border-outline-variant/50 rounded-2xl ${a.hover} transition-all duration-500 group flex flex-col h-full relative overflow-hidden`}>
+<article id={projectSlug(project)} class={`reveal-on-scroll ${delay ? `delay-${delay}` : ''} p-8 bg-surface-container-lowest/60 border border-outline-variant/50 rounded-2xl ${a.hover} transition-all duration-500 group flex flex-col h-full relative overflow-hidden`}>
   <div class={`absolute top-0 right-0 w-32 h-32 ${a.blob} rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity`}></div>
 
   <div class={`font-label-code ${a.text} text-xs mb-4 uppercase tracking-widest`}>{d.date}</div>
@@ -29,18 +29,15 @@ const excerpt = firstPara.length > 160 ? firstPara.slice(0, 160).replace(/\s+\S*
 
   {excerpt && <p class="text-on-surface-variant text-sm leading-relaxed mb-8 flex-grow">{excerpt}</p>}
 
-  <div class="flex flex-wrap gap-2 mt-auto pt-6 border-t border-outline-variant/30">
-    {d.techStack.slice(0, 5).map((t, i) => (
-      <>
-        {i > 0 && <span class="text-on-surface-variant px-1">•</span>}
-        <span class={`${a.text} text-xs font-label-code uppercase`}>{t}</span>
-      </>
+  <ul class="chip-sep flex flex-wrap gap-2 mt-auto pt-6 border-t border-outline-variant/30" aria-label="Tech stack">
+    {d.techStack.slice(0, 5).map((t) => (
+      <li class={`${a.text} text-xs font-label-code uppercase`}>{t}</li>
     ))}
-  </div>
+  </ul>
 
   {href && (
     <a href={href} target="_blank" rel="noopener" class={`mt-6 font-label-code text-xs uppercase tracking-widest ${a.text} hover:underline`}>
       {d.liveUrl ? 'Launch' : d.repo ? 'Source' : 'Read'} ↗
     </a>
   )}
-</div>
+</article>

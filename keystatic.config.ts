@@ -22,7 +22,7 @@ export default config({
         heroLastName: fields.text({ label: 'Hero — Last Name', defaultValue: 'Smith' }),
         heroId: fields.text({
           label: 'Hero — Role / ID line',
-          defaultValue: 'SYSTEMS ARCHITECT // ID: 9942-X',
+          defaultValue: 'FOUNDER & CEO, CORMONITY // FULL STACK DEVELOPER',
         }),
         heroIntro: fields.text({
           label: 'Hero — Intro paragraph',
@@ -119,6 +119,10 @@ export default config({
         metrics: fields.array(fields.text({ label: 'Metric' }), {
           label: 'Metrics / highlights',
           itemLabel: (props) => props.value ?? '',
+        }),
+        coverAlt: fields.text({
+          label: 'Screenshot alt text',
+          description: 'What the first screenshot shows (used as the image alt attribute)',
         }),
         images: fields.array(
           fields.image({

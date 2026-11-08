@@ -97,25 +97,34 @@ body {
 
 /* ──────────────────────────────────────────────────────────────────────────
    Scroll-reveal / kinetic motion (CSS layer; JS toggles .is-visible)
-   Ported verbatim from code.html lines 13-36.
+   Ported from code.html lines 13-36. The hidden initial state is scoped to
+   `.js` (set by an inline <head> script) so content stays visible when
+   JavaScript is unavailable; transitions only run when motion is allowed.
    ────────────────────────────────────────────────────────────────────────── */
-.reveal-on-scroll {
+.js .reveal-on-scroll {
   opacity: 0;
   transform: scale(0.85);
-  transition:
-    opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 1s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
-.reveal-on-scroll.is-visible {
+.js .reveal-on-scroll.is-visible {
   opacity: 1;
   transform: scale(1);
 }
 
 .kinetic-bg {
-  transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
   transform: scale(1.1);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-on-scroll {
+    transition:
+      opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .kinetic-bg {
+    transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
 }
 
 .is-visible .kinetic-bg {
@@ -181,7 +190,7 @@ body {
 /* Respect reduced-motion: kill kinetic scaling + smooth scroll. */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .reveal-on-scroll,
+  .js .reveal-on-scroll,
   .kinetic-bg {
     transition: none;
     transform: none;
@@ -213,4 +222,48 @@ body {
   padding-left: 1.25rem;
   margin-bottom: 1rem;
   color: var(--color-on-surface-variant);
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Accessibility helpers
+   ────────────────────────────────────────────────────────────────────────── */
+/* Keyboard-only skip link: off-screen until focused. */
+.skip-link {
+  position: fixed;
+  top: -100%;
+  left: 1rem;
+  z-index: 70;
+  padding: 0.5rem 1rem;
+  background: #05070f;
+  color: #00f0ff;
+  font-family: var(--font-label-code, monospace);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  border: 1px solid rgba(0, 240, 255, 0.4);
+}
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* Inline tech list on compact cards: "A • B • C" via CSS so the markup stays a <ul>.
+   Mirrors the former separator <span class="text-on-surface-variant px-1"> (body font,
+   1rem, 0.25rem padding) followed by the flex gap-2 (0.5rem). */
+.chip-sep > li + li::before {
+  content: "•";
+  display: inline-block;
+  vertical-align: top;
+  line-height: 1;
+  padding: 0 0.25rem;
+  margin-right: 0.5rem;
+  color: var(--color-on-surface-variant);
+  font-family: var(--font-body-fixed);
+  font-size: 1rem;
+  text-transform: none;
+}
+
+/* Fragment links from JSON-LD / llms.txt land below the fixed HUD nav. */
+article[id],
+section[id] {
+  scroll-margin-top: 6rem;
 }
