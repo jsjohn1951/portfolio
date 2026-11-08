@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
 import { getCollection, render } from 'astro:content'
+import { getProjectsSorted, splitProjects } from '../lib/projects'
 import { Picture } from 'astro:assets'
 import { getSiteSettings } from '../lib/content'
 import ProjectStage from '../components/ProjectStage.astro'
@@ -11,10 +12,7 @@ import { portrait, PORTRAIT_ALT } from '../lib/portrait'
 
 const settings = await getSiteSettings()
 
-const allProjects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order)
-const featured = allProjects.filter((p) => p.data.featured)
-const productionTrack = allProjects.filter((p) => !p.data.featured && p.data.category !== '42-school')
-const academic = allProjects.filter((p) => !p.data.featured && p.data.category === '42-school')
+const { featured, productionTrack, academic } = splitProjects(await getProjectsSorted())
 
 // Pre-render the Markdoc body of each featured project so it can be slotted into ProjectStage.
 const featuredRendered = await Promise.all(
