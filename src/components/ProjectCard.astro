@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content'
-import { projectExcerpt } from '../lib/projects'
+import { projectExcerpt, projectSlug } from '../lib/projects'
 
 interface Props {
   project: CollectionEntry<'projects'>
@@ -21,7 +21,7 @@ const href = d.liveUrl || d.repo || d.link
 const excerpt = projectExcerpt(project)
 ---
 
-<div class={`reveal-on-scroll ${delay ? `delay-${delay}` : ''} p-8 bg-surface-container-lowest/60 border border-outline-variant/50 rounded-2xl ${a.hover} transition-all duration-500 group flex flex-col h-full relative overflow-hidden`}>
+<article id={projectSlug(project)} class={`reveal-on-scroll ${delay ? `delay-${delay}` : ''} p-8 bg-surface-container-lowest/60 border border-outline-variant/50 rounded-2xl ${a.hover} transition-all duration-500 group flex flex-col h-full relative overflow-hidden`}>
   <div class={`absolute top-0 right-0 w-32 h-32 ${a.blob} rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity`}></div>
 
   <div class={`font-label-code ${a.text} text-xs mb-4 uppercase tracking-widest`}>{d.date}</div>
@@ -43,4 +43,4 @@ const excerpt = projectExcerpt(project)
       {d.liveUrl ? 'Launch' : d.repo ? 'Source' : 'Read'} ↗
     </a>
   )}
-</div>
+</article>

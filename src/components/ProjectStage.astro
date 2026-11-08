@@ -3,6 +3,7 @@ import { Image } from 'astro:assets'
 import type { CollectionEntry } from 'astro:content'
 import StatusChip from './StatusChip.astro'
 import TerminalLog from './TerminalLog.astro'
+import { projectSlug } from '../lib/projects'
 
 interface Props {
   project: CollectionEntry<'projects'>
@@ -24,6 +25,7 @@ const cover = d.images?.[0]
 ---
 
 <article
+  id={projectSlug(project)}
   class="project-stage reveal-on-scroll min-h-screen w-full flex items-center justify-center relative snap-start overflow-hidden py-24 px-6 md:px-12"
   data-accent={d.accent}
 >

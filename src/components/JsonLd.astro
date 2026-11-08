@@ -1,51 +1,110 @@
 ---
 // Structured data (schema.org) rendered server-side into static HTML.
-// The project list is generated FROM the content collection, so adding a project
-// in Keystatic automatically keeps JSON-LD in sync.
+// Everything is generated from the content collections, Keystatic settings and
+// src/data/profile.ts, so adding a project or editing a fact keeps JSON-LD in sync.
+// scripts/check-jsonld.mjs validates the emitted graph after every build.
 import { getCollection } from 'astro:content'
 import { getSiteSettings } from '../lib/content'
 import { profile } from '../data/profile'
 import { getPortraitUrl } from '../lib/portrait'
+import { firstParagraph, getProjectsSorted, projectSlug, projectSummary, projectUrl } from '../lib/projects'
 
 const settings = await getSiteSettings()
-const projects = await getCollection('projects')
+const projects = await getProjectsSorted()
+const achievements = (await getCollection('achievements')).sort((a, b) => a.data.order - b.data.order)
 const site = Astro.site?.href ?? 'https://willemjohannessmith.web.app/'
 
-const fullName = profile.fullName
-const image = await getPortraitUrl(site)
+const ids = {
+  person: `${site}#person`,
+  website: `${site}#website`,
+  webpage: `${site}#webpage`,
+  org: `${site}#cormonity`,
+  projects: `${site}#projects`,
+}
 
+const image = await getPortraitUrl(site)
 const sameAs = [settings?.github, settings?.linkedin].filter(Boolean)
+const knowsAbout = [
+  ...new Set([...(settings?.skillGroups ?? []).flatMap((g) => g.skills), ...(settings?.coreStack ?? [])]),
+]
+const cormonity = projects.find((p) => projectSlug(p) === 'cormonity')
+const today = new Date().toISOString().slice(0, 10)
 
 const graph = [
   {
     '@type': 'Person',
-    '@id': `${site}#person`,
-    name: fullName,
+    '@id': ids.person,
+    name: profile.fullName,
+    givenName: profile.givenName,
+    familyName: profile.familyName,
     url: site,
     image,
     jobTitle: [...profile.jobTitles],
-    sameAs,
+    description: profile.description,
     email: settings?.contactEmail ? `mailto:${settings.contactEmail}` : undefined,
+    sameAs,
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: profile.location.locality,
+      addressCountry: profile.location.countryCode,
+    },
+    nationality: { '@type': 'Country', name: profile.nationality },
+    alumniOf: {
+      '@type': 'EducationalOrganization',
+      name: profile.education.name,
+      url: profile.education.url,
+    },
+    knowsAbout,
+    hasCredential: achievements.map((a) => ({
+      '@type': 'EducationalOccupationalCredential',
+      name: a.data.title,
+      url: a.data.certificate ? new URL(a.data.certificate, site).href : undefined,
+      recognizedBy: a.data.issuer ? { '@type': 'Organization', name: a.data.issuer } : undefined,
+    })),
+    worksFor: { '@id': ids.org },
+  },
+  {
+    '@type': 'Organization',
+    '@id': ids.org,
+    name: profile.organization.name,
+    url: profile.organization.url,
+    founder: { '@id': ids.person },
+    description: cormonity ? firstParagraph(cormonity.body) : undefined,
   },
   {
     '@type': 'WebSite',
-    '@id': `${site}#website`,
+    '@id': ids.website,
     url: site,
-    name: `${fullName} — Portfolio`,
-    publisher: { '@id': `${site}#person` },
+    name: `${profile.fullName} — Portfolio`,
+    description: profile.seo.description,
+    inLanguage: 'en',
+    publisher: { '@id': ids.person },
+  },
+  {
+    '@type': 'WebPage',
+    '@id': ids.webpage,
+    url: site,
+    name: profile.seo.title,
+    description: profile.seo.description,
+    inLanguage: 'en',
+    dateModified: today,
+    isPartOf: { '@id': ids.website },
+    about: { '@id': ids.person },
   },
   {
     '@type': 'ItemList',
-    '@id': `${site}#projects`,
+    '@id': ids.projects,
+    name: `Projects by ${profile.displayName}`,
     itemListElement: projects.map((p, i) => ({
       '@type': 'ListItem',
       position: i + 1,
       item: {
         '@type': 'CreativeWork',
         name: p.data.name,
-        url: p.data.liveUrl || p.data.repo || p.data.link || undefined,
+        url: projectUrl(p, site),
+        description: projectSummary(p),
         keywords: p.data.techStack.join(', '),
-        author: { '@id': `${site}#person` },
+        author: { '@id': ids.person },
       },
     })),
   },
